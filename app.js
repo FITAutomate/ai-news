@@ -19,10 +19,17 @@ const CATEGORY_EMOJI = {
   Adoption: "⚙️"
 };
 
-async function loadData() {
-  const response = await fetch("./news-data.json", { cache: "no-store" });
+const WEEK_FILE_MAP = {
+  current: "./news-data.json",
+  "2026-01": "./archive/news-2026-01.json",
+  "2026-06": "./archive/news-2026-06.json"
+};
+
+async function loadData(weekKey) {
+  const file = WEEK_FILE_MAP[weekKey] || WEEK_FILE_MAP.current;
+  const response = await fetch(file, { cache: "no-store" });
   if (!response.ok) {
-    throw new Error(`Failed to load news-data.json: ${response.status}`);
+    throw new Error(`Failed to load ${file}: ${response.status}`);
   }
   return response.json();
 }
@@ -112,20 +119,46 @@ function renderMeta(meta) {
   }
 }
 
-async function init() {
-  try {
-    const data = await loadData();
-    const news = Array.isArray(data.news) ? data.news : [];
-    const meta = data.meta || {};
+async function renderWeek(weekKey) {
+  const data = await loadData(weekKey);
+  const news = Array.isArray(data.news) ? data.news : [];
+  const meta = data.meta || {};
 
-    renderMeta(meta);
-    renderStats(news, meta);
-    renderNews(news);
-    renderSources(news);
+  renderMeta(meta);
+  renderStats(news, meta);
+  renderNews(news);
+  renderSources(news);
+}
+
+async function init() {
+  const select = document.getElementById("weekSelect");
+  const params = new URLSearchParams(window.location.search);
+  const fromUrl = params.get("week");
+  const initialWeek = WEEK_FILE_MAP[fromUrl] ? fromUrl : "current";
+
+  if (select) {
+    select.value = initialWeek;
+    select.addEventListener("change", async (event) => {
+      const week = event.target.value;
+      const next = new URL(window.location.href);
+      next.searchParams.set("week", week);
+      window.history.replaceState({}, "", next);
+      try {
+        await renderWeek(week);
+      } catch (error) {
+        console.error(error);
+        await renderWeek("current");
+        select.value = "current";
+      }
+    });
+  }
+
+  try {
+    await renderWeek(initialWeek);
   } catch (error) {
     console.error(error);
     const gridEl = document.getElementById("newsGrid");
-    gridEl.innerHTML = `<article class="card"><h3>Unable to load news data</h3><p>Please run a local server (not file://) and make sure <code>news-data.json</code> exists.</p></article>`;
+    gridEl.innerHTML = `<article class="card"><h3>Unable to load selected week</h3><p>Check that the selected archive JSON file exists.</p></article>`;
   }
 }
 

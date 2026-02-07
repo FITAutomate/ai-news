@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "updatedLabel": "January 8, 2026",
+    "dataDate": "2026-01-08",
+    "window": "Jan 1-7, 2026",
+    "themes": "Models, Agents, Healthcare, Fundraising, Chips"
+  },
+  "news": [
+    {
+      "category": "OpenAI",
+      "date": "2026-01-07",
+      "title": "OpenAI launched ChatGPT Health",
+      "summary": "OpenAI introduced a health-focused ChatGPT experience with connected health data and privacy-focused controls.",
+      "source": "https://openai.com/index/introducing-chatgpt-health/",
+      "sourceLabel": "OpenAI",
+      "rating": 5,
+      "tags": ["Agents", "Healthcare", "Privacy", "Product"]
+    },
+    {
+      "category": "OpenAI",
+      "date": "2026-01-08",
+      "title": "OpenAI announced OpenAI for Healthcare",
+      "summary": "OpenAI introduced enterprise healthcare offerings focused on secure deployment and operational workflow support.",
+      "source": "https://openai.com/index/openai-for-healthcare/",
+      "sourceLabel": "OpenAI",
+      "rating": 4,
+      "tags": ["Healthcare", "Enterprise", "Security"]
+    },
+    {
+      "category": "OpenAI",
+      "date": "2026-01-02",
+      "title": "OpenAI opened applications for Grove",
+      "summary": "OpenAI launched Grove applications to support technical founders building AI products and agent-driven tools.",
+      "source": "https://openai.com/index/openai-grove/",
+      "sourceLabel": "OpenAI",
+      "rating": 4,
+      "tags": ["Builders", "Startups", "Agents", "Ecosystem"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-01-07",
+      "title": "Anthropic targeted $10B raise at $350B valuation",
+      "summary": "Reuters reported Anthropic planned a major funding round, signaling continued capital intensity in frontier AI competition.",
+      "source": "https://www.reuters.com/technology/anthropic-plans-raise-10-billion-350-billion-valuation-wsj-reports-2026-01-07/",
+      "sourceLabel": "Reuters",
+      "rating": 5,
+      "tags": ["Fundraising", "Competition", "Enterprise"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-01-06",
+      "title": "xAI announced major new funding",
+      "summary": "CNBC reported xAI raised a large new round, reinforcing the pace of funding escalation across model developers.",
+      "source": "https://www.cnbc.com/2026/01/06/elon-musk-xai-raises-20-billion-from-nvidia-cisco-investors.html",
+      "sourceLabel": "CNBC",
+      "rating": 4,
+      "tags": ["Fundraising", "Market Signal", "Competition"]
+    },
+    {
+      "category": "Markets",
+      "date": "2026-01-05",
+      "title": "Capex expectations remained central investor theme",
+      "summary": "CNBC market coverage highlighted AI infrastructure spend as a top valuation driver entering 2026 earnings season.",
+      "source": "https://www.cnbc.com/2026/01/05/cnbc-daily-open-a-banner-year-for-markets-in-2025.html",
+      "sourceLabel": "CNBC",
+      "rating": 3,
+      "tags": ["Capex", "Valuation", "Market Signal"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-01-06",
+      "title": "AMD unveiled MI455 AI processors at CES",
+      "summary": "Reuters reported AMD revealed higher-performance MI455 accelerators aimed at data-center AI workloads.",
+      "source": "https://www.reuters.com/business/amd-unveils-new-chips-ces-event-las-vegas-2026-01-06/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Chips", "Inference", "Data Center", "Cost"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-01-05",
+      "title": "Nvidia said next-gen chips were in full production",
+      "summary": "Reuters reported Nvidia confirmed next-generation AI chip platform production momentum at CES.",
+      "source": "https://www.reuters.com/world/china/nvidia-ceo-huang-take-stage-ces-las-vegas-competition-mounts-2026-01-05/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Chips", "Supply", "Infrastructure", "CES"]
+    },
+    {
+      "category": "Policy",
+      "date": "2026-01-06",
+      "title": "EU officials pushed legal steps on Grok imagery",
+      "summary": "Reuters reported growing European regulatory pressure on AI-generated harmful imagery and enforcement expectations.",
+      "source": "https://www.reuters.com/world/german-minister-says-eu-must-take-legal-steps-stop-groks-sexualised-ai-photos-2026-01-06/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Policy", "EU", "Safety", "Enforcement"]
+    }
+  ]
+}
