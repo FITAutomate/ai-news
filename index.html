@@ -15,14 +15,22 @@
   <div class="bg-orb orb-b"></div>
 
   <main class="container">
-    <header class="hero">
+    <nav class="top-menu" aria-label="Main menu">
+      <a href="#top" class="brand">FIT Automate</a>
+      <div class="menu-links">
+        <a href="#stories">Top Stories</a>
+        <a href="#sources">Sources</a>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
       <p class="kicker">Updated: February 7, 2026</p>
       <h1>AI News Pulse</h1>
       <p class="subtitle">A fluid visual snapshot of major model launches, infrastructure spend, and market signals.</p>
       <div class="stats" id="stats"></div>
     </header>
 
-    <section class="section">
+    <section class="section" id="stories">
       <div class="section-head">
         <h2>Top Stories</h2>
         <p>Verified from official posts and major wire/business outlets.</p>
@@ -30,7 +38,7 @@
       <div class="news-grid" id="newsGrid"></div>
     </section>
 
-    <section class="section sources">
+    <section class="section sources" id="sources">
       <div class="section-head">
         <h2>Sources</h2>
         <p>Direct links used for this summary.</p>

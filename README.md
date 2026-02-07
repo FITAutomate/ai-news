@@ -1,36 +1,56 @@
-# AI News Pulse (February 2026)
+# AI News Pulse
 
-A fluid, single-page visual summary of major AI news between **February 4-7, 2026**.
+AI News Pulse is the FIT Automate weekly AI brief for high-level, actionable updates.
 
-## Included
+## Current behavior
 
-- Model and platform launches from official posts
-- Market/infrastructure context from Reuters and CNBC
-- Source links for each headline
-- Mobile-friendly responsive design
+- Homepage reads from `news-data.json` (current week only)
+- Links open in the same tab
+- Cards show:
+  - category emoji
+  - rating stars
+  - tags
 
-## Files
+## Data schema (`news-data.json`)
 
-- `index.html` - page structure
-- `styles.css` - design and animations
-- `app.js` - curated data and rendering
+Top-level:
+- `meta.updatedLabel`
+- `meta.dataDate` (YYYY-MM-DD)
+- `meta.window`
+- `meta.themes`
+- `news[]`
 
-## Run locally
+Each `news[]` item:
+- `category`
+- `date` (YYYY-MM-DD)
+- `title`
+- `summary`
+- `source`
+- `sourceLabel`
+- `rating` (1-5)
+- `tags` (array of 2-5)
 
-Open `index.html` in a browser.
+## Project files
 
-## Publish with GitHub Pages
+- `index.html`
+- `styles.css`
+- `app.js`
+- `news-data.json`
+- `archive/news-YYYY-WW.json`
+- `update-plan.md`
 
-1. Push this project to a GitHub repository.
-2. In GitHub repo settings, open **Pages**.
-3. Set source to **Deploy from a branch**.
-4. Select branch **main** and folder **/(root)**.
-5. Save and wait for deployment.
+## Local test
 
-## Sources
+```powershell
+cd D:\DesktopCommander\ai-news
+python -m http.server 8080
+```
 
-- OpenAI
-- Anthropic
-- Reuters
-- CNBC
-- EL PAIS
+Then open: `http://localhost:8080`
+
+## Deploy
+
+- Repo: `https://github.com/FITAutomate/ai-news`
+- Pages: `https://fitautomate.github.io/ai-news/`
+- Branch: `main`
+- Folder: `/(root)`

@@ -1,0 +1,100 @@
+{
+  "meta": {
+    "updatedLabel": "February 7, 2026",
+    "dataDate": "2026-02-07",
+    "window": "Feb 1-7, 2026",
+    "themes": "Models, Agents, RAG, Spend, Chips"
+  },
+  "news": [
+    {
+      "category": "OpenAI",
+      "date": "2026-02-05",
+      "title": "OpenAI launched GPT-5.3-Codex",
+      "summary": "OpenAI introduced GPT-5.3-Codex with stronger agentic coding and faster execution for long-horizon technical work.",
+      "source": "https://openai.com/index/introducing-gpt-5-3-codex/",
+      "sourceLabel": "OpenAI",
+      "rating": 5,
+      "tags": ["Agents", "Coding", "Tool Use", "Automation"]
+    },
+    {
+      "category": "OpenAI",
+      "date": "2026-02-05",
+      "title": "OpenAI introduced Frontier enterprise platform",
+      "summary": "Frontier adds enterprise controls for deploying agents with shared context, permissions, and governance layers.",
+      "source": "https://openai.com/index/introducing-openai-frontier/",
+      "sourceLabel": "OpenAI",
+      "rating": 5,
+      "tags": ["Agents", "Governance", "Enterprise", "Security"]
+    },
+    {
+      "category": "Anthropic",
+      "date": "2026-02-05",
+      "title": "Anthropic released Claude Opus 4.6",
+      "summary": "Opus 4.6 added stronger agentic coding performance and 1M-token context beta for larger workflows.",
+      "source": "https://www.anthropic.com/news/claude-opus-4-6",
+      "sourceLabel": "Anthropic",
+      "rating": 5,
+      "tags": ["Agents", "Coding", "Context", "Evaluation"]
+    },
+    {
+      "category": "Anthropic",
+      "date": "2026-02-04",
+      "title": "Anthropic said Claude will stay ad-free",
+      "summary": "Anthropic committed to no ads in Claude conversations, emphasizing trust and user-aligned incentives.",
+      "source": "https://www.anthropic.com/news/claude-is-a-space-to-think",
+      "sourceLabel": "Anthropic",
+      "rating": 4,
+      "tags": ["Product", "Business Model", "Trust"]
+    },
+    {
+      "category": "Markets",
+      "date": "2026-02-06",
+      "title": "Big Tech AI capex outlook nears $600B+",
+      "summary": "Reuters and CNBC reported rising investor concern as 2026 AI infrastructure spend targets moved sharply higher.",
+      "source": "https://www.reuters.com/business/global-software-data-firms-slide-ai-disruption-fears-compound-jitters-over-600-2026-02-06/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Capex", "Enterprise", "Market Signal"]
+    },
+    {
+      "category": "Platforms",
+      "date": "2026-02-05",
+      "title": "Google framed as AI growth leader by some investors",
+      "summary": "Reuters highlighted Google cloud and Gemini growth signals, while capex scale remained a key investor question.",
+      "source": "https://www.reuters.com/business/google-goes-laggard-leader-it-pulls-ahead-openai-with-stellar-ai-growth-2026-02-05/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Google", "Enterprise", "Cloud", "Competition"]
+    },
+    {
+      "category": "Adoption",
+      "date": "2026-02-06",
+      "title": "AI companies increased creator marketing spend",
+      "summary": "CNBC reported larger creator budgets as AI vendors pushed adoption through influencer and social channels.",
+      "source": "https://www.cnbc.com/2026/02/06/google-microsoft-pay-creators-500000-and-more-to-promote-ai.html",
+      "sourceLabel": "CNBC",
+      "rating": 3,
+      "tags": ["Adoption", "Go-To-Market", "Business"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-02-07",
+      "title": "Race to reduce dependency on Nvidia highlighted",
+      "summary": "Coverage showed ongoing pressure for custom chips and alternate accelerators while Nvidia remains dominant.",
+      "source": "https://english.elpais.com/technology/2026-02-07/google-amazon-openai-and-the-race-to-find-alternatives-to-nvidia.html",
+      "sourceLabel": "EL PAIS",
+      "rating": 4,
+      "tags": ["Chips", "TPU", "Inference", "Cost"]
+    },
+    {
+      "category": "Policy",
+      "date": "2026-02-04",
+      "title": "Boards urged to push stronger AI accountability",
+      "summary": "Reuters commentary highlighted governance pressure as regulation and enterprise AI accountability lag deployment speed.",
+      "source": "https://www.reuters.com/sustainability/boards-policy-regulation/with-ai-accountability-stalling-boards-must-push-tech-giants-greater--ecmii-2026-02-04/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Policy", "Governance", "Risk", "Compliance"]
+    }
+  ]
+}

@@ -1,121 +1,132 @@
-const news = [
-  {
-    category: "OpenAI",
-    date: "2026-02-05",
-    title: "OpenAI launched GPT-5.3-Codex",
-    summary:
-      "OpenAI announced GPT-5.3-Codex as a faster, more capable coding and agentic model, plus deeper security controls for cyber workflows.",
-    source: "https://openai.com/index/introducing-gpt-5-3-codex/",
-    sourceLabel: "OpenAI"
-  },
-  {
-    category: "OpenAI",
-    date: "2026-02-05",
-    title: "OpenAI introduced Frontier enterprise platform",
-    summary:
-      "Frontier was announced as an enterprise system for building and governing AI agents with shared context, permissions, and production controls.",
-    source: "https://openai.com/index/introducing-openai-frontier/",
-    sourceLabel: "OpenAI"
-  },
-  {
-    category: "Anthropic",
-    date: "2026-02-05",
-    title: "Anthropic released Claude Opus 4.6",
-    summary:
-      "Anthropic launched Opus 4.6 with longer-context capabilities, stronger coding/agent performance, and new controls like effort and compaction.",
-    source: "https://www.anthropic.com/news/claude-opus-4-6",
-    sourceLabel: "Anthropic"
-  },
-  {
-    category: "Anthropic",
-    date: "2026-02-04",
-    title: "Anthropic said Claude will stay ad-free",
-    summary:
-      "Anthropic published a policy position that Claude conversations will not include ads or sponsored responses.",
-    source: "https://www.anthropic.com/news/claude-is-a-space-to-think",
-    sourceLabel: "Anthropic"
-  },
-  {
-    category: "Markets",
-    date: "2026-02-06",
-    title: "Big Tech AI capex outlook nears $600B+",
-    summary:
-      "Reuters and CNBC reported investor volatility as major companies forecast very large 2026 AI infrastructure spending.",
-    source: "https://www.reuters.com/business/global-software-data-firms-slide-ai-disruption-fears-compound-jitters-over-600-2026-02-06/",
-    sourceLabel: "Reuters"
-  },
-  {
-    category: "Platforms",
-    date: "2026-02-05",
-    title: "Google framed as AI growth leader by some investors",
-    summary:
-      "Reuters reported strong cloud growth and Gemini adoption signals, alongside concerns around very high capital expenditures.",
-    source: "https://www.reuters.com/business/google-goes-laggard-leader-it-pulls-ahead-openai-with-stellar-ai-growth-2026-02-05/",
-    sourceLabel: "Reuters"
-  },
-  {
-    category: "Adoption",
-    date: "2026-02-06",
-    title: "AI companies increased creator marketing spend",
-    summary:
-      "CNBC reported large creator partnership budgets from major AI firms as user growth competition expands beyond classic ad channels.",
-    source: "https://www.cnbc.com/2026/02/06/google-microsoft-pay-creators-500000-and-more-to-promote-ai.html",
-    sourceLabel: "CNBC"
-  },
-  {
-    category: "Infrastructure",
-    date: "2026-02-07",
-    title: "Race to reduce dependency on Nvidia highlighted",
-    summary:
-      "Coverage showed continued movement toward custom chips and alternative accelerators while Nvidia remains dominant.",
-    source: "https://english.elpais.com/technology/2026-02-07/google-amazon-openai-and-the-race-to-find-alternatives-to-nvidia.html",
-    sourceLabel: "EL PAIS"
+const CATEGORY_EMOJI = {
+  OpenAI: "🧠",
+  Anthropic: "🟣",
+  Google: "🔵",
+  Microsoft: "🪟",
+  Meta: "🟦",
+  Apple: "🍎",
+  Amazon: "🟧",
+  Agents: "🤖",
+  RAG: "📚",
+  Automation: "⚙️",
+  Security: "🛡️",
+  Chips: "🖥️",
+  Policy: "🏛️",
+  Business: "📈",
+  Markets: "📈",
+  Infrastructure: "🖥️",
+  Platforms: "🔵",
+  Adoption: "⚙️"
+};
+
+async function loadData() {
+  const response = await fetch("./news-data.json", { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error(`Failed to load news-data.json: ${response.status}`);
   }
-];
+  return response.json();
+}
 
-const stats = [
-  { label: "Stories", value: String(news.length) },
-  { label: "Window", value: "Feb 4-7, 2026" },
-  { label: "Primary Sources", value: "8" },
-  { label: "Themes", value: "Models, Spend, Chips" }
-];
+function getRatingStars(rating) {
+  const clamped = Math.max(1, Math.min(5, Number(rating) || 1));
+  return "★".repeat(clamped) + "☆".repeat(5 - clamped);
+}
 
-const statsEl = document.getElementById("stats");
-const gridEl = document.getElementById("newsGrid");
-const sourceListEl = document.getElementById("sourceList");
+function renderStats(news, meta) {
+  const stats = [
+    { label: "Stories", value: String(news.length) },
+    { label: "Window", value: meta.window || "N/A" },
+    { label: "Primary Sources", value: String(new Set(news.map((n) => n.source)).size) },
+    { label: "Themes", value: meta.themes || "N/A" }
+  ];
 
-stats.forEach((item) => {
-  const div = document.createElement("div");
-  div.className = "stat";
-  div.innerHTML = `<div class="label">${item.label}</div><div class="value">${item.value}</div>`;
-  statsEl.appendChild(div);
-});
+  const statsEl = document.getElementById("stats");
+  statsEl.innerHTML = "";
 
-news.forEach((item, i) => {
-  const card = document.createElement("article");
-  card.className = "card";
-  card.style.animationDelay = `${i * 80}ms`;
-  card.innerHTML = `
-    <span class="badge">${item.category}</span>
-    <h3>${item.title}</h3>
-    <p>${item.summary}</p>
-    <div class="card-meta">
-      <span>${item.date}</span>
-      <a href="${item.source}" target="_blank" rel="noopener noreferrer">Read source</a>
-    </div>
-  `;
-  gridEl.appendChild(card);
-});
+  stats.forEach((item) => {
+    const div = document.createElement("div");
+    div.className = "stat";
+    div.innerHTML = `<div class="label">${item.label}</div><div class="value">${item.value}</div>`;
+    statsEl.appendChild(div);
+  });
+}
 
-const uniqueSources = [];
-news.forEach((item) => {
-  if (!uniqueSources.some((s) => s.url === item.source)) {
-    uniqueSources.push({ name: item.sourceLabel, url: item.source });
+function renderNews(news) {
+  const gridEl = document.getElementById("newsGrid");
+  gridEl.innerHTML = "";
+
+  news.forEach((item, i) => {
+    const card = document.createElement("article");
+    card.className = "card";
+    card.style.animationDelay = `${i * 80}ms`;
+
+    const emoji = CATEGORY_EMOJI[item.category] || "📰";
+    const stars = getRatingStars(item.rating);
+    const tags = Array.isArray(item.tags) ? item.tags : [];
+
+    card.innerHTML = `
+      <div class="card-head">
+        <span class="badge">${emoji} ${item.category}</span>
+        <span class="rating" title="${item.rating || 1} out of 5">${stars}</span>
+      </div>
+      <h3>${item.title}</h3>
+      <p>${item.summary}</p>
+      <div class="tags">${tags.map((tag) => `<span class="tag">#${tag}</span>`).join("")}</div>
+      <div class="card-meta">
+        <span>${item.date}</span>
+        <a href="${item.source}">Read source</a>
+      </div>
+    `;
+
+    gridEl.appendChild(card);
+  });
+}
+
+function renderSources(news) {
+  const sourceListEl = document.getElementById("sourceList");
+  sourceListEl.innerHTML = "";
+
+  const uniqueSources = [];
+  news.forEach((item) => {
+    if (!uniqueSources.some((s) => s.url === item.source)) {
+      uniqueSources.push({ name: item.sourceLabel, url: item.source });
+    }
+  });
+
+  uniqueSources.forEach((s) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="${s.url}">${s.name}: ${s.url}</a>`;
+    sourceListEl.appendChild(li);
+  });
+}
+
+function renderMeta(meta) {
+  const kicker = document.querySelector(".kicker");
+  if (kicker && meta.updatedLabel) {
+    kicker.textContent = `Updated: ${meta.updatedLabel}`;
   }
-});
 
-uniqueSources.forEach((s) => {
-  const li = document.createElement("li");
-  li.innerHTML = `<a href="${s.url}" target="_blank" rel="noopener noreferrer">${s.name}: ${s.url}</a>`;
-  sourceListEl.appendChild(li);
-});
+  const footerText = document.querySelector("footer p");
+  if (footerText && meta.dataDate) {
+    footerText.textContent = `Built for GitHub Pages • Data date: ${meta.dataDate}`;
+  }
+}
+
+async function init() {
+  try {
+    const data = await loadData();
+    const news = Array.isArray(data.news) ? data.news : [];
+    const meta = data.meta || {};
+
+    renderMeta(meta);
+    renderStats(news, meta);
+    renderNews(news);
+    renderSources(news);
+  } catch (error) {
+    console.error(error);
+    const gridEl = document.getElementById("newsGrid");
+    gridEl.innerHTML = `<article class="card"><h3>Unable to load news data</h3><p>Please run a local server (not file://) and make sure <code>news-data.json</code> exists.</p></article>`;
+  }
+}
+
+init();
