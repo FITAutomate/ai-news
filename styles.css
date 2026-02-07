@@ -163,11 +163,12 @@ body {
 
 .badge {
   display: inline-block;
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   padding: 0.25rem 0.55rem;
   border-radius: 999px;
   background: rgba(28, 208, 0, 0.18);
   color: #d3ffca;
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", "Space Grotesk", sans-serif;
 }
 
 .rating {
