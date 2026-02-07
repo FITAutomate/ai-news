@@ -74,6 +74,20 @@ body {
   color: var(--fit-green);
 }
 
+.week-picker {
+  color: #c5d6ff;
+  font-size: 0.82rem;
+}
+
+.week-select {
+  background: rgba(0, 68, 155, 0.3);
+  color: #f3f4f7;
+  border: 1px solid rgba(243, 244, 247, 0.35);
+  border-radius: 8px;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.82rem;
+}
+
 .hero h1 {
   margin: 0;
   font-family: "Sora", sans-serif;
