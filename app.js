@@ -71,7 +71,7 @@ function renderNews(news) {
       </div>
       <h3>${item.title}</h3>
       <p>${item.summary}</p>
-      <div class="tags">${tags.map((tag) => `<span class="tag">#${tag}</span>`).join("")}</div>
+      <div class="tags">${tags.map((tag) => `<span class="tag">#${tag}</span>`).join(" ")}</div>
       <div class="card-meta">
         <span>${item.date}</span>
         <a href="${item.source}">Read source</a>
