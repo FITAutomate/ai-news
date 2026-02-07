@@ -4,12 +4,19 @@ AI News Pulse is the FIT Automate weekly AI brief for high-level, actionable upd
 
 ## Current behavior
 
-- Homepage reads from `news-data.json` (current week only)
+- Homepage defaults to `news-data.json` (current week)
+- Week selector in top menu can load archive weeks
 - Links open in the same tab
 - Cards show:
   - category emoji
   - rating stars
   - tags
+
+### Week selector files
+
+- `Current` -> `news-data.json`
+- `2026-W01` -> `archive/news-2026-01.json`
+- `2026-W06` -> `archive/news-2026-06.json`
 
 ## Data schema (`news-data.json`)
 

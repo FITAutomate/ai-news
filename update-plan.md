@@ -52,6 +52,7 @@ Choose stories that are:
 6. Local smoke test:
    - `python -m http.server 8080`
    - verify cards render, emoji + stars render, links open same tab
+   - verify Week selector loads Current + target archive week
 7. Commit + push to `main`.
 8. Confirm GitHub Pages deploy completes.
 
