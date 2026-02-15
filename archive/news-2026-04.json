@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "updatedLabel": "January 28, 2026",
+    "dataDate": "2026-01-28",
+    "window": "Jan 22-28, 2026",
+    "themes": "MCP, Agents, Edge, Capex, Chips, Cloud"
+  },
+  "news": [
+    {
+      "category": "Orchestration",
+      "date": "2026-01-22",
+      "title": "MCP context overload: why more tools can make agents worse",
+      "summary": "A deep dive on how MCP tool sprawl can degrade agent performance, and practical patterns for keeping toolsets tight and predictable.",
+      "source": "https://eclipsesource.com/blogs/2026/01/22/mcp-context-overload/",
+      "sourceLabel": "EclipseSource",
+      "rating": 4,
+      "tags": ["MCP", "Tool Use", "Context", "Agents"]
+    },
+    {
+      "category": "Orchestration",
+      "date": "2026-01-22",
+      "title": "GovInfo launched a public preview MCP server for federal data",
+      "summary": "GovInfo published a public preview MCP server aimed at making government documents and metadata easier to query and retrieve from agent workflows.",
+      "source": "https://www.govinfo.gov/features/mcp-public-preview",
+      "sourceLabel": "GovInfo",
+      "rating": 4,
+      "tags": ["MCP", "RAG", "Search", "Government"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-01-22",
+      "title": "Intel warned of weaker Q1 as it struggled to meet AI server demand",
+      "summary": "Reuters reported Intel forecast results below expectations, with investors focused on whether it can win data-center AI share and supply enough server parts.",
+      "source": "https://www.reuters.com/business/intel-forecasts-first-quarter-sales-profit-below-estimates-2026-01-22/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Chips", "Supply", "Servers", "Market Signal"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-01-22",
+      "title": "Autodesk cut about 7% of staff to redirect investment to AI and cloud",
+      "summary": "Reuters reported Autodesk layoffs as the company rebalanced spending toward AI features and cloud execution while managing margins.",
+      "source": "https://www.reuters.com/business/world-at-work/autodesk-lay-off-about-7-workforce-2026-01-22/",
+      "sourceLabel": "Reuters",
+      "rating": 3,
+      "tags": ["Enterprise", "AI", "Cloud", "Restructure"]
+    },
+    {
+      "category": "Policy",
+      "date": "2026-01-23",
+      "title": "Meta halted teens' access to AI characters globally",
+      "summary": "Reuters reported Meta restricted teen access to AI characters globally, highlighting rising pressure to harden consumer-safety guardrails.",
+      "source": "https://www.reuters.com/business/meta-halts-teens-access-ai-characters-globally-2026-01-23/",
+      "sourceLabel": "Reuters",
+      "rating": 3,
+      "tags": ["Safety", "Consumer", "Governance"]
+    },
+    {
+      "category": "Orchestration",
+      "date": "2026-01-26",
+      "title": "Model Context Protocol shipped a stable spec release and SDK v1.0.0",
+      "summary": "The MCP team published a stable spec release and SDK milestone, helping teams standardize how agents discover, authenticate, and call tools.",
+      "source": "https://github.com/modelcontextprotocol/ext-apps",
+      "sourceLabel": "GitHub",
+      "rating": 5,
+      "tags": ["MCP", "Spec", "SDK", "Tools"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-01-27",
+      "title": "MCP tools vs skills: how to think about agent integrations",
+      "summary": "Uno Platform compared MCP tools to skills-style integrations, giving practical guidance for structuring agent capabilities and keeping them maintainable.",
+      "source": "https://platform.uno/blog/contextual-ai-mcptools-vs-skills/",
+      "sourceLabel": "Uno Platform",
+      "rating": 4,
+      "tags": ["MCP", "Tool Use", "Developer", "Agents"]
+    },
+    {
+      "category": "Markets",
+      "date": "2026-01-27",
+      "title": "Big Tech earnings tested the AI rally as investors watched capex",
+      "summary": "Reuters highlighted how hyperscaler earnings and spending plans became the key question for whether AI returns match infrastructure outlays.",
+      "source": "https://www.reuters.com/business/retail-consumer/big-tech-earnings-test-ai-rally-resurgent-alphabet-takes-lead-2026-01-27/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Earnings", "Capex", "Hyperscalers", "Market Signal"]
+    },
+    {
+      "category": "Adoption",
+      "date": "2026-01-27",
+      "title": "Cloudflare jumped on viral 'Clawdbot' AI agent buzz",
+      "summary": "Reuters reported Cloudflare shares surged as developers hyped Clawdbot, an agent workflow that rides Cloudflare's edge to connect tools and execute tasks.",
+      "source": "https://www.reuters.com/business/cloudflare-surges-viral-ai-agent-buzz-lifts-expectations-2026-01-27/",
+      "sourceLabel": "Reuters",
+      "rating": 5,
+      "tags": ["Agents", "Edge", "Clawdbot", "Vibe Coding"]
+    },
+    {
+      "category": "Chips",
+      "date": "2026-01-27",
+      "title": "ASML highlighted how AI demand is pushing lithography to extremes",
+      "summary": "Reuters described how next-gen chipmaking tools and lasers are becoming a bottleneck and advantage as AI accelerates demand for advanced nodes.",
+      "source": "https://www.reuters.com/world/europe/asml-rides-nvidias-coattails-with-lasers-huge-chip-printers-2026-01-27/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Lithography", "Chips", "Supply", "AI"]
+    },
+    {
+      "category": "Markets",
+      "date": "2026-01-28",
+      "title": "Microsoft capex jumped as Azure cloud growth raised investor nerves",
+      "summary": "Reuters reported Microsoft spent a record amount on AI, disclosed new Copilot usage metrics, and faced investor scrutiny on cloud growth and returns.",
+      "source": "https://www.reuters.com/business/retail-consumer/microsoft-edges-past-cloud-growth-expectations-2026-01-28/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Azure", "Copilot", "Capex", "OpenAI"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-01-28",
+      "title": "Neocloud startup PaleBlueDot hit a $1B valuation in a B Capital-led round",
+      "summary": "Reuters reported PaleBlueDot's funding as demand grows for GPU-rich neocloud capacity and faster provisioning for model training and inference.",
+      "source": "https://www.reuters.com/world/asia-pacific/neocloud-startup-palebluedot-valued-1-billion-b-capital-led-round-2026-01-28/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Cloud", "GPU", "Inference", "Funding"]
+    }
+  ]
+}

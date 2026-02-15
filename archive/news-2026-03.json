@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "updatedLabel": "January 20, 2026",
+    "dataDate": "2026-01-20",
+    "window": "Jan 15-21, 2026",
+    "themes": "Vibe Coding, MCP, Agents, Funding, Data Stack, Regulation"
+  },
+  "news": [
+    {
+      "category": "Dev Tools",
+      "date": "2026-01-15",
+      "title": "Claude Code added MCP Tool Search to prevent context bloat",
+      "summary": "Coverage highlighted a Claude Code update that can lazily load MCP tool definitions, freeing context for real work and improving tool-heavy workflows.",
+      "source": "https://venturebeat.com/orchestration/claude-code-just-got-updated-with-one-of-the-most-requested-user-features",
+      "sourceLabel": "VentureBeat",
+      "rating": 5,
+      "tags": ["MCP", "Tool Use", "Coding", "Agents"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-01-15",
+      "title": "Parloa raised $350M and tripled valuation to $3B",
+      "summary": "Reuters reported Parloa raised a large late-stage round as enterprises push voice and chat agents into customer service workflows.",
+      "source": "https://www.reuters.com/business/german-ai-startup-parloa-triples-valuation-3-billion-latest-fundraise-2026-01-15/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Agents", "Enterprise", "Automation"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-01-15",
+      "title": "AI video startup Higgsfield hit $1.3B valuation with new funding",
+      "summary": "Reuters reported Higgsfield raised new funding as demand for AI-generated video and vertical applications accelerated.",
+      "source": "https://www.reuters.com/business/media-telecom/ai-video-startup-higgsfield-hits-13-billion-valuation-with-latest-funding-2026-01-15/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Video", "Applications", "Go-To-Market"]
+    },
+    {
+      "category": "Platforms",
+      "date": "2026-01-15",
+      "title": "Alibaba upgraded the Qwen app to execute tasks like ordering food and booking travel",
+      "summary": "Reuters reported Alibaba added agentic task execution and deeper service integrations inside its Qwen chat interface.",
+      "source": "https://www.reuters.com/world/china/alibaba-upgrades-qwen-app-order-food-book-travel-2026-01-15/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Agents", "Consumer", "Automation"]
+    },
+    {
+      "category": "Markets",
+      "date": "2026-01-15",
+      "title": "Reuters outlined top AI themes likely to shape 2026",
+      "summary": "Reuters highlighted themes including continued mega-funding, data-center physical constraints beyond chips, and whether enterprise spending persists.",
+      "source": "https://www.reuters.com/technology/artificial-intelligence/artificial-intelligencer-top-ai-themes-that-will-shape-2026-2026-01-15/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Capex", "Enterprise", "Market Signal"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-01-17",
+      "title": "Cursor CLI added agent modes and easier MCP authentication",
+      "summary": "Cursor's CLI update added Plan/Ask modes, cloud handoff for longer tasks, and one-click MCP auth for faster setup.",
+      "source": "https://forum.cursor.com/t/cursor-cli-jan-16-2026/149172",
+      "sourceLabel": "Cursor Forum",
+      "rating": 4,
+      "tags": ["Vibe Coding", "MCP", "CLI", "Agents"]
+    },
+    {
+      "category": "Platforms",
+      "date": "2026-01-16",
+      "title": "Replit launched prompt-to-mobile app building and improved Agent tool-call UX",
+      "summary": "Replit shipped native mobile app generation, a redesigned tool-calls UI in Agent chat, and a Node.js security patch.",
+      "source": "https://docs.replit.com/updates/2026/01/16/changelog",
+      "sourceLabel": "Replit",
+      "rating": 4,
+      "tags": ["Vibe Coding", "Mobile", "Automation"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-01-16",
+      "title": "ClickHouse reached a $15B valuation as real-time analytics demand rose",
+      "summary": "Reuters reported ClickHouse raised $400M at a $15B valuation as AI-driven telemetry and observability needs increased.",
+      "source": "https://www.reuters.com/technology/database-management-firm-clickhouse-valued-15-billion-amid-ai-boom-2026-01-16/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Data Stack", "Observability", "LLMOps"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-01-19",
+      "title": "OpenAI said annualized revenue surpassed $20B in 2025",
+      "summary": "Reuters reported OpenAI's CFO said annualized revenue topped $20B, with growth tracking expansion in compute capacity.",
+      "source": "https://www.reuters.com/business/openai-cfo-says-annualized-revenue-crosses-20-billion-2025-2026-01-19/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Revenue", "Compute", "Agents"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-01-20",
+      "title": "Legal AI startup Ivo raised $55M to scale contract review automation",
+      "summary": "Reuters reported Ivo raised a Series B to expand its AI contract review platform as demand grows for automating legal work.",
+      "source": "https://www.reuters.com/technology/legal-ai-startup-ivo-raises-55-million-latest-funding-round-2026-01-20/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Agents", "Enterprise", "Automation"]
+    },
+    {
+      "category": "Policy",
+      "date": "2026-01-20",
+      "title": "UK lawmakers urged AI stress tests for financial services",
+      "summary": "Reuters reported UK lawmakers pushed regulators toward AI-specific stress testing and clearer guidance as agentic systems spread in finance.",
+      "source": "https://www.reuters.com/sustainability/boards-policy-regulation/britain-needs-ai-stress-tests-financial-services-lawmakers-say-2026-01-20/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Risk", "Finance", "Governance"]
+    },
+    {
+      "category": "Adoption",
+      "date": "2026-01-20",
+      "title": "Randstad reported job demand for 'AI agent' skills surged",
+      "summary": "Reuters reported a Randstad survey found widespread worker expectations of AI task impact, with sharp growth in postings seeking 'AI agent' skills.",
+      "source": "https://www.reuters.com/technology/young-workers-most-worried-about-ai-affecting-jobs-randstad-survey-shows-2026-01-19/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Jobs", "Skills", "Agents"]
+    }
+  ]
+}

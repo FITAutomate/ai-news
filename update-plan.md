@@ -6,8 +6,8 @@ Publish a high-level weekly AI summary that is genuinely useful to John, with li
 
 ## Output target
 
-- Minimum: 9 stories
-- Preferred: 9-12 if the week is busy
+- Preferred: 12 stories (3x4 grid)
+- Minimum: 9 stories (if the week is genuinely quiet)
 - Must be diverse and non-repetitive week-to-week
 
 ## John-focused priorities (weight higher)
@@ -18,20 +18,26 @@ Publish a high-level weekly AI summary that is genuinely useful to John, with li
 - Practical security: AI + cyber workflows, controls, governance
 - Infra affecting builder cost/perf: GPUs, NPUs, TPUs, Trainium, inference, serving
 
-## Weekly mix target
+## Weekly mix target (12-card goal)
 
 - 3 model/platform updates
 - 3 business/market signals
 - 2 infra/chips stories
 - 1 policy/regulation story
+- 3 builder workflow stories (MCP, coding agents, orchestration, automation tools)
 
-## Credibility rules
+## Credibility + diversity rules
 
 Choose stories that are:
 - Credible (official posts first, then Reuters/CNBC/Bloomberg/FT)
 - Important (strategy, spend, roadmap, regulation)
 - New (avoid repeating last week's same point)
 - Diverse (not all from one vendor)
+
+Selection constraints (to prevent “row 1 = all OpenAI”):
+- Max 2 stories per vendor category per week (OpenAI/Anthropic/Google/Microsoft/Meta/Amazon/Apple)
+- Max 1 story per vendor in the top 3 cards
+- Avoid “same announcement twice” (e.g., two posts that are just different angles of the same launch)
 
 ## Weekly workflow
 

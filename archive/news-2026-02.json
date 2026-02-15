@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "updatedLabel": "January 15, 2026",
+    "dataDate": "2026-01-15",
+    "window": "Jan 8-14, 2026",
+    "themes": "MCP, Vibe Coding, Agents, Funding, CES, Governance"
+  },
+  "news": [
+    {
+      "category": "OpenAI",
+      "date": "2026-01-08",
+      "title": "OpenAI introduced OpenAI for Healthcare",
+      "summary": "OpenAI announced OpenAI for Healthcare, including ChatGPT for Healthcare and HIPAA-oriented enterprise controls.",
+      "source": "https://openai.com/index/openai-for-healthcare/",
+      "sourceLabel": "OpenAI",
+      "rating": 4,
+      "tags": ["Healthcare", "Enterprise", "Security"]
+    },
+    {
+      "category": "Microsoft",
+      "date": "2026-01-08",
+      "title": "Microsoft announced agentic AI for retail automation",
+      "summary": "Microsoft detailed agentic AI solutions aimed at automating retail workflows and operations across functions.",
+      "source": "https://news.microsoft.com/source/2026/01/08/microsoft-propels-retail-forward-with-agentic-ai-capabilities-that-power-intelligent-automation-for-every-retail-function/",
+      "sourceLabel": "Microsoft",
+      "rating": 4,
+      "tags": ["Agents", "Enterprise", "Automation"]
+    },
+    {
+      "category": "Agents",
+      "date": "2026-01-08",
+      "title": "Red Hat published a practical guide to MCP for agentic AI",
+      "summary": "Red Hat explained how MCP standardizes tool calling and helps teams make agents governable with policy, identity, and auditability.",
+      "source": "https://developers.redhat.com/articles/2026/01/08/building-effective-ai-agents-mcp",
+      "sourceLabel": "Red Hat",
+      "rating": 5,
+      "tags": ["MCP", "Tool Use", "Governance", "Enterprise"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-01-14",
+      "title": "OpenAI signed a major compute deal with Cerebras",
+      "summary": "Reuters reported OpenAI will purchase cloud services backed by Cerebras chips, underscoring the race for inference and reasoning compute.",
+      "source": "https://www.reuters.com/technology/openai-buy-compute-capacity-startup-cerebras-around-10-billion-wsj-reports-2026-01-14/",
+      "sourceLabel": "Reuters",
+      "rating": 5,
+      "tags": ["Chips", "Inference", "Supply", "Cost"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-01-08",
+      "title": "Cursor shipped CLI improvements including MCP management",
+      "summary": "Cursor's changelog highlighted new CLI controls (including MCP enable/disable) plus performance and workflow improvements.",
+      "source": "https://cursor.com/changelog",
+      "sourceLabel": "Cursor",
+      "rating": 4,
+      "tags": ["Vibe Coding", "MCP", "CLI", "Agents"]
+    },
+    {
+      "category": "Platforms",
+      "date": "2026-01-09",
+      "title": "Replit expanded Agent automation previews and added new model integrations",
+      "summary": "Replit shipped an automation preview for Agent builders and added new AI model options inside Integrations.",
+      "source": "https://docs.replit.com/updates/2026/01/09/changelog",
+      "sourceLabel": "Replit",
+      "rating": 4,
+      "tags": ["Vibe Coding", "Automation", "Models"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-01-09",
+      "title": "CES coverage highlighted the rise of 'physical AI'",
+      "summary": "Reuters reported renewed focus on robotics and 'physical AI' at CES, with chip and platform vendors positioning for the next wave.",
+      "source": "https://www.reuters.com/world/china/physical-ai-dominates-ces-humanity-will-still-have-wait-while-humanoid-servants-2026-01-09/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Robotics", "CES", "Chips"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-01-11",
+      "title": "Vibe coding tool landscape pieces started consolidating the category",
+      "summary": "A wave of 2026 'vibe coding' comparisons summarized how tools like Cursor and Replit are changing app-building workflows for small teams.",
+      "source": "https://medium.com/towards-agentic-ai/vibe-coding-tools-2026-c84a5ddc198f",
+      "sourceLabel": "Medium",
+      "rating": 3,
+      "tags": ["Vibe Coding", "Agents", "Workflow"]
+    },
+    {
+      "category": "Anthropic",
+      "date": "2026-01-13",
+      "title": "Anthropic announced an expanded Labs product incubation org",
+      "summary": "Anthropic described a Labs expansion focused on incubating experimental products and highlighted MCP and Claude Code as key frontier bets.",
+      "source": "https://www.anthropic.com/news/introducing-anthropic-labs",
+      "sourceLabel": "Anthropic",
+      "rating": 4,
+      "tags": ["Agents", "MCP", "Product"]
+    },
+    {
+      "category": "Orchestration",
+      "date": "2026-01-13",
+      "title": "Zuplo published a 'State of MCP' adoption and security survey",
+      "summary": "Zuplo surveyed MCP builders and found rising adoption expectations alongside security and auth as the biggest blocker.",
+      "source": "https://zuplo.com/blog/mcp-survey",
+      "sourceLabel": "Zuplo",
+      "rating": 4,
+      "tags": ["MCP", "Security", "Auth", "Adoption"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-01-13",
+      "title": "Deepgram raised $130M at a $1.3B valuation",
+      "summary": "Reuters reported voice AI startup Deepgram raised $130 million, highlighting continued funding for applied AI infrastructure.",
+      "source": "https://www.reuters.com/technology/voice-ai-startup-deepgram-raises-130-million-13-billion-valuation-2026-01-13/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Fundraising", "Voice", "Market Signal"]
+    },
+    {
+      "category": "Policy",
+      "date": "2026-01-14",
+      "title": "Thomson Reuters convened a Trust in AI Alliance focused on agentic systems",
+      "summary": "Thomson Reuters announced a forum to advance trust and accountability for intelligent and agentic AI systems in professional workflows.",
+      "source": "https://www.thomsonreuters.com/en/press-releases/2026/january/thomson-reuters-convenes-global-ai-leaders-to-advance-trust-in-the-age-of-intelligent-systems",
+      "sourceLabel": "Thomson Reuters",
+      "rating": 4,
+      "tags": ["Governance", "Risk", "Enterprise"]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "updatedLabel": "February 4, 2026",
+    "dataDate": "2026-02-04",
+    "window": "Jan 29-Feb 4, 2026",
+    "themes": "MCP, Coding Agents, Capex, Chips, Autonomous Systems"
+  },
+  "news": [
+    {
+      "category": "Orchestration",
+      "date": "2026-01-29",
+      "title": "Anthropic made structured outputs generally available in the API",
+      "summary": "Anthropic's API release notes announced structured outputs GA, enabling more reliable JSON responses and tighter tool pipelines for production agents.",
+      "source": "https://docs.anthropic.com/en/release-notes/api",
+      "sourceLabel": "Anthropic",
+      "rating": 5,
+      "tags": ["Structured Outputs", "API", "Developers", "Reliability"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-01-29",
+      "title": "Postman published a curated MCP server list for builders",
+      "summary": "Postman published a curated directory of MCP server collections to help developers discover and test common MCP server patterns faster.",
+      "source": "https://www.postman.com/getmcp",
+      "sourceLabel": "Postman",
+      "rating": 4,
+      "tags": ["MCP", "Discovery", "Testing", "Developers"]
+    },
+    {
+      "category": "Markets",
+      "date": "2026-01-29",
+      "title": "Meta boosted capex plans 73% pursuing 'superintelligence'",
+      "summary": "Reuters reported brokers raised targets after Meta results, while the company increased capital spending plans in the pursuit of personalized AI.",
+      "source": "https://www.reuters.com/business/meta-shares-rise-frankfurt-after-results-capital-plans-2026-01-29/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Capex", "Earnings", "Superintelligence", "Market Signal"]
+    },
+    {
+      "category": "Markets",
+      "date": "2026-01-29",
+      "title": "Amazon reportedly discussed investing up to $50B in OpenAI",
+      "summary": "Reuters reported talks around a massive OpenAI funding round, underscoring hyperscaler influence over frontier-model capital and compute supply.",
+      "source": "https://www.reuters.com/business/retail-consumer/amazon-talks-invest-up-50-billion-openai-wsj-reports-2026-01-29/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Funding", "Hyperscalers", "OpenAI", "Capex"]
+    },
+    {
+      "category": "Policy",
+      "date": "2026-01-29",
+      "title": "Pentagon reportedly clashed with Anthropic over military AI use",
+      "summary": "Reuters reported tensions over guardrails and acceptable-use boundaries as defense adoption pressures meet model-lab safety constraints.",
+      "source": "https://www.reuters.com/business/pentagon-clashes-with-anthropic-over-military-ai-use-2026-01-29/",
+      "sourceLabel": "Reuters",
+      "rating": 3,
+      "tags": ["Defense", "Governance", "Safety"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-02-02",
+      "title": "OpenAI launched a Codex desktop app to manage multiple coding agents",
+      "summary": "Reuters reported OpenAI shipped a Codex app designed to run longer agent loops, coordinate multiple tasks, and compete with Claude Code and other AI coding tools.",
+      "source": "https://www.reuters.com/business/media-telecom/openai-launches-codex-app-gain-ground-ai-coding-race-2026-02-02/",
+      "sourceLabel": "Reuters",
+      "rating": 5,
+      "tags": ["Agents", "Coding", "Vibe Coding", "Desktop"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-02-02",
+      "title": "Reuters: OpenAI looked for alternatives after issues with some Nvidia chips",
+      "summary": "Reuters reported OpenAI sought alternate accelerators and suppliers after dissatisfaction with some Nvidia chips, highlighting how supply and reliability shape model roadmaps.",
+      "source": "https://www.reuters.com/business/openai-is-unsatisfied-with-some-nvidia-chips-looking-alternatives-sources-say-2026-02-02/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Chips", "Supply", "Inference", "Cost"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-02-03",
+      "title": "AWS CEO said orbital data centers are still 'pretty far' from reality",
+      "summary": "Reuters reported AWS leadership played down near-term feasibility of space-based data centers, even as compute demand pushes teams to explore extreme approaches.",
+      "source": "https://www.reuters.com/business/aerospace-defense/amazons-aws-ceo-says-orbital-data-centers-pretty-far-reality-2026-02-03/",
+      "sourceLabel": "Reuters",
+      "rating": 3,
+      "tags": ["Data Centers", "Cloud", "Energy", "R&D"]
+    },
+    {
+      "category": "Chips",
+      "date": "2026-02-03",
+      "title": "AMD outlook whipsawed investors watching Nvidia-era data-center competition",
+      "summary": "Reuters reported AMD results and outlook as investors compared data-center momentum and competitive position versus Nvidia in AI accelerators.",
+      "source": "https://www.reuters.com/world/asia-pacific/amd-forecasts-first-quarter-revenue-above-estimates-2026-02-03/",
+      "sourceLabel": "Reuters",
+      "rating": 3,
+      "tags": ["Chips", "Data Center", "Competition"]
+    },
+    {
+      "category": "Platforms",
+      "date": "2026-02-02",
+      "title": "Waymo raised $16B at a $126B valuation as robotaxi scale accelerated",
+      "summary": "Reuters reported Waymo's fundraise and valuation jump as autonomous driving remains one of the most demanding, real-world AI deployments.",
+      "source": "https://www.reuters.com/business/waymo-valued-126-billion-latest-financing-2026-02-02/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Autonomy", "Robotics", "Funding", "Safety"]
+    },
+    {
+      "category": "Platforms",
+      "date": "2026-02-04",
+      "title": "Google recapped January AI launches, including more agentic Gemini API capabilities",
+      "summary": "Google's January roundup highlighted Gemini API and product updates, including more agentic features rolling through AI Studio and Vertex AI.",
+      "source": "https://blog.google/innovation-and-ai/products/google-ai-updates-january-2026/",
+      "sourceLabel": "Google Blog",
+      "rating": 4,
+      "tags": ["Gemini", "API", "Agents", "Product"]
+    },
+    {
+      "category": "Markets",
+      "date": "2026-02-01",
+      "title": "Wall St Week Ahead: earnings and jobs data tested AI-heavy U.S. stocks",
+      "summary": "Reuters previewed a heavy earnings and jobs week with investors focused on hyperscaler capex and whether AI spending is translating into durable growth.",
+      "source": "https://www.reuters.com/business/wall-st-week-ahead-heavy-earnings-week-jobs-data-test-us-stocks-after-microsoft-2026-01-30/",
+      "sourceLabel": "Reuters",
+      "rating": 3,
+      "tags": ["Earnings", "Jobs", "Volatility", "Capex"]
+    }
+  ]
+}

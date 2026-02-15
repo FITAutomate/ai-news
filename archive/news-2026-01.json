@@ -3,7 +3,7 @@
     "updatedLabel": "January 8, 2026",
     "dataDate": "2026-01-08",
     "window": "Jan 1-7, 2026",
-    "themes": "Models, Agents, Healthcare, Fundraising, Chips"
+    "themes": "Models, Agents, Builders, Fundraising, Chips"
   },
   "news": [
     {
@@ -15,16 +15,6 @@
       "sourceLabel": "OpenAI",
       "rating": 5,
       "tags": ["Agents", "Healthcare", "Privacy", "Product"]
-    },
-    {
-      "category": "OpenAI",
-      "date": "2026-01-08",
-      "title": "OpenAI announced OpenAI for Healthcare",
-      "summary": "OpenAI introduced enterprise healthcare offerings focused on secure deployment and operational workflow support.",
-      "source": "https://openai.com/index/openai-for-healthcare/",
-      "sourceLabel": "OpenAI",
-      "rating": 4,
-      "tags": ["Healthcare", "Enterprise", "Security"]
     },
     {
       "category": "OpenAI",
@@ -55,6 +45,16 @@
       "sourceLabel": "CNBC",
       "rating": 4,
       "tags": ["Fundraising", "Market Signal", "Competition"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-01-06",
+      "title": "AI startup LMArena tripled its valuation in a new fundraise",
+      "summary": "Reuters reported AI startup LMArena raised new funding and sharply increased its valuation, signaling continued investor appetite for AI infrastructure and evaluation platforms.",
+      "source": "https://www.reuters.com/technology/ai-startup-lmarena-triples-its-valuation-17-billion-latest-fundraise-2026-01-06/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Fundraising", "Evaluation", "Market Signal"]
     },
     {
       "category": "Markets",

@@ -7,8 +7,10 @@ const CATEGORY_EMOJI = {
   Apple: "🍎",
   Amazon: "🟧",
   Agents: "🤖",
+  "Dev Tools": "🧰",
   RAG: "📚",
   Automation: "⚙️",
+  Orchestration: "🎛️",
   Security: "🛡️",
   Chips: "🖥️",
   Policy: "🏛️",
@@ -22,8 +24,190 @@ const CATEGORY_EMOJI = {
 const WEEK_FILE_MAP = {
   current: "./news-data.json",
   "2026-01": "./archive/news-2026-01.json",
+  "2026-02": "./archive/news-2026-02.json",
+  "2026-03": "./archive/news-2026-03.json",
+  "2026-04": "./archive/news-2026-04.json",
+  "2026-05": "./archive/news-2026-05.json",
   "2026-06": "./archive/news-2026-06.json"
 };
+
+function sortByRatingThenDateDesc(items) {
+  return [...items].sort((a, b) => {
+    const ra = Number(a.rating) || 0;
+    const rb = Number(b.rating) || 0;
+    if (rb !== ra) return rb - ra;
+
+    // ISO date strings sort lexicographically.
+    const da = String(a.date || "");
+    const db = String(b.date || "");
+    if (db !== da) return db.localeCompare(da);
+
+    return String(a.title || "").localeCompare(String(b.title || ""));
+  });
+}
+
+function diversifyTop(items) {
+  // Keep the same stories and star ratings, but avoid a top row dominated by one category.
+  // Rules:
+  // - First 3 cards: prefer unique categories.
+  // - Next 3 cards: prefer not repeating the previous category.
+  const remaining = sortByRatingThenDateDesc(items);
+  const chosen = [];
+
+  for (let i = 0; i < remaining.length; i++) {
+    const usedTopRow = new Set(chosen.slice(0, 3).map((x) => x.category));
+    const lastCategory = chosen.length ? chosen[chosen.length - 1].category : null;
+
+    const predicate = (candidate) => {
+      if (chosen.length < 3) return !usedTopRow.has(candidate.category);
+      if (chosen.length < 6) return candidate.category !== lastCategory;
+      return true;
+    };
+
+    let pickIndex = remaining.findIndex(predicate);
+    if (pickIndex === -1) pickIndex = 0;
+
+    chosen.push(remaining.splice(pickIndex, 1)[0]);
+
+    // We are consuming from `remaining`, so maintain the loop bounds.
+    i--;
+    if (remaining.length === 0) break;
+  }
+
+  return chosen;
+}
+
+function computeSelectorScore(item) {
+  const rating = Number(item.rating) || 0;
+  const text = `${item.title || ""} ${item.summary || ""}`.toLowerCase();
+  const tags = Array.isArray(item.tags) ? item.tags.map((t) => String(t).toLowerCase()) : [];
+
+  const builderKeywordHit =
+    tags.some((t) =>
+      [
+        "mcp",
+        "vibe coding",
+        "coding",
+        "tool use",
+        "tools",
+        "orchestration",
+        "automation",
+        "cli",
+        "workflow",
+        "agents",
+        "rag",
+        "llmops",
+        "evaluation"
+      ].includes(t)
+    ) ||
+    /(\bmcp\b|model context protocol|claude code|cursor\b|replit\b|codex\b|n8n\b|tool search|oauth)/i.test(text);
+
+  const builderBonus = builderKeywordHit ? 1 : 0;
+
+  // Keep the scale intuitive: stars still matter most; builder bonus helps tie-break and quota-fill.
+  return Math.min(6, rating + builderBonus);
+}
+
+function getBucket(item) {
+  const category = String(item.category || "");
+
+  if (["Business", "Markets"].includes(category)) return "business";
+  if (["Infrastructure", "Chips"].includes(category)) return "infra";
+  if (["Policy"].includes(category)) return "policy";
+
+  // Builder workflow buckets (what John cares about week-to-week).
+  if (["Dev Tools", "Agents", "Automation", "Orchestration", "RAG", "Security"].includes(category)) return "builder";
+
+  // Default: vendor/platform updates.
+  return "platform";
+}
+
+function isVendorCategory(category) {
+  return ["OpenAI", "Anthropic", "Google", "Microsoft", "Meta", "Amazon", "Apple"].includes(category);
+}
+
+function selectTopStories(items, options = {}) {
+  const targetCount = Number(options.targetCount) || 12;
+  if (!Array.isArray(items) || items.length <= targetCount) return Array.isArray(items) ? items : [];
+
+  const desired = {
+    platform: 3,
+    business: 3,
+    infra: 2,
+    policy: 1,
+    builder: 3
+  };
+
+  const scored = items
+    .map((item) => ({ item, score: computeSelectorScore(item), bucket: getBucket(item) }))
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      const db = String(b.item.date || "");
+      const da = String(a.item.date || "");
+      if (db !== da) return db.localeCompare(da);
+      return String(a.item.title || "").localeCompare(String(b.item.title || ""));
+    });
+
+  const selected = [];
+  const selectedIds = new Set();
+
+  const vendorCounts = new Map();
+  const bucketCounts = new Map(Object.entries({ platform: 0, business: 0, infra: 0, policy: 0, builder: 0 }));
+
+  const canSelect = (entry) => {
+    const category = String(entry.item.category || "");
+
+    // Vendor cap: avoid being dominated by one model lab.
+    if (isVendorCategory(category)) {
+      const current = vendorCounts.get(category) || 0;
+      if (current >= 2) return false;
+    }
+
+    // Enforce bucket caps during quota-fill.
+    const b = entry.bucket;
+    const currentBucket = bucketCounts.get(b) || 0;
+    const maxBucket = desired[b] ?? Infinity;
+    if (currentBucket >= maxBucket) return false;
+
+    return true;
+  };
+
+  const take = (entry) => {
+    selected.push(entry.item);
+    selectedIds.add(entry.item.source || `${entry.item.title || ""}-${entry.item.date || ""}`);
+
+    const category = String(entry.item.category || "");
+    if (isVendorCategory(category)) vendorCounts.set(category, (vendorCounts.get(category) || 0) + 1);
+
+    bucketCounts.set(entry.bucket, (bucketCounts.get(entry.bucket) || 0) + 1);
+  };
+
+  // 1) Fill quotas per bucket with best stories that fit constraints.
+  for (const bucket of ["builder", "platform", "business", "infra", "policy"]) {
+    const want = desired[bucket];
+    while ((bucketCounts.get(bucket) || 0) < want && selected.length < targetCount) {
+      const entry = scored.find((e) => e.bucket === bucket && canSelect(e) && !selectedIds.has(e.item.source));
+      if (!entry) break;
+      take(entry);
+    }
+  }
+
+  // 2) Fill remaining slots with best overall, keeping vendor cap.
+  for (const entry of scored) {
+    if (selected.length >= targetCount) break;
+    if (selectedIds.has(entry.item.source)) continue;
+
+    const category = String(entry.item.category || "");
+    if (isVendorCategory(category) && (vendorCounts.get(category) || 0) >= 2) continue;
+
+    selected.push(entry.item);
+    selectedIds.add(entry.item.source);
+
+    if (isVendorCategory(category)) vendorCounts.set(category, (vendorCounts.get(category) || 0) + 1);
+  }
+
+  return selected;
+}
 
 async function loadData(weekKey) {
   const file = WEEK_FILE_MAP[weekKey] || WEEK_FILE_MAP.current;
@@ -89,21 +273,38 @@ function renderNews(news) {
   });
 }
 
+function inferSourceLabel(item) {
+  if (item && item.sourceLabel) return item.sourceLabel;
+  try {
+    const host = new URL(String(item && item.source ? item.source : "")).hostname;
+    return host ? host.replace(/^www\./, "") : "Source";
+  } catch {
+    return "Source";
+  }
+}
+
 function renderSources(news) {
-  const sourceListEl = document.getElementById("sourceList");
-  sourceListEl.innerHTML = "";
+  const bodyEl = document.getElementById("sourceTableBody");
+  if (!bodyEl) return;
 
-  const uniqueSources = [];
+  bodyEl.innerHTML = "";
+
   news.forEach((item) => {
-    if (!uniqueSources.some((s) => s.url === item.source)) {
-      uniqueSources.push({ name: item.sourceLabel, url: item.source });
-    }
-  });
+    const tr = document.createElement("tr");
 
-  uniqueSources.forEach((s) => {
-    const li = document.createElement("li");
-    li.innerHTML = `<a href="${s.url}">${s.name}: ${s.url}</a>`;
-    sourceListEl.appendChild(li);
+    const tdSource = document.createElement("td");
+    tdSource.textContent = inferSourceLabel(item);
+
+    const tdTitle = document.createElement("td");
+    const a = document.createElement("a");
+    a.href = item.source;
+    a.textContent = item.title || item.source;
+    tdTitle.appendChild(a);
+
+    tr.appendChild(tdSource);
+    tr.appendChild(tdTitle);
+
+    bodyEl.appendChild(tr);
   });
 }
 
@@ -121,8 +322,14 @@ function renderMeta(meta) {
 
 async function renderWeek(weekKey) {
   const data = await loadData(weekKey);
-  const news = Array.isArray(data.news) ? data.news : [];
+  const rawNews = Array.isArray(data.news) ? data.news : [];
   const meta = data.meta || {};
+
+  // Selector: if a week has more than 12 candidates, pick a balanced 12-card set.
+  const selected = selectTopStories(rawNews, { targetCount: 12 });
+
+  // Visual polish: keep the selected stories but present the top row with more variety.
+  const news = diversifyTop(selected);
 
   renderMeta(meta);
   renderStats(news, meta);
