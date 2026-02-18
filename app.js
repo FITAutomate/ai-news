@@ -315,7 +315,7 @@ function renderMeta(meta) {
     kicker.textContent = `Updated: ${meta.updatedLabel}`;
   }
 
-  const footerText = document.querySelector("footer p");
+  const footerText = document.querySelector(".footer-meta");
   if (footerText && meta.dataDate) {
     footerText.textContent = `Built for GitHub Pages • Data date: ${meta.dataDate}`;
   }
