@@ -1,24 +1,24 @@
-const CATEGORY_EMOJI = {
-  OpenAI: "🧠",
-  Anthropic: "🟣",
-  Google: "🔵",
-  Microsoft: "🪟",
-  Meta: "🟦",
-  Apple: "🍎",
-  Amazon: "🟧",
-  Agents: "🤖",
-  "Dev Tools": "🧰",
-  RAG: "📚",
-  Automation: "⚙️",
-  Orchestration: "🎛️",
-  Security: "🛡️",
-  Chips: "🖥️",
-  Policy: "🏛️",
-  Business: "📈",
-  Markets: "📈",
-  Infrastructure: "🖥️",
-  Platforms: "🔵",
-  Adoption: "⚙️"
+﻿const CATEGORY_EMOJI = {
+  OpenAI: "\uD83E\uDDE0",
+  Anthropic: "\uD83D\uDFE3",
+  Google: "\uD83D\uDD35",
+  Microsoft: "\uD83E\uDE9F",
+  Meta: "\uD83D\uDFE6",
+  Apple: "\uD83C\uDF4E",
+  Amazon: "\uD83D\uDFE7",
+  Agents: "\uD83E\uDD16",
+  "Dev Tools": "\uD83E\uDDF0",
+  RAG: "\uD83D\uDCDA",
+  Automation: "\u2699\uFE0F",
+  Orchestration: "\uD83C\uDF9B\uFE0F",
+  Security: "\uD83D\uDEE1\uFE0F",
+  Chips: "\uD83D\uDDA5\uFE0F",
+  Policy: "\uD83C\uDFDB\uFE0F",
+  Business: "\uD83D\uDCC8",
+  Markets: "\uD83D\uDCC8",
+  Infrastructure: "\uD83D\uDDA5\uFE0F",
+  Platforms: "\uD83D\uDD35",
+  Adoption: "\u2699\uFE0F"
 };
 
 const WEEK_FILE_MAP = {
@@ -29,7 +29,9 @@ const WEEK_FILE_MAP = {
   "2026-04": "./archive/news-2026-04.json",
   "2026-05": "./archive/news-2026-05.json",
   "2026-06": "./archive/news-2026-06.json",
-  "2026-07": "./archive/news-2026-07.json"
+  "2026-07": "./archive/news-2026-07.json",
+  "2026-08": "./archive/news-2026-08.json",
+  "2026-09": "./archive/news-2026-09.json"
 };
 
 function sortByRatingThenDateDesc(items) {
@@ -221,7 +223,7 @@ async function loadData(weekKey) {
 
 function getRatingStars(rating) {
   const clamped = Math.max(1, Math.min(5, Number(rating) || 1));
-  return "★".repeat(clamped) + "☆".repeat(5 - clamped);
+  return "\u2605".repeat(clamped) + "\u2606".repeat(5 - clamped);
 }
 
 function renderStats(news, meta) {
@@ -252,7 +254,7 @@ function renderNews(news) {
     card.className = "card";
     card.style.animationDelay = `${i * 80}ms`;
 
-    const emoji = CATEGORY_EMOJI[item.category] || "📰";
+    const emoji = CATEGORY_EMOJI[item.category] || "\uD83D\uDCF0";
     const stars = getRatingStars(item.rating);
     const tags = Array.isArray(item.tags) ? item.tags : [];
 
@@ -317,7 +319,7 @@ function renderMeta(meta) {
 
   const footerText = document.querySelector(".footer-meta");
   if (footerText && meta.dataDate) {
-    footerText.textContent = `Built for GitHub Pages • Data date: ${meta.dataDate}`;
+    footerText.textContent = `Built for GitHub Pages \u2022 Data date: ${meta.dataDate}`;
   }
 }
 
@@ -371,3 +373,5 @@ async function init() {
 }
 
 init();
+
+
