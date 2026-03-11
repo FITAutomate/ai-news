@@ -31,7 +31,8 @@ const WEEK_FILE_MAP = {
   "2026-06": "./archive/news-2026-06.json",
   "2026-07": "./archive/news-2026-07.json",
   "2026-08": "./archive/news-2026-08.json",
-  "2026-09": "./archive/news-2026-09.json"
+  "2026-09": "./archive/news-2026-09.json",
+  "2026-10": "./archive/news-2026-10.json"
 };
 
 function sortByRatingThenDateDesc(items) {
