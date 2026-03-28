@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "updatedLabel": "March 14, 2026",
+    "dataDate": "2026-03-14",
+    "window": "Mar 8-14, 2026",
+    "themes": "Defense AI, Agentic Workflows, AI Infrastructure, Enterprise Adoption"
+  },
+  "news": [
+    {
+      "category": "Policy",
+      "date": "2026-03-09",
+      "title": "Anthropic sued the U.S. government over its Pentagon supply-chain-risk designation",
+      "summary": "Reuters reported Anthropic escalated its dispute with the U.S. government, arguing the designation punished the company for refusing to weaken AI safeguards for defense use.",
+      "source": "https://www.reuters.com/legal/litigation/anthropics-case-against-government-what-ai-company-says-happened-2026-03-09/",
+      "sourceLabel": "Reuters",
+      "rating": 5,
+      "tags": ["Anthropic", "Pentagon", "Policy", "Safeguards"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-03-10",
+      "title": "Thinking Machines Lab secured capital and a long-term Nvidia chip supply agreement",
+      "summary": "Reuters said Mira Murati's startup paired fresh funding with a multi-year Nvidia partnership, showing how top AI labs are locking in compute access early.",
+      "source": "https://www.reuters.com/business/ai-startup-thinking-machines-clinches-capital-major-chip-supply-deal-nvidia-2026-03-10/",
+      "sourceLabel": "Reuters",
+      "rating": 5,
+      "tags": ["Funding", "Nvidia", "Thinking Machines", "Compute"]
+    },
+    {
+      "category": "Markets",
+      "date": "2026-03-09",
+      "title": "Nvidia-backed Nscale reached a $14.6 billion valuation in a new funding round",
+      "summary": "Reuters reported Nscale raised $2 billion, underscoring continued investor appetite for AI infrastructure firms that sit below the model layer.",
+      "source": "https://www.reuters.com/business/nvidia-backed-uk-ai-firm-nscale-raises-2-billion-funding-round-2026-03-09/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Nscale", "Funding", "Infrastructure", "Nvidia"]
+    },
+    {
+      "category": "Chips",
+      "date": "2026-03-11",
+      "title": "AMD deepened AI memory talks with Samsung as accelerator demand kept climbing",
+      "summary": "Reuters reported Lisa Su was set to meet Samsung leadership on HBM supply and broader AI chip cooperation, reinforcing that memory remains a strategic bottleneck.",
+      "source": "https://www.reuters.com/world/asia-pacific/amd-ceo-meet-samsung-chief-south-korea-amid-race-ai-memory-chips-paper-says-2026-03-11/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["AMD", "Samsung", "HBM", "AI Chips"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-03-13",
+      "title": "Amazon agreed to offer Cerebras AI chips through AWS",
+      "summary": "Reuters said Cerebras struck a cloud deal with Amazon, giving enterprises another path to rent non-Nvidia accelerators at scale.",
+      "source": "https://www.reuters.com/business/retail-consumer/cerebras-systems-amazon-strike-deal-offer-cerebras-ai-chips-amazons-cloud-2026-03-13/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Cerebras", "AWS", "Cloud", "Inference"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-03-12",
+      "title": "Software vendors pushed back on the idea that AI will wipe out their category",
+      "summary": "Reuters covered enterprise software leaders arguing AI changes packaging and workflows more than it eliminates core systems of record.",
+      "source": "https://www.reuters.com/business/software-companies-fight-back-against-fears-that-ai-will-kill-them-2026-03-12/",
+      "sourceLabel": "Reuters",
+      "rating": 3,
+      "tags": ["Enterprise Software", "AI Adoption", "Markets", "SaaS"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-03-11",
+      "title": "Canal+ signed Google and OpenAI deals for AI video production and recommendations",
+      "summary": "Reuters reported a media-sector example of generative AI moving from pilots into multi-year operating agreements tied to content workflows.",
+      "source": "https://www.reuters.com/business/media-telecom/canal-taps-googles-ai-video-production-content-recommendation-2026-03-11/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Google", "OpenAI", "Media", "Recommendations"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-03-10",
+      "title": "Amazon began shifting defense workloads while keeping Claude available for other use cases",
+      "summary": "Reuters reported AWS started transitioning some Department of War workloads off Anthropic systems while maintaining broader Claude availability.",
+      "source": "https://www.reuters.com/technology/amazon-transitions-defense-workloads-keeps-claude-others-2026-03-10/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["AWS", "Anthropic", "Defense", "Cloud"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-03-11",
+      "title": "GitHub shipped major agentic improvements for Copilot in JetBrains IDEs",
+      "summary": "GitHub added custom agents, sub-agents, and stronger workflow support for JetBrains users, extending Copilot beyond single-turn chat into deeper IDE-native automation.",
+      "source": "https://github.blog/changelog/2026-03-11-major-agentic-capabilities-improvements-in-github-copilot-for-jetbrains-ides/",
+      "sourceLabel": "GitHub Changelog",
+      "rating": 4,
+      "tags": ["GitHub Copilot", "JetBrains", "Agents", "Developer Tools"]
+    },
+    {
+      "category": "Security",
+      "date": "2026-03-09",
+      "title": "GitHub detailed the security architecture behind its agentic workflows",
+      "summary": "GitHub described its MCP gateway isolation, credential handling, and staged-write model, offering concrete patterns for safer enterprise agent deployment.",
+      "source": "https://github.blog/ai-and-ml/generative-ai/under-the-hood-security-architecture-of-github-agentic-workflows/",
+      "sourceLabel": "GitHub Blog",
+      "rating": 4,
+      "tags": ["Security", "MCP", "Agentic Workflows", "Enterprise"]
+    },
+    {
+      "category": "Anthropic",
+      "date": "2026-03-11",
+      "title": "Anthropic launched the Anthropic Institute to study societal impacts of powerful AI",
+      "summary": "Anthropic announced a new research effort focused on labor, geopolitics, and governance questions around advanced AI systems.",
+      "source": "https://www.anthropic.com/news/the-anthropic-institute",
+      "sourceLabel": "Anthropic",
+      "rating": 4,
+      "tags": ["Anthropic", "Governance", "Policy Research", "Society"]
+    },
+    {
+      "category": "Anthropic",
+      "date": "2026-03-12",
+      "title": "Anthropic committed $100 million to expand its Claude Partner Network",
+      "summary": "Anthropic said it would invest heavily in implementation and services partners, signaling a more aggressive enterprise go-to-market push around Claude.",
+      "source": "https://www.anthropic.com/news/claude-partner-network",
+      "sourceLabel": "Anthropic",
+      "rating": 4,
+      "tags": ["Claude", "Partners", "Enterprise", "Services"]
+    }
+  ]
+}

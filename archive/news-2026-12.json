@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "updatedLabel": "March 21, 2026",
+    "dataDate": "2026-03-21",
+    "window": "Mar 15-21, 2026",
+    "themes": "Coding Agents, Federal Sales, Copyright Pressure, Inference Economics"
+  },
+  "news": [
+    {
+      "category": "OpenAI",
+      "date": "2026-03-17",
+      "title": "OpenAI launched GPT-5.4 mini and nano for coding, subagents, and lower-cost inference",
+      "summary": "OpenAI introduced smaller GPT-5.4 variants aimed at fast tool use and subagent workflows, broadening the model stack beyond the flagship release from early March.",
+      "source": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/",
+      "sourceLabel": "OpenAI",
+      "rating": 5,
+      "tags": ["GPT-5.4 mini", "GPT-5.4 nano", "Subagents", "Inference"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-03-17",
+      "title": "OpenAI signed a deal to sell AI access to U.S. agencies through AWS",
+      "summary": "Reuters reported OpenAI would distribute models to defense and government customers through Amazon's cloud unit, extending its public-sector reach.",
+      "source": "https://www.reuters.com/business/retail-consumer/openai-sell-ai-us-agencies-through-amazon-cloud-unit-information-reports-2026-03-17/",
+      "sourceLabel": "Reuters",
+      "rating": 5,
+      "tags": ["OpenAI", "AWS", "Federal", "Enterprise"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-03-16",
+      "title": "OpenAI explored a private-equity-backed enterprise AI venture",
+      "summary": "Reuters said OpenAI was in talks with major private-equity firms to fund a new enterprise venture, highlighting how capital formation is moving downstream from model training into go-to-market.",
+      "source": "https://www.reuters.com/business/openai-courts-private-equity-join-enterprise-ai-venture-sources-say-2026-03-16/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Private Equity", "Enterprise AI", "Funding", "OpenAI"]
+    },
+    {
+      "category": "Chips",
+      "date": "2026-03-16",
+      "title": "Nvidia raised its inference opportunity forecast to $1 trillion",
+      "summary": "Reuters reported Jensen Huang used GTC to frame inference, not just training, as the next major revenue engine for AI infrastructure.",
+      "source": "https://www.reuters.com/world/asia-pacific/nvidia-ceo-set-reveal-new-chips-software-ai-megaconference-gtc-2026-03-16/",
+      "sourceLabel": "Reuters",
+      "rating": 5,
+      "tags": ["Nvidia", "Inference", "GTC", "AI Economics"]
+    },
+    {
+      "category": "Policy",
+      "date": "2026-03-18",
+      "title": "Encyclopaedia Britannica sued OpenAI over AI training on reference content",
+      "summary": "Reuters reported another high-profile copyright case against OpenAI, increasing pressure on model developers to defend training-data practices in court.",
+      "source": "https://www.reuters.com/legal/litigation/encyclopedia-britannica-sues-openai-over-ai-training-2026-03-16/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Copyright", "Training Data", "OpenAI", "Litigation"]
+    },
+    {
+      "category": "Microsoft",
+      "date": "2026-03-17",
+      "title": "Microsoft unified its commercial and consumer Copilot teams",
+      "summary": "Reuters reported Microsoft reorganized Copilot under a single product structure, signaling tighter integration between enterprise and consumer AI bets.",
+      "source": "https://www.reuters.com/business/microsoft-unifies-copilot-commercial-consumer-product-teams-unit-rejig-2026-03-17/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Microsoft", "Copilot", "Org Change", "Product"]
+    },
+    {
+      "category": "Anthropic",
+      "date": "2026-03-19",
+      "title": "Pressure mounted inside the Pentagon to move off Anthropic's Claude",
+      "summary": "Reuters reported defense officials were struggling to unwind entrenched Claude usage even as top-level pressure grew to remove Anthropic from sensitive workflows.",
+      "source": "https://www.reuters.com/business/hegseth-wants-pentagon-dump-anthropics-claude-military-users-say-its-not-so-easy-2026-03-19/",
+      "sourceLabel": "Reuters",
+      "rating": 4,
+      "tags": ["Anthropic", "Claude", "Defense", "Procurement"]
+    },
+    {
+      "category": "Security",
+      "date": "2026-03-17",
+      "title": "GitHub added secret scanning to AI coding agents through the GitHub MCP Server",
+      "summary": "GitHub said coding agents can now scan code changes for exposed secrets before commit or pull request creation, directly through MCP-backed workflows.",
+      "source": "https://github.blog/changelog/2026-03-17-secret-scanning-in-ai-coding-agents-via-the-github-mcp-server/",
+      "sourceLabel": "GitHub Changelog",
+      "rating": 5,
+      "tags": ["Secret Scanning", "MCP", "Coding Agents", "Security"]
+    },
+    {
+      "category": "Agents",
+      "date": "2026-03-17",
+      "title": "GitHub gave Copilot coding agent semantic code search",
+      "summary": "GitHub said coding agent can now find relevant code by meaning instead of just exact text matches, improving task startup quality on larger repos.",
+      "source": "https://github.blog/changelog/2026-03-17-copilot-coding-agent-works-faster-with-semantic-code-search/",
+      "sourceLabel": "GitHub Changelog",
+      "rating": 4,
+      "tags": ["Copilot Agent", "Semantic Search", "Code Search", "Automation"]
+    },
+    {
+      "category": "Agents",
+      "date": "2026-03-18",
+      "title": "GitHub exposed configurable validation tools for Copilot coding agent",
+      "summary": "GitHub let teams control which tests, linters, and validation tools agent runs before proposing changes, making agent output easier to operationalize in existing CI flows.",
+      "source": "https://github.blog/changelog/2026-03-18-configure-copilot-coding-agents-validation-tools/",
+      "sourceLabel": "GitHub Changelog",
+      "rating": 4,
+      "tags": ["Copilot Agent", "Validation", "CI", "Developer Tools"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-03-17",
+      "title": "GitHub rolled GPT-5.4 mini into Copilot",
+      "summary": "GitHub announced general availability of GPT-5.4 mini in Copilot, giving developers faster access to OpenAI's newest lightweight coding model inside GitHub workflows.",
+      "source": "https://github.blog/changelog/2026-03-17-gpt-5-4-mini-is-now-generally-available-for-github-copilot/",
+      "sourceLabel": "GitHub Changelog",
+      "rating": 4,
+      "tags": ["GitHub Copilot", "GPT-5.4 mini", "Coding", "Model Rollout"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-03-18",
+      "title": "VS Code 1.112 added switchable plugins and MCP servers without uninstalling them",
+      "summary": "Visual Studio Code introduced finer control over plugins and MCP servers, making it easier to manage agent tooling across different projects and contexts.",
+      "source": "https://code.visualstudio.com/updates/v1_112",
+      "sourceLabel": "VS Code",
+      "rating": 4,
+      "tags": ["VS Code", "MCP Servers", "Plugins", "Developer Workflow"]
+    }
+  ]
+}
