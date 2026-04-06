@@ -25,6 +25,10 @@ AI News Pulse is the FIT Automate weekly AI brief for high-level, actionable upd
 - `2026-W08` -> `archive/news-2026-08.json`
 - `2026-W09` -> `archive/news-2026-09.json`
 - `2026-W10` -> `archive/news-2026-10.json`
+- `2026-W11` -> `archive/news-2026-11.json`
+- `2026-W12` -> `archive/news-2026-12.json`
+- `2026-W13` -> `archive/news-2026-13.json`
+- `2026-W14` -> `archive/news-2026-14.json`
 
 ## Data schema (`news-data.json`)
 
