@@ -56,6 +56,8 @@ Each `news[]` item:
 - `app.js`
 - `news-data.json`
 - `archive/news-YYYY-WW.json`
+- `skills/ai-news-weekly/SKILL.md`
+- `skills/README.md`
 - `update-plan.md`
 
 ## Local test

@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "updatedLabel": "Month DD, YYYY",
+    "dataDate": "YYYY-MM-DD",
+    "window": "Mon DD-Mon DD, YYYY",
+    "themes": "Theme 1, Theme 2, Theme 3, Theme 4"
+  },
+  "news": [
+    {
+      "category": "Business",
+      "date": "YYYY-MM-DD",
+      "title": "Story title",
+      "summary": "One-sentence factual summary.",
+      "source": "https://example.com/story",
+      "sourceLabel": "Source Name",
+      "rating": 4,
+      "tags": ["Tag1", "Tag2", "Tag3", "Tag4"]
+    }
+  ]
+}
