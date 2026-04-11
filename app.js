@@ -1,4 +1,4 @@
-﻿const CATEGORY_EMOJI = {
+const CATEGORY_EMOJI = {
   OpenAI: "\uD83E\uDDE0",
   Anthropic: "\uD83D\uDFE3",
   Google: "\uD83D\uDD35",
@@ -36,7 +36,8 @@ const WEEK_FILE_MAP = {
   "2026-11": "./archive/news-2026-11.json",
   "2026-12": "./archive/news-2026-12.json",
   "2026-13": "./archive/news-2026-13.json",
-  "2026-14": "./archive/news-2026-14.json"
+  "2026-14": "./archive/news-2026-14.json",
+  "2026-15": "./archive/news-2026-15.json"
 };
 
 function sortByRatingThenDateDesc(items) {
