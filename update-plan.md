@@ -54,13 +54,22 @@ Selection constraints (to prevent “row 1 = all OpenAI”):
    - 1-2★ skip
 3. Select top 9-12 stories while preserving mix and diversity.
 4. Update `news-data.json` (`meta` + `news`).
-5. Create archive file: `archive/news-YYYY-WW.json`.
-6. Local smoke test:
-   - `python -m http.server 8080`
-   - verify cards render, emoji + stars render, links open same tab
-   - verify Week selector loads Current + target archive week
-7. Commit + push to `main`.
-8. Confirm GitHub Pages deploy completes.
+5. Create or update the archive file: `archive/news-YYYY-WW.json`.
+6. **Run the repo scripts from the repository root** (so the site and selector stay in sync):
+   - **Validate JSON** (required before commit):  
+     `node skills/ai-news-weekly/scripts/validate-news-json.mjs news-data.json archive/news-YYYY-WW.json`
+   - **Rebuild the week list** (required whenever you add or change an archive file):  
+     `node scripts/sync-archive-manifest.mjs`  
+     This regenerates `archive/manifest.json`, which `app.js` uses to populate the Week dropdown. You do **not** edit week `<option>`s in `index.html` and you do **not** add paths to `app.js` by hand.
+   - **Optional** — confirm which week key a calendar date maps to (uses the manifest):  
+     `node scripts/week-key-from-date.mjs YYYY-MM-DD`
+7. Update **`index.html`** only for **page copy/metadata**: `<title>`, meta description, hero “Updated” line, footer data date, and the **`app.js?v=...`** cache-bust token on the script tag.
+8. Local smoke test:
+   - `python -m http.server 8080` (or `npx serve .`)
+   - Verify cards render, emoji + stars render, **Read source** links work.
+   - Verify the **Week** selector lists all archive weeks and loads the new week.
+9. Commit + push to `main`. **Stage `archive/manifest.json`** whenever the set of archive weeks or their labels/ranges changed (after step 6).
+10. Confirm GitHub Pages deploy completes.
 
 ## Backfill rule
 
