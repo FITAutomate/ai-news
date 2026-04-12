@@ -25,7 +25,7 @@ Aim for balanced coverage across:
 
 ## Quality Rules
 
-- Verify each final URL with scrape step before writing JSON.
+- Verify each final URL before writing JSON (open in a browser or use any fetch tool you have).
 - Keep summaries concise and factual (1 sentence).
 - Use 2-5 tags per story.
 - Rating scale remains 1-5.

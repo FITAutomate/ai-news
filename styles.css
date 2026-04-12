@@ -263,48 +263,6 @@ body {
   text-decoration: underline;
 }
 
-.source-table {
-  width: 100%;
-  border-collapse: collapse;
-  overflow: hidden;
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  background: rgba(0, 0, 61, 0.38);
-}
-
-.source-table th,
-.source-table td {
-  text-align: left;
-  padding: 0.7rem 0.85rem;
-  border-bottom: 1px solid rgba(243, 244, 247, 0.16);
-  vertical-align: top;
-}
-
-.source-table th {
-  font-family: "Sora", sans-serif;
-  font-size: 0.85rem;
-  color: #cfe0ff;
-  background: rgba(0, 68, 155, 0.22);
-}
-
-.source-table td {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.source-table tr:last-child td {
-  border-bottom: none;
-}
-
-.source-table a {
-  color: #7ec4ff;
-  text-decoration: none;
-}
-
-.source-table a:hover {
-  text-decoration: underline;
-}
-
 .site-footer {
   margin-top: 2.6rem;
   border-top: 1px solid var(--line);

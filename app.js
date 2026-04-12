@@ -21,24 +21,45 @@ const CATEGORY_EMOJI = {
   Adoption: "\u2699\uFE0F"
 };
 
-const WEEK_FILE_MAP = {
-  current: "./news-data.json",
-  "2026-01": "./archive/news-2026-01.json",
-  "2026-02": "./archive/news-2026-02.json",
-  "2026-03": "./archive/news-2026-03.json",
-  "2026-04": "./archive/news-2026-04.json",
-  "2026-05": "./archive/news-2026-05.json",
-  "2026-06": "./archive/news-2026-06.json",
-  "2026-07": "./archive/news-2026-07.json",
-  "2026-08": "./archive/news-2026-08.json",
-  "2026-09": "./archive/news-2026-09.json",
-  "2026-10": "./archive/news-2026-10.json",
-  "2026-11": "./archive/news-2026-11.json",
-  "2026-12": "./archive/news-2026-12.json",
-  "2026-13": "./archive/news-2026-13.json",
-  "2026-14": "./archive/news-2026-14.json",
-  "2026-15": "./archive/news-2026-15.json"
+/** Populated from archive/manifest.json at runtime (see scripts/sync-archive-manifest.mjs). */
+let weekFileMap = {
+  current: "./news-data.json"
 };
+
+async function loadWeekFileMap() {
+  const map = { current: "./news-data.json" };
+  const response = await fetch("./archive/manifest.json", { cache: "no-store" });
+  if (!response.ok) {
+    throw new Error(`Failed to load archive/manifest.json: ${response.status}`);
+  }
+  const manifest = await response.json();
+  const weeks = Array.isArray(manifest.weeks) ? manifest.weeks : [];
+  for (const w of weeks) {
+    if (w && w.key && w.file) {
+      const path = w.file.startsWith("./") ? w.file : `./${w.file}`;
+      map[w.key] = path;
+    }
+  }
+  return { map, weeks };
+}
+
+function fillWeekSelector(weeks) {
+  const select = document.getElementById("weekSelect");
+  if (!select) return;
+
+  select.innerHTML = "";
+  const currentOpt = document.createElement("option");
+  currentOpt.value = "current";
+  currentOpt.textContent = "Current";
+  select.appendChild(currentOpt);
+
+  for (const w of weeks) {
+    const opt = document.createElement("option");
+    opt.value = w.key;
+    opt.textContent = w.label || w.key;
+    select.appendChild(opt);
+  }
+}
 
 function sortByRatingThenDateDesc(items) {
   return [...items].sort((a, b) => {
@@ -219,7 +240,7 @@ function selectTopStories(items, options = {}) {
 }
 
 async function loadData(weekKey) {
-  const file = WEEK_FILE_MAP[weekKey] || WEEK_FILE_MAP.current;
+  const file = weekFileMap[weekKey] || weekFileMap.current;
   const response = await fetch(file, { cache: "no-store" });
   if (!response.ok) {
     throw new Error(`Failed to load ${file}: ${response.status}`);
@@ -282,41 +303,6 @@ function renderNews(news) {
   });
 }
 
-function inferSourceLabel(item) {
-  if (item && item.sourceLabel) return item.sourceLabel;
-  try {
-    const host = new URL(String(item && item.source ? item.source : "")).hostname;
-    return host ? host.replace(/^www\./, "") : "Source";
-  } catch {
-    return "Source";
-  }
-}
-
-function renderSources(news) {
-  const bodyEl = document.getElementById("sourceTableBody");
-  if (!bodyEl) return;
-
-  bodyEl.innerHTML = "";
-
-  news.forEach((item) => {
-    const tr = document.createElement("tr");
-
-    const tdSource = document.createElement("td");
-    tdSource.textContent = inferSourceLabel(item);
-
-    const tdTitle = document.createElement("td");
-    const a = document.createElement("a");
-    a.href = item.source;
-    a.textContent = item.title || item.source;
-    tdTitle.appendChild(a);
-
-    tr.appendChild(tdSource);
-    tr.appendChild(tdTitle);
-
-    bodyEl.appendChild(tr);
-  });
-}
-
 function renderMeta(meta) {
   const kicker = document.querySelector(".kicker");
   if (kicker && meta.updatedLabel) {
@@ -343,14 +329,25 @@ async function renderWeek(weekKey) {
   renderMeta(meta);
   renderStats(news, meta);
   renderNews(news);
-  renderSources(news);
 }
 
 async function init() {
   const select = document.getElementById("weekSelect");
   const params = new URLSearchParams(window.location.search);
   const fromUrl = params.get("week");
-  const initialWeek = WEEK_FILE_MAP[fromUrl] ? fromUrl : "current";
+
+  try {
+    const { map, weeks } = await loadWeekFileMap();
+    weekFileMap = map;
+    fillWeekSelector(weeks);
+  } catch (error) {
+    console.error(error);
+    if (select) {
+      select.innerHTML = `<option value="current">Current</option>`;
+    }
+  }
+
+  const initialWeek = fromUrl && weekFileMap[fromUrl] ? fromUrl : "current";
 
   if (select) {
     select.value = initialWeek;
