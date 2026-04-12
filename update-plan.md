@@ -71,12 +71,6 @@ Selection constraints (to prevent “row 1 = all OpenAI”):
 9. Commit + push to `main`. **Stage `archive/manifest.json`** whenever the set of archive weeks or their labels/ranges changed (after step 6).
 10. Confirm GitHub Pages deploy completes.
 
-## Backfill rule
-
-- Start from Jan 1, 2026
-- Do one week first to validate format
-- Continue one week at a time (no large batches yet)
-
 ## Commit message format
 
 `AI News Pulse: weekly update YYYY-MM-DD (Week WW)`
