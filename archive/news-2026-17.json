@@ -3,7 +3,7 @@
     "updatedLabel": "April 25, 2026",
     "dataDate": "2026-04-25",
     "window": "Apr 19-Apr 25, 2026",
-    "themes": "GPT-5.5, Enterprise Agents, Hyperscale Deals, Markets & Safeguards"
+    "themes": "GPT-5.5, Enterprise Agents, Hyperscaler Deals, Markets & Safeguards"
   },
   "news": [
     {
@@ -119,7 +119,7 @@
     {
       "category": "Markets",
       "date": "2026-04-24",
-      "title": "U.S. chip stocks hit records as Intel's outlook turbocharged a broader AI hardware rally",
+      "title": "U.S. chip stocks hit records as Intel’s outlook turbocharged a broader AI hardware rally",
       "summary": "Reuters tied fresh highs in U.S. semiconductor names to Intel's strong forecast on AI-tied CPU demand, underscoring how data-center and PC processor expectations still move the sector alongside accelerator headlines.",
       "source": "https://www.reuters.com/business/us-chipmakers-hit-record-highs-intel-turbocharges-ai-rally-2026-04-24/",
       "sourceLabel": "Reuters",
