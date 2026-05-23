@@ -139,6 +139,13 @@
       "file": "archive/news-2026-20.json",
       "dateFrom": "2026-05-11",
       "dateTo": "2026-05-16"
+    },
+    {
+      "key": "2026-21",
+      "label": "2026-W21 (May 17-May 23, 2026)",
+      "file": "archive/news-2026-21.json",
+      "dateFrom": "2026-05-18",
+      "dateTo": "2026-05-23"
     }
   ]
 }
