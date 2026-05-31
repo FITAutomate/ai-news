@@ -146,6 +146,13 @@
       "file": "archive/news-2026-21.json",
       "dateFrom": "2026-05-18",
       "dateTo": "2026-05-23"
+    },
+    {
+      "key": "2026-22",
+      "label": "2026-W22 (May 24-May 30, 2026)",
+      "file": "archive/news-2026-22.json",
+      "dateFrom": "2026-05-25",
+      "dateTo": "2026-05-30"
     }
   ]
 }
