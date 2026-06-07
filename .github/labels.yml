@@ -1,0 +1,80 @@
+# Declarative label manifest for FITAutomate/ai-news.
+#
+# Adapted from FITAutomate/agent-onboarding for this repo's bootstrap (PRP #3).
+# Labels are also created on the repo via the GitHub API at bootstrap time;
+# this file is the source-of-truth manifest for review and future drift checks.
+#
+# Categories:
+#   - Archon priority system (ported from agent-onboarding)
+#   - Standard GitHub set (ported)
+#   - Migration-specific (new for the AI News Astro / brand / Cloudflare work)
+
+labels:
+  # Archon priority (ported)
+  - name: archon-p0
+    color: B60205
+    description: "Archon priority 0 -- critical, file/fix tonight"
+  - name: archon-p1
+    color: D93F0B
+    description: "Archon priority 1 -- high, next session"
+  - name: archon-p2
+    color: FBCA04
+    description: "Archon priority 2 -- medium"
+  - name: archon-p3
+    color: 0E8A16
+    description: "Archon priority 3 -- low / nice-to-have"
+
+  # Standard set (ported)
+  - name: bug
+    color: d73a4a
+    description: "Something isn't working"
+  - name: feature
+    color: A2EEEF
+    description: "New capability"
+  - name: enhancement
+    color: a2eeef
+    description: "New feature or request"
+  - name: documentation
+    color: "0075ca"
+    description: "Improvements or additions to documentation"
+  - name: docs
+    color: "0075ca"
+    description: "Documentation"
+  - name: question
+    color: d876e3
+    description: "Further information is requested"
+  - name: help wanted
+    color: "008672"
+    description: "Extra attention is needed"
+  - name: good first issue
+    color: 7057ff
+    description: "Good for newcomers"
+  - name: invalid
+    color: e4e669
+    description: "This doesn't seem right"
+  - name: duplicate
+    color: cfd3d7
+    description: "This issue or pull request already exists"
+  - name: wontfix
+    color: ffffff
+    description: "This will not be worked on"
+
+  # Migration-specific (new -- propose for Quinn review)
+  - name: migration
+    color: 5319e7
+    description: "AI News Astro + Cloudflare migration work"
+  - name: standards
+    color: bfdadc
+    description: "Repo standards, .agent/, PRP scaffolding"
+  - name: astro
+    color: BC52EE
+    description: "Astro framework conversion and tooling"
+  - name: brand
+    color: "007CE8"
+    description: "FIT brand application and visual changes (Quinn gate)"
+  - name: cloudflare
+    color: F38020
+    description: "Cloudflare Pages / DNS work"
+  - name: proposal
+    color: c2e0c6
+    description: "Proposed work pending John/Quinn approval before execution"

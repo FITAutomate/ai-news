@@ -2,6 +2,20 @@
 
 AI News Pulse is a weekly AI briefing site for high-level, actionable updates.
 
+## Repo standards
+
+This repo follows the FIT Automate `.agent/` standards layout. Operating rules live in:
+
+- `.agent/AGENT.md` -- canonical operating rules
+- `.agent/CONTEXT.md` -- repo context, layer-1 reference, enabled skills
+- `.agent/COMMANDS.md` -- sanctioned PIV validation commands
+
+PRP artifacts (PRDs, plans, issues, reports, reviews, evidence) live under `.agent/prp/<bucket>/`.
+Issue templates and the label manifest live under `.github/`. Active PRP: see issue `#3` and
+`.agent/prp/prds/2026-06-06-ai-news-hyperagent-bootstrap.prd.md`.
+
+Root `AGENTS.md` and `CLAUDE.md` are thin pointers to `.agent/`.
+
 ## What this repo contains
 
 - A static site (`index.html`, `styles.css`, `app.js`)

@@ -1,0 +1,64 @@
+name: Migration task
+description: A scoped phase in the AI News Astro / brand / Cloudflare migration
+labels: ["migration", "proposal"]
+body:
+  - type: input
+    id: phase
+    attributes:
+      label: Migration phase
+      description: One of -- Astro skeleton, FIT brand, Cloudflare preview, DNS cutover, Pages retirement.
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: One-paragraph statement of what this issue delivers.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context files
+      description: Paths to PRDs, plans, prior issues, or reference repos.
+    validations:
+      required: true
+  - type: textarea
+    id: in-scope
+    attributes:
+      label: In scope
+    validations:
+      required: true
+  - type: textarea
+    id: out-of-scope
+    attributes:
+      label: Out of scope
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Validation commands
+      description: Concrete commands and observed outputs that demonstrate the issue is done.
+    validations:
+      required: true
+  - type: textarea
+    id: rollback
+    attributes:
+      label: Rollback boundary
+      description: How to undo this safely.
+    validations:
+      required: true
+  - type: textarea
+    id: approval
+    attributes:
+      label: Human approval gate
+      description: Who must approve before merge / deploy. Default -- John.
+    validations:
+      required: true
