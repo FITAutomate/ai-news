@@ -1,0 +1,19 @@
+{
+  "name": "ai-news",
+  "private": true,
+  "type": "module",
+  "version": "0.0.0",
+  "description": "FIT Automate weekly AI brief — Astro static site (skeleton conversion, issue #6)",
+  "scripts": {
+    "stage": "node scripts/stage-astro-public.mjs",
+    "prebuild": "node scripts/stage-astro-public.mjs",
+    "build": "astro build",
+    "predev": "node scripts/stage-astro-public.mjs",
+    "dev": "astro dev",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.7.0"
+  }
+}
