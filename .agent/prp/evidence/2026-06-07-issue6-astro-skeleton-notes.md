@@ -59,9 +59,27 @@ hooks). Consequences:
       archive files). Verified locally.
 - [x] `package.json` and `tsconfig.json` are valid JSON; `astro.config.mjs` and the stage script
       pass `node --check`.
-- [ ] `npm install && npm run build` — **PENDING**: the sandbox `registry.npmjs.org` allowlist
-      approval was requested but not yet granted (npm returned 403). To be completed once access is
-      granted, or in CI. This is why the PR is a **draft**.
+- [x] `npm install` → 277 packages; authoritative `package-lock.json` generated and committed to
+      the branch (deterministic Cloudflare/CI installs).
+- [x] `npm run build` → **PASS** (Astro 5.7.x, output: static). Build ran the `prebuild` staging
+      hook then `astro build`; 1 page built (`src/pages/index.astro` → `/index.html`).
+- [x] `dist/` verified equivalent to the current site: root contains `index.html`, `app.js`,
+      `styles.css`, `news-data.json`, `icon.png`, `news-bg.png`, and `archive/` (24 files:
+      `manifest.json` + 23 weekly files). `dist/index.html` carries the same `<title>`, Sora /
+      Space Grotesk font links, `./styles.css` link, `#weekSelect` / `#newsGrid` hooks, and the
+      `./app.js?v=20260606a` script left verbatim (confirming `is:inline` prevented bundling).
+      Independently reproduces John's build result.
+
+Build validation complete — PR moved out of draft to ready-for-review.
+
+## Note for later phases — `public/` staging caveat
+
+`scripts/stage-astro-public.mjs` deletes and recreates `public/` on every build. That is fine
+while `public/` is **generated-only** (issue #6). However, if a later phase wants to commit **real
+source assets** under `public/` (e.g. brand assets in #7, or any hand-authored static file), that
+phase MUST adjust this script first — as written it would wipe any committed `public/` contents on
+the next build. Options for later: copy into a subfolder the script doesn't clear, switch from
+"wipe + recopy" to a targeted sync, or stop staging once assets are physically relocated.
 
 ## Explicitly out of scope (not done here)
 
