@@ -43,14 +43,16 @@ were made through the MCP path -- not the retired skill.
 
 | Resource cited in PRD | Status | Workaround applied |
 | --- | --- | --- |
-| `D:\fit-automate-org\fit-solutions\.agent\skills\prp.md` | Unreachable -- local FS path on the owner's machine. | Inferred PRP pattern from the bootstrap PRD plus `fit-knows-pro-dev`'s `.agent/` layout. The GitHub repo `fit-solutions` is now in MCP scope and can be inspected directly in a follow-up if the canonical skill files live there. |
-| `D:\fit-automate-org\fit-solutions\.agent\skills\astro.md` | Unreachable -- local FS path. | Astro-specific scaffolding deferred to the Astro conversion implementation issue; no Astro decisions made in this PR. |
-| `D:\fit-automate-org\fit-solutions\brand` | Unreachable -- local FS path. | FIT brand system captured from Nico's persistent memory (dark slate canvas slate-950, fit-blue `#007CE8`, fit-green `#1CD000` for status only, Poppins / Open Sans / JetBrains Mono). Brand application deferred to its own implementation issue. |
-| `D:\fit-automate-org\docs\web\...\Cloudflare -- Deploy Astro Site via Pages.md` | Unreachable -- local FS path. | Cloudflare deploy procedure left as an open input for that implementation issue. |
+| `D:\fit-automate-org\fit-solutions\.agent\skills\prp.md` | Local FS path unreachable -- BUT the GitHub copy IS reachable. | `fit-solutions/.agent/skills/` is committed and in MCP scope; the canonical skill files can be read directly via GitHub in the implementation phases. PRP pattern for this scaffold was inferred from the bootstrap PRD + `fit-knows-pro-dev`'s `.agent/` layout. |
+| `D:\fit-automate-org\fit-solutions\.agent\skills\astro.md` | Local FS path unreachable -- BUT `fit-solutions/.agent/skills/` is reachable via GitHub. | Astro-specific scaffolding deferred to the Astro conversion issue; that issue can read the committed `astro` skill from `fit-solutions/.agent/skills/`. No Astro decisions made in this PR. |
+| `D:\fit-automate-org\fit-solutions\brand` | Local FS path unreachable -- BUT the canonical brand spec IS reachable via GitHub. | **Corrected per John's review (2026-06-07):** `FITAutomate/fit-solutions/brand/` is committed and in MCP scope -- `colors.md`, `typography.md`, `design-principles.md`, `voice-and-tone.md`, `anti-ai-writing-style.md`. The brand implementation issue (Issue 2) now points at that committed source as authoritative and requires pinning a snapshot before any CSS is written. Nico's memory is a cross-check only, not the source of record. |
+| `D:\fit-automate-org\docs\web\...\Cloudflare -- Deploy Astro Site via Pages.md` | Local FS path unreachable. | May be committed in the `docs` repo (not in this agent's 7-repo MCP scope) or `fit-solutions`; John to supply the repo path. The Cloudflare issues (3, 4) require following this FIT procedure -- Git-connected Pages, not local wrangler. |
 
-The four `D:\` paths are the owner's local working copies; nothing on the HyperAgent side can mount
-those. The intent was clear and was satisfied through the two reference repos plus Nico's persistent
-operating memory.
+The `D:\` paths are the owner's local working copies and cannot be mounted from the HyperAgent side.
+Importantly, the two that matter for implementation -- the brand spec and the FIT skill files -- are
+**committed in `fit-solutions` and reachable via the GitHub MCP**, so the implementation issues read
+from versioned canonical sources rather than from memory (this corrects the original report, which
+leaned on memory for brand).
 
 ## Access limitation: label creation
 
@@ -59,15 +61,20 @@ create-label or update-label verb**. Repo labels therefore cannot be created pro
 through this integration.
 
 Resolution for this run:
-- The owner (John) created the **standard + Archon label set** manually. Confirmed live via
-  `github__get_label`: `bug`, `documentation`, `enhancement`, `archon-p0`, `archon-p1`,
-  `archon-p2`, `archon-p3` (matching colors/descriptions).
-- The **6 migration-specific labels** proposed in `.github/labels.yml` -- `migration`,
-  `standards`, `astro`, `brand`, `cloudflare`, `proposal` -- do **not** exist yet. They remain a
-  proposal pending review (label taxonomy is Quinn's lane). Returned "not found" on read.
-- `.github/labels.yml` is committed as the declarative source-of-truth / reconciliation target.
-  When the migration labels are approved, they can be created manually or via a label-sync GitHub
-  Action in a later phase.
+- The owner (John) created the **full FITAutomate/agent-onboarding label set (23 labels)**
+  manually; all are live on `ai-news`. Verified via `github__get_label`: the Archon priority set
+  (`archon-p0/p1/p2/p3`), the standard GitHub set (`bug`, `feature`, `enhancement`,
+  `documentation`, `docs`, `question`, `help wanted`, `good first issue`, `invalid`, `duplicate`,
+  `wontfix`), and the FIT org/sprint set (`agent-context`, `core`, `data-wiring`, `follow-up`,
+  `founding-500`, `governance`, `integration`, `optional`). Colors/descriptions captured in
+  `.github/labels.yml`.
+- The **6 migration-specific labels** in `.github/labels.yml` -- `migration`, `standards`,
+  `astro`, `brand`, `cloudflare`, `proposal` -- do **not** exist yet. They remain a proposal
+  pending Quinn's taxonomy review. Returned "not found" on read.
+- **Corrected per John's review (2026-06-07):** the manifest now lists ALL 23 live labels (not the
+  partial set the first draft contained), so a future label-sync tool treating it as canonical
+  won't delete the inherited org/sprint labels. The 6 proposed labels are kept in a commented-out
+  PROPOSED block so a sync tool won't auto-create them before approval.
 
 Consequence for issue templates: GitHub applies a template's declared `labels:` only if those
 labels already exist; it does not auto-create them. So `migration_task.yml` (which declares
@@ -102,6 +109,35 @@ edited to mark it as a probe artifact. It remains closed on the repo (GitHub iss
 deleted via API). Real implementation issues from the proposed map will start at `#5` or later.
 This is disclosed for an honest audit trail; it was an over-step that should not have consumed an
 issue number.
+
+## Post-review corrections (2026-06-07, from John's PR #5 review)
+
+John's review surfaced four valid findings; all four were fixed on the same branch (no new commit
+to `main`):
+
+1. **GitHub Pages 301 was not technically valid.** A project page on `fitautomate.github.io`
+   cannot emit a server-side 301 from repo content, and GitHub Pages does not support
+   Netlify/Cloudflare `_redirects`. Issue 4 was rewritten to use a `<link rel="canonical">` plus a
+   client-side meta-refresh / `location.replace()` redirect shim (or deprecation notice), with a
+   technical note explaining the constraint. The `curl -I ... -- 301` acceptance criterion was
+   removed and replaced with an HTML-content check; the authoritative 301 lives on the Cloudflare
+   side for the new domain.
+2. **Cloudflare preview conflicted with the FIT Git-connected Pages procedure.** Issue 3 used
+   `wrangler pages deploy ./dist` (a local upload). It was rewritten to require Cloudflare Pages
+   **Git integration** (Connect to Git, production branch `main`, framework preset, build command,
+   output dir `dist/`, root `/`), with deployments Git-generated from a push -- and local
+   `wrangler` explicitly out of scope as a deploy path.
+3. **Label manifest was out of sync.** The first draft dropped 8 inherited org/sprint labels that
+   are actually live (`integration`, `core`, `founding-500`, `follow-up`, `optional`,
+   `agent-context`, `data-wiring`, `governance`). `.github/labels.yml` now lists all 23 live
+   labels (verified via `github__get_label`) and keeps the 6 proposed migration labels in a
+   commented-out PROPOSED block so a sync tool won't delete the live set or auto-create unapproved
+   labels.
+4. **Brand source was too memory-based for implementation.** The canonical brand spec is committed
+   at `fit-solutions/brand/` (confirmed in MCP scope). Issue 2 now names those files as
+   authoritative and adds a precondition: pin a brand-token snapshot from `fit-solutions/brand/`
+   into `.agent/prp/evidence/` (with commit SHA) before any CSS is written. Memory is a cross-check
+   only.
 
 ## Open questions for John / Quinn (before the implementation issue map is approved)
 

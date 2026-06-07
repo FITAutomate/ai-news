@@ -35,7 +35,11 @@ several of them appear as acceptance criteria below.
 - Q2: Starwind UI (OSS) or Starwind Pro (licensed)?
 - Q3: Is `fitautomate.com` already on Cloudflare nameservers? New Pages project or shared?
 - Q4: Is `ai-news.fitautomate.com` already provisioned, or does that happen during cutover?
-- Q5: Brand source -- shared package, or local copy into `src/styles/`?
+- Q5: Brand delivery mechanism. The canonical brand spec is confirmed committed at
+  `fit-solutions/brand/` (`colors.md`, `typography.md`, `design-principles.md`, etc.) and is in
+  MCP scope. Decision needed: consume it as (a) a pinned token snapshot copied into ai-news
+  `src/styles/`, or (b) a shared package / git submodule. Either way the brand work reads from
+  `fit-solutions/brand/` as the source of record, not from memory.
 - Q6: `piv.config.yaml` taxonomy alignment with the FIT registry.
 - Q7: Disposition of `update-plan.md` (archive or delete).
 - Q8: Migration label set. The standard + Archon labels exist on the repo (created by John). The
@@ -134,13 +138,26 @@ Decide on Starwind tier and apply chosen components consistently with the brand.
 **Context files**
 
 - `.agent/AGENT.md`
-- Nico's persistent FIT brand memory (palette, fonts, status rules)
-- Open inputs: Q2 (Starwind tier), Q5 (brand source)
+- **Canonical brand source (authoritative -- read this, not memory):**
+  `FITAutomate/fit-solutions/brand/` -- `colors.md`, `typography.md`, `design-principles.md`,
+  `voice-and-tone.md`, `anti-ai-writing-style.md`. Confirmed committed and reachable via the
+  GitHub MCP as of 2026-06-06. Nico's persistent brand memory is a fast cross-check only, NOT the
+  source of record.
+- Open inputs: Q2 (Starwind tier), Q5 (brand delivery mechanism)
 - External: Starwind docs (URL TBD by Q2)
+
+**Precondition (must complete before any CSS is written)**
+
+- Pull the brand tokens from `fit-solutions/brand/colors.md` and `fit-solutions/brand/typography.md`
+  at a specific commit SHA, and pin that snapshot into `.agent/prp/evidence/` for this issue. The
+  implementation reads from that versioned snapshot, so the brand work has a canonical, auditable
+  reference rather than relying on memory or a moving target. If the brand files are ambiguous or
+  incomplete, stop and route to Quinn before writing CSS.
 
 **In scope**
 
-- `src/styles/brand.css` (or equivalent) carrying the FIT palette and typography tokens.
+- `src/styles/brand.css` (or equivalent) carrying the FIT palette and typography tokens, sourced
+  from the pinned `fit-solutions/brand/` snapshot.
 - Font loading via Google Fonts `<link>` in the Astro layout.
 - Refactor of `index.astro` to use the FIT typography hierarchy and component layout.
 - Adoption of the chosen Starwind tier (UI or Pro) and replacement of any bespoke components with
@@ -158,7 +175,8 @@ Decide on Starwind tier and apply chosen components consistently with the brand.
 **Acceptance criteria**
 
 - The Astro `dist/` renders with the FIT brand applied: palette, fonts, accent, and status colors
-  match `.agent/AGENT.md`'s referenced brand memory.
+  match the canonical tokens in `fit-solutions/brand/colors.md` and
+  `fit-solutions/brand/typography.md` (cite the commit SHA of the snapshot used).
 - Lighthouse a11y score >= 95 against the new layout (manual or scripted).
 - Print stylesheet renders the page light-on-paper without color-loss issues.
 - Quinn has reviewed and signed off on brand application before merge.
@@ -190,23 +208,32 @@ Quinn signs off on brand application; Maya signs off on any new copy; John appro
 
 **Goal**
 
-Stand up a Cloudflare Pages project for `ai-news` that builds from `main` and serves the Astro
-`dist/` output on a Cloudflare-assigned preview URL (e.g. `ai-news.pages.dev`). No DNS records
-created for the production hostname yet. GitHub Pages continues to be the canonical production
-URL.
+Connect the `ai-news` GitHub repo to a Cloudflare Pages project using Cloudflare's **Git
+integration** (the FIT canonical procedure), so Pages builds the Astro site automatically on every
+push to `main` and serves it on a Cloudflare-assigned `*.pages.dev` URL. Deployments are
+Git-generated, not local uploads. No DNS records for the production hostname yet. GitHub Pages
+stays the canonical production URL during this issue.
 
 **Context files**
 
 - `.agent/AGENT.md`
-- John's local procedure: `docs/web/.../PROC -- Cloudflare -- Deploy Astro Site via Pages.md`
-  (not reachable from this environment -- John supplies the runtime steps or a copy)
+- FIT canonical procedure: "Cloudflare -- Deploy Astro Site via Pages" (lives in the `docs` repo /
+  `fit-solutions`; John supplies the committed copy or its repo path -- the `D:\...` local copy is
+  not reachable from this environment). This procedure is Git-connected Pages, NOT local wrangler.
 - Open inputs: Q3 (Cloudflare account / Pages project shape), Q4 (DNS readiness)
 
 **In scope**
 
-- A `wrangler.toml` or Cloudflare dashboard configuration that builds the Astro site.
-- A `.cloudflare/` (or `wrangler.toml`) project file capturing the build command and output dir.
-- A documented manual smoke-test against the `pages.dev` preview URL.
+- A Cloudflare Pages project created via the dashboard's **"Connect to Git"** flow, bound to
+  `FITAutomate/ai-news`, with the production branch set to `main`.
+- Build configuration in the Pages project: framework preset Astro, build command (`pnpm build`
+  or per Q1), build output directory `dist/`, root directory `/`, and any required env vars
+  referenced by name only.
+- A committed settings record (e.g. `.agent/prp/evidence/<date>-cloudflare-pages-git-config.md`)
+  capturing the exact Git-integration configuration: project name, production branch, build
+  command, output dir, root dir, env var names. (Cloudflare Pages Git projects are configured in
+  the dashboard, not via a repo `wrangler.toml`; the evidence file is the repo-side record.)
+- A documented smoke-test against the Git-generated `*.pages.dev` deployment.
 - Inclusion of the preview URL in the implementation issue's PR description, but **not** in
   public docs.
 
@@ -215,10 +242,17 @@ URL.
 - Any DNS change (no `ai-news.fitautomate.com` CNAME or A record).
 - GitHub Pages retirement.
 - Production traffic routing.
+- Local `wrangler pages deploy` as the production deployment path -- deployments must be
+  Git-generated from a push to `main`. (Local `wrangler` is acceptable only for an ad-hoc developer
+  smoke test, never as the project's deploy mechanism.)
 
 **Acceptance criteria**
 
-- Cloudflare Pages successfully builds the latest `main` commit.
+- The Cloudflare Pages project is Git-connected to `FITAutomate/ai-news` with production branch
+  `main`.
+- The latest Pages deployment was **triggered by a GitHub push to `main`** and its source commit
+  SHA matches `main`'s HEAD (verifiable in the Pages dashboard deployment list as a Git
+  deployment, not a direct upload).
 - Preview URL serves a page byte-equivalent to the GitHub Pages site (with brand applied if issue
   2 has merged first).
 - A documented smoke-test pass: load preview URL, confirm weekly data renders, confirm assets
@@ -226,14 +260,16 @@ URL.
 
 **Validation commands**
 
-- `wrangler pages deploy ./dist --project-name=ai-news` (or dashboard-driven equivalent, per Q3).
-- `curl -I https://ai-news.pages.dev/` -- 200 OK.
+- In the Cloudflare Pages dashboard, confirm the latest deployment's trigger is a GitHub commit on
+  `main` and the commit SHA matches `git rev-parse origin/main`.
+- `curl -I https://<project>.pages.dev/` -- 200 OK.
 - Manual browser smoke-test.
 
 **Rollback boundary**
 
-Deleting the Cloudflare Pages project is a no-op for production. GitHub Pages remains the
-canonical URL throughout this issue. No DNS records exist for `ai-news.fitautomate.com` yet.
+Disconnecting the Git integration or deleting the Cloudflare Pages project is a no-op for
+production. GitHub Pages remains the canonical URL throughout this issue. No DNS records exist for
+`ai-news.fitautomate.com` yet.
 
 **Human approval gate**
 
@@ -249,53 +285,75 @@ John approves the merge. Quinn is in the loop because the preview surfaces the b
 
 **Goal**
 
-Move production traffic from `https://fitautomate.github.io/ai-news/` to
-`https://ai-news.fitautomate.com`. Set up a 301 redirect from the GitHub Pages URL to the new
-Cloudflare-hosted URL. Update repo `README.md` to reference the new canonical URL. Do not retire
-GitHub Pages yet (issue 5 does that).
+Move production traffic to `https://ai-news.fitautomate.com` (Cloudflare custom domain on the
+Pages project). Replace the old GitHub Pages content at `https://fitautomate.github.io/ai-news/`
+with a client-side redirect plus a `<link rel="canonical">` to the new URL (a redirect shim /
+deprecation notice). Update `README.md` to the new canonical URL. Do not retire GitHub Pages yet
+(issue 5 does that).
+
+**Technical note (why not a 301 from GitHub Pages)**
+
+GitHub Pages serves static repo content for a project page like `/ai-news/`. It does **not**
+support server-side redirect rules: there is no Netlify/Cloudflare-style `_redirects` file support,
+and you cannot make `fitautomate.github.io` emit a real `301` status header for that path from repo
+content. The authoritative `301` lives on the Cloudflare side for the new domain. From the old
+GitHub Pages URL, the strongest signals available are a `<link rel="canonical">` pointing at the
+new URL plus a client-side redirect (`<meta http-equiv="refresh">` and `location.replace()`), with
+a visible fallback link. Plan accordingly -- do not assert a server 301 from the github.io path.
 
 **Context files**
 
 - `.agent/AGENT.md`
-- John's local Cloudflare procedure (not reachable; John supplies)
+- FIT canonical Cloudflare procedure (John supplies the repo path; `D:\...` local copy not
+  reachable)
 - Open inputs: Q3, Q4
 - Pre-requisite issue: issue 3 must be merged and validated.
 
 **In scope**
 
-- DNS record creation for `ai-news.fitautomate.com` (Cloudflare CNAME to the Pages project).
-- Cloudflare Pages custom domain binding.
-- GitHub Pages redirect (via a small `_redirects` file in the Pages branch, or by reconfiguring
-  Pages to serve a redirect-only page; both options carry trade-offs to confirm with John).
+- DNS record creation for `ai-news.fitautomate.com` (Cloudflare CNAME to the Pages project) and the
+  Cloudflare Pages custom-domain binding.
+- Replace the GitHub Pages `index.html` (or add a redirect shim page) with: a
+  `<link rel="canonical" href="https://ai-news.fitautomate.com/">`, a
+  `<meta http-equiv="refresh" content="0; url=https://ai-news.fitautomate.com/">`, a
+  `location.replace("https://ai-news.fitautomate.com/")` script, and a visible fallback link /
+  deprecation notice. (This is the realistic substitute for a 301 on a github.io project page.)
 - `README.md` update to reference the new canonical URL.
-- Search Console "Change of Address" if applicable.
+- Update/point the sitemap at the new URL.
+- Google Search Console: note that "Change of Address" applies to whole-domain moves, so it may not
+  be available for a project-path move off `fitautomate.github.io`; if unavailable, rely on the
+  canonical tag, the client-side redirect, sitemap resubmission, and Cloudflare-side 301s. File
+  Change of Address only if the tool offers it for this move.
 
 **Out of scope**
 
 - Disabling GitHub Pages entirely (issue 5).
-- Any content change.
+- Any content change beyond the redirect shim.
 
 **Acceptance criteria**
 
 - `dig ai-news.fitautomate.com +short` returns Cloudflare IPs.
 - `curl -I https://ai-news.fitautomate.com/` -- 200 OK.
-- `curl -I https://fitautomate.github.io/ai-news/` -- 301 to
-  `https://ai-news.fitautomate.com/` (or equivalent path mapping).
-- Search Console change-of-address filed (manual step).
+- The GitHub Pages page at `/ai-news/` returns 200 and its HTML contains both the `canonical` link
+  and the meta-refresh/JS redirect to the new URL (verified by inspecting the returned HTML, NOT by
+  expecting a 301 status code).
 - README points at the new canonical URL.
 
 **Validation commands**
 
 - `dig ai-news.fitautomate.com +short`
-- `curl -I https://ai-news.fitautomate.com/`
-- `curl -I https://fitautomate.github.io/ai-news/`
+- `curl -I https://ai-news.fitautomate.com/`  (expect 200)
+- `curl -sL https://fitautomate.github.io/ai-news/ | grep -iE 'rel=.?canonical|http-equiv=.?refresh|location\.replace'`
+  -- confirms the redirect-shim markup is present (do not expect a 301 status from github.io).
 
 **Rollback boundary**
 
-Revert DNS record (CNAME deletion). GitHub Pages still has the live mirror at
-`fitautomate.github.io/ai-news/` (until issue 5 lands), so a DNS rollback returns canonical
-traffic to that URL with a one-commit revert of the README. Rollback window before SEO impact is
-small but non-zero -- this is the highest-impact issue in the map and warrants the most explicit
+Two reversible actions: (1) delete the Cloudflare DNS record / custom-domain binding; (2)
+`git revert` the commit that replaced the github.io `index.html` with the redirect shim, restoring
+the original site at `fitautomate.github.io/ai-news/`. Because the github.io page is converted to a
+shim in this issue (not left as a full mirror), the README revert alone is not enough -- the
+index.html restore is the key rollback step. Rollback window before SEO impact is small but
+non-zero -- this is the highest-impact issue in the map and warrants the most explicit
 "go / no-go" approval gate.
 
 **Human approval gate**
