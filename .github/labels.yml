@@ -1,0 +1,113 @@
+# Declarative label manifest for FITAutomate/ai-news.
+#
+# Source of truth for the repo's label contract. The LIVE section below mirrors the
+# labels actually present on the repo (the full FITAutomate/agent-onboarding set, created
+# manually by John -- the GitHub MCP exposes no label-write verb, so labels are not created
+# by agent automation). Values verified live via github__get_label on 2026-06-06.
+#
+# IMPORTANT for any future label-sync automation (e.g. github-label-sync, EndBug/label-sync):
+#   - Treat the LIVE section as canonical. A sync tool will DELETE any repo label not listed
+#     here, so this section must stay complete or it will cause drift/deletion.
+#   - The PROPOSED section is commented out on purpose. These 6 migration labels are NOT yet
+#     created and are pending Quinn's taxonomy review. Do not uncomment (and thus create) them
+#     until approved. Issue templates that reference them (migration_task.yml -> migration,
+#     proposal) will silently drop those labels until they exist.
+
+labels:
+  # ── Archon priority system ──────────────────────────────────────────
+  - name: archon-p0
+    color: B60205
+    description: "Archon priority 0 — critical, file/fix tonight"
+  - name: archon-p1
+    color: D93F0B
+    description: "Archon priority 1 — high, next session"
+  - name: archon-p2
+    color: FBCA04
+    description: "Archon priority 2 — medium"
+  - name: archon-p3
+    color: 0E8A16
+    description: "Archon priority 3 — low / nice-to-have"
+
+  # ── Standard GitHub set ─────────────────────────────────────────────
+  - name: bug
+    color: d73a4a
+    description: "Something isn't working"
+  - name: feature
+    color: A2EEEF
+    description: "New capability"
+  - name: enhancement
+    color: a2eeef
+    description: "New feature or request"
+  - name: documentation
+    color: "0075ca"
+    description: "Improvements or additions to documentation"
+  - name: docs
+    color: "0075ca"
+    description: "Documentation"
+  - name: question
+    color: d876e3
+    description: "Further information is requested"
+  - name: help wanted
+    color: "008672"
+    description: "Extra attention is needed"
+  - name: good first issue
+    color: 7057ff
+    description: "Good for newcomers"
+  - name: invalid
+    color: e4e669
+    description: "This doesn't seem right"
+  - name: duplicate
+    color: cfd3d7
+    description: "This issue or pull request already exists"
+  - name: wontfix
+    color: ffffff
+    description: "This will not be worked on"
+
+  # ── FIT org / sprint labels (inherited from agent-onboarding, live on this repo) ──
+  - name: agent-context
+    color: bfdadc
+    description: "Updates agent context files (CLAUDE.md, .agent/)"
+  - name: core
+    color: 0e8a16
+    description: "Core sprint issue"
+  - name: data-wiring
+    color: 1d76db
+    description: "Registry data wiring"
+  - name: follow-up
+    color: c2e0c6
+    description: "Follow-up after sprint mechanism is proven"
+  - name: founding-500
+    color: 5319e7
+    description: "Founding 500 application sprint"
+  - name: governance
+    color: 5319e7
+    description: "Governance and decision records"
+  - name: integration
+    color: 1D76DB
+    description: "External integrations"
+  - name: optional
+    color: fbca04
+    description: "Optional - first to cut if behind"
+
+# ── PROPOSED migration labels (NOT yet created — pending Quinn taxonomy review) ──
+# Uncomment and create only after approval. Colors are provisional proposals; note that
+# `migration`/`founding-500`/`governance` would share 5319e7 unless re-colored at approval time.
+#
+#  - name: migration
+#    color: 5319e7
+#    description: "AI News Astro + Cloudflare migration work"
+#  - name: standards
+#    color: bfdadc
+#    description: "Repo standards, .agent/, PRP scaffolding"
+#  - name: astro
+#    color: BC52EE
+#    description: "Astro framework conversion and tooling"
+#  - name: brand
+#    color: "007CE8"
+#    description: "FIT brand application and visual changes (Quinn gate)"
+#  - name: cloudflare
+#    color: F38020
+#    description: "Cloudflare Pages / DNS work"
+#  - name: proposal
+#    color: c2e0c6
+#    description: "Proposed work pending John/Quinn approval before execution"

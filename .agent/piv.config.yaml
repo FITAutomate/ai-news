@@ -1,0 +1,9 @@
+repo_type: site
+# FIT Automate AI News brief. Bootstrap phase (PRP #3) -- no Astro build yet.
+# PIV = the gates defined in .agent/COMMANDS.md (none for the bootstrap; added by later phases).
+family: FIT Automate
+tier: publication
+validation: "see .agent/COMMANDS.md"
+commands: {}
+# enabled_skills are declared in .agent/CONTEXT.md.
+# repo_type is provisional; final taxonomy classification routes to Quinn for registry alignment.

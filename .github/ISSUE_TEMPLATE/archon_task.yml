@@ -1,0 +1,30 @@
+name: Archon task
+description: A prioritized task tracked under the Archon workflow
+labels: ["archon-p2"]
+body:
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: Replace the default archon-p2 label after filing if different.
+      options:
+        - p0 -- critical, file/fix tonight
+        - p1 -- high, next session
+        - p2 -- medium
+        - p3 -- low / nice-to-have
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context / links
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
