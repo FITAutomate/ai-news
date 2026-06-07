@@ -227,10 +227,17 @@
   html { color-scheme: dark; }
   body {
     font-family: var(--font-sans);
-    background-color: var(--color-slate-950);
     color: var(--color-slate-100);
     line-height: 1.7;
     overflow-x: hidden;
+    background-color: var(--color-slate-950);
+    /* Overflow-safe ambient glow (replaces the removed fixed orbs). A painted background
+       cannot create horizontal scroll, unlike the old position:fixed orb elements. */
+    background-image:
+      radial-gradient(900px circle at 12% -8%, --alpha(var(--color-fit-blue) / 10%), transparent 60%),
+      radial-gradient(720px circle at 102% 2%, --alpha(var(--color-fit-blue) / 6%), transparent 55%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
   }
   h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.2; }
   code, kbd, pre, samp { font-family: var(--font-mono); }

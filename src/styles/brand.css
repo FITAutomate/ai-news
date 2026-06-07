@@ -313,20 +313,6 @@
     font-family: var(--font-mono);
   }
 
-  /* ── Ambient background accents — fit-blue only, restrained ──── */
-  .bg-orb {
-    position: fixed;
-    width: 320px;
-    height: 320px;
-    filter: blur(60px);
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0.18;
-    pointer-events: none;
-  }
-  .orb-a { background: var(--color-fit-blue); top: -90px; left: -70px; }
-  .orb-b { background: var(--color-slate-500); right: -60px; bottom: -100px; opacity: 0.12; }
-
   @media (max-width: 700px) {
     .container { width: 93vw; padding-top: 2rem; }
     .top-menu { flex-direction: column; align-items: flex-start; gap: 0.5rem; }

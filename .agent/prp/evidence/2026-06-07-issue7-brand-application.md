@@ -17,8 +17,10 @@ FIT brand applied from the pinned snapshot (`fit-solutions/brand@d2fef9e`):
   fit-blue, `--success` = fit-green, and the dark palette to the Tailwind **slate** scale (dark
   surfaces, never navy/black). Page runs in dark mode (`<html class="dark">`).
 - **Page styling (`src/styles/brand.css`):** styles the AI News bespoke classes (nav, hero, stats,
-  cards, badges, tags, footer, ambient orbs) on slate surfaces with fit-blue accents, Poppins
-  headings, Open Sans body, JetBrains Mono for data/metadata.
+  cards, badges, tags, footer) on slate surfaces with fit-blue accents, Poppins headings, Open Sans
+  body, JetBrains Mono for data/metadata. The background is an overflow-safe ambient glow painted on
+  `body` (no `position: fixed` orbs — removed per Quinn's PR #12 follow-up to eliminate any
+  horizontal overflow).
 - **Starwind Pro components:** `button`, `badge`, `card`, `select` are **generated into the repo
   and available** (`src/components/starwind/`) as the project's design-system basis. Of these,
   **`Button` is the one actually instantiated** in the page (the two static footer CTAs:
