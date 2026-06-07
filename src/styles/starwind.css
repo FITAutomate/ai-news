@@ -7,6 +7,10 @@
 /* ── FIT brand tokens (issue #7) — source: fit-solutions/brand@d2fef9e ── */
 @theme {
   --color-fit-blue: #007ce8;
+  /* Approved on-dark tint of fit-blue for SMALL text/links on slate surfaces, so they
+     clear WCAG AA normal-text contrast (6.06:1 on slate-900). Canonical #007CE8 stays for
+     primary fills, large text, and non-text accents. (Per Quinn, PR #12.) */
+  --color-fit-blue-300: #3b9bf0;
   --color-fit-green: #1cd000;
   --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
@@ -187,7 +191,10 @@
   :root,
   .dark {
     --primary: var(--color-fit-blue);
-    --primary-foreground: #ffffff;
+    /* Accessible primary-button treatment: dark slate label on the canonical fit-blue fill
+       = 4.85:1 (AA). White-on-fit-blue is only 4.16:1, so we keep the #007CE8 fill and darken
+       the label instead of accepting a known failure. (Per Quinn, PR #12.) */
+    --primary-foreground: #020617;
     --primary-accent: var(--color-fit-blue);
     --success: var(--color-fit-green);
     --success-foreground: #042b0a;

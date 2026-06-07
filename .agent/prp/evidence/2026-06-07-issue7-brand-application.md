@@ -19,11 +19,13 @@ FIT brand applied from the pinned snapshot (`fit-solutions/brand@d2fef9e`):
 - **Page styling (`src/styles/brand.css`):** styles the AI News bespoke classes (nav, hero, stats,
   cards, badges, tags, footer, ambient orbs) on slate surfaces with fit-blue accents, Poppins
   headings, Open Sans body, JetBrains Mono for data/metadata.
-- **Starwind Pro components:** installed `button`, `badge`, `card`, `select` via the CLI. The
-  static footer CTAs now use the Starwind `<Button>` (`variant="primary"` = fit-blue, and
-  `variant="outline"`). The dynamic news cards / stats / week-select are rendered by `app.js` at
-  runtime, so they keep their class hooks and are styled to match the Starwind + FIT system rather
-  than being replaced (see "Behavior preserved").
+- **Starwind Pro components:** `button`, `badge`, `card`, `select` are **generated into the repo
+  and available** (`src/components/starwind/`) as the project's design-system basis. Of these,
+  **`Button` is the one actually instantiated** in the page (the two static footer CTAs:
+  `variant="primary"` = fit-blue fill, and `variant="outline"`). The dynamic news cards / stats /
+  week-select are rendered by `app.js` at runtime, so they keep their class hooks and are **styled
+  to match** the Starwind + FIT system rather than being replaced; `badge`/`card`/`select` are
+  available for future static use but are not directly instantiated in this pass.
 - **Colour intent (FIT rule):** `fit-green` is reserved for status/approval and is **not** used
   decoratively. The old design's decorative green (badges, CTA) is now fit-blue/slate. Rating stars
   keep a distinct gold indicator (not a brand status colour).
@@ -54,7 +56,9 @@ FIT brand applied from the pinned snapshot (`fit-solutions/brand@d2fef9e`):
 - `npm run preview` — to be run by the reviewer for the live visual pass (sandbox has no browser);
   build output verified structurally.
 
-### Accessibility — WCAG contrast (computed)
+### Accessibility — WCAG contrast (computed) — post-Quinn polish
+
+All key pairs now pass WCAG AA normal-text (≥4.5:1):
 
 | Pair | Ratio | Verdict |
 |---|---|---|
@@ -64,20 +68,27 @@ FIT brand applied from the pinned snapshot (`fit-solutions/brand@d2fef9e`):
 | kicker: fit-blue on slate-950 | 4.85:1 | AA |
 | rating: gold on slate-900 | 10.96:1 | AA |
 | badge text: slate-100 on slate-900 | 16.30:1 | AA |
-| **link: fit-blue on slate-900 (card "Read source")** | **4.29:1** | below AA-normal (≥3 UI/large) |
-| **button label: white on fit-blue** | **4.16:1** | below AA-normal (≥3 UI/large) |
+| card "Read source" link: **fit-blue-300 (#3b9bf0)** on slate-900 | **6.06:1** | AA (was 4.29 with #007CE8) |
+| primary CTA label: **slate-950 (#020617)** on fit-blue | **4.85:1** | AA (was 4.16 with white) |
+| outline CTA label: slate-100 on slate-950 | 18.41:1 | AA |
 
-**Two findings for Quinn (brand owner).** Both involve `fit-blue` (#007CE8) with small text and
-fall just below the AA normal-text threshold (4.5:1) while clearing the 3:1 UI/large-text bar. The
-brand blue is fixed by the brand spec, so the fix is a brand-system decision, not mine to make
-unilaterally. Recommendation for Quinn:
-- Introduce a lighter **fit-blue tint for small text/links on dark surfaces** (e.g. ~`#4DA6F0`,
-  which reaches AA on slate-900) while keeping `#007CE8` for fills, large text, and non-text accents.
-- For the primary button, either use the same darker-on-light / lighter-on-dark treatment or accept
-  the 4.16:1 for the bold CTA label. Quinn's call.
+**Polish applied per Quinn's PR #12 direction:**
+1. Added an approved on-dark fit-blue tint `--color-fit-blue-300: #3b9bf0` for small text/links on
+   slate surfaces (`.card a`, link hovers). Canonical `#007CE8` is kept for primary fills, large
+   text (kicker passes at 4.85), and non-text accents (card hover border, focus outline).
+2. Primary CTA uses a documented accessible treatment: dark slate label (`--primary-foreground:
+   #020617`) on the canonical `#007CE8` fill = 4.85:1 — keeps the brand fill, no known failure.
 
-A full Lighthouse/axe run should be done in the reviewer's browser to confirm beyond contrast
-(focus order, landmarks, etc.). The markup retains the existing `aria-label`s and semantic landmarks.
+### Accessibility — static audit (computed/structural; "equivalent" pass)
+
+All checks PASS on the built `dist/index.html`: `<html lang>`, exactly one `<h1>`, `<main>`
+landmark, `<nav aria-label>` landmarks, hero `<img>` has `alt`, week `<select>` has `aria-label`,
+all social links have `aria-label`, decorative SVGs are `aria-hidden`, and both CTA buttons have
+discernible text.
+
+**Residual (reviewer-side):** the sandbox has no browser, so a full **Lighthouse/axe** run (focus
+order, computed styles, etc.) should be run in the reviewer's browser via `npm run preview`. The
+computed-contrast audit + static structural audit above are the in-sandbox equivalent.
 
 ## Boundary
 
