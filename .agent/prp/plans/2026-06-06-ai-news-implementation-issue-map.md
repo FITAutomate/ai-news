@@ -20,7 +20,9 @@ The mapped issues, in order, are:
 1. Astro skeleton conversion preserving the current weekly-data workflow.
 2. FIT brand redesign on the Astro surface (Quinn-gated).
 3. Cloudflare Pages preview deployment (no DNS, no production traffic).
-4. DNS cutover to `ai-news.fitautomate.com` with full redirect from the GitHub Pages URL.
+4. DNS cutover to `ai-news.fitautomate.com` (Cloudflare custom domain); the old GitHub Pages URL
+   becomes a canonical-link + client-side redirect shim (a github.io project page cannot emit a
+   server-side 301).
 5. GitHub Pages retirement and documentation cleanup, including handling of `update-plan.md`.
 
 Issues 1-2 are repo-internal; 3 stands up a parallel environment; 4 is the only one that moves
@@ -438,8 +440,8 @@ Issues 3-5 are strictly sequential.
 - Repo access -- ai-news ✓, issue #1 ✓, agent-onboarding ✓. Recorded in the access report.
 - Pattern transfer -- labels and templates adapted, not blindly copied. Recorded in the access
   report.
-- FIT judgment -- brand references match Nico's persistent memory. Naming / scope routed out to
-  Quinn; copy routed out to Maya.
+- FIT judgment -- brand references point at the canonical committed source `fit-solutions/brand/`
+  (not memory). Naming / scope routed out to Quinn; copy routed out to Maya.
 - Planning quality -- five issues, ordered, each with full structure.
 - Boundary control -- zero implementation work performed on Astro / brand / Cloudflare / DNS /
   Pages.
