@@ -1,3 +1,4 @@
+import tailwindcss from "@tailwindcss/vite";
 // @ts-check
 import { defineConfig } from 'astro/config';
 
@@ -20,4 +21,9 @@ import { defineConfig } from 'astro/config';
 //   and is gitignored. This keeps the existing weekly-data workflow (news-data.json,
 //   archive/, scripts/, skills/ai-news-weekly/) as the single source of truth and
 //   avoids duplicating ~24 data files + binary images into the repo.
-export default defineConfig({});
+export default defineConfig({
+	
+	vite: {
+		plugins: [tailwindcss()],
+	},
+});

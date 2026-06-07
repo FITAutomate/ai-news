@@ -7,9 +7,12 @@ dist/
 # from the canonical root assets. It is build output, not source — do not commit.
 public/
 
-# Environment / logs
+# Environment / secrets — NEVER commit.
+# The Starwind Pro license (STARWIND_LICENSE_KEY) lives only in the local/agent
+# environment or .env.local and must never be committed, echoed, or logged.
 .env
 .env.*
-!.env.example
+.env.local
+.env.*.local
 npm-debug.log*
 .DS_Store
