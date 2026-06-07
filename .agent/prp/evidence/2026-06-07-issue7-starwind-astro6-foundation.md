@@ -18,15 +18,18 @@
 
 ## Secret handling (Starwind Pro license)
 
-- The license is held in the **"Starwind Pro" skill** credential (`STARWIND_LICENSE_KEY`), entered
-  by John in the secure credential UI — never in chat.
-- It is injected as an env var only at command time via `RunWithCredentials`. Verified present
-  (length checked, value never printed).
-- `npx starwind init --pro` wrote the key into `.env.local`. `.env.local` is gitignored
-  (`.gitignore` lines 13-16) and is NOT committed. `components.json` references the key as
-  `${STARWIND_LICENSE_KEY}` (env reference), not a literal value. A scan of committed files found
-  no literal key — only the env-var name in `components.json`.
-- Rule held: key never committed, echoed, or logged.
+Durable rule for `STARWIND_LICENSE_KEY`: the license value is **not committed, not printed in
+command output, not written into PRs / issues / evidence / logs, and is supplied at runtime through
+`STARWIND_LICENSE_KEY` / `.env.local`**.
+
+- Held in the **"Starwind Pro" skill** credential and supplied to commands at runtime via
+  `RunWithCredentials` (presence verified by length only; the value is never printed).
+- `npx starwind init --pro` wrote the key into `.env.local`, which is gitignored and NOT committed.
+  `components.json` references the key as `${STARWIND_LICENSE_KEY}` (an env reference), not a literal
+  value. A pre-commit scan of every committed file confirmed the literal value is absent — only the
+  env-var name appears (in `components.json`).
+- `.env.example` is committed as a placeholder template (`STARWIND_LICENSE_KEY=` with no value) and
+  is the only `.env*` file allowed past `.gitignore` (`!.env.example`).
 
 ## What was done (this increment)
 

@@ -14,5 +14,7 @@ public/
 .env.*
 .env.local
 .env.*.local
+# Allow the committed template (no secret value in it).
+!.env.example
 npm-debug.log*
 .DS_Store

@@ -1,7 +1,17 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./brand.css";
 @plugin "@tailwindcss/forms";
 @custom-variant dark (&:where(.dark, .dark *));
+
+/* ── FIT brand tokens (issue #7) — source: fit-solutions/brand@d2fef9e ── */
+@theme {
+  --color-fit-blue: #007ce8;
+  --color-fit-green: #1cd000;
+  --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
 
 @theme {
   --animate-accordion-down: accordion-down 0.2s ease-out;
@@ -164,4 +174,57 @@
   button {
     @apply cursor-pointer;
   }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   FIT brand overrides (issue #7) — map Starwind semantic tokens to FIT.
+   Source of record: FITAutomate/fit-solutions/brand @ d2fef9e
+   - fit-blue (#007CE8) = primary/accent
+   - fit-green (#1CD000) = status/approval semantics only
+   - slate = structural neutrals; dark surfaces (never navy/black)
+   ════════════════════════════════════════════════════════════════ */
+@layer base {
+  :root,
+  .dark {
+    --primary: var(--color-fit-blue);
+    --primary-foreground: #ffffff;
+    --primary-accent: var(--color-fit-blue);
+    --success: var(--color-fit-green);
+    --success-foreground: #042b0a;
+  }
+
+  .dark {
+    --background: var(--color-slate-950);
+    --foreground: var(--color-slate-100);
+    --card: var(--color-slate-900);
+    --card-foreground: var(--color-slate-100);
+    --popover: var(--color-slate-800);
+    --popover-foreground: var(--color-slate-100);
+    --secondary: var(--color-slate-800);
+    --secondary-foreground: var(--color-slate-100);
+    --secondary-accent: var(--color-slate-50);
+    --muted: var(--color-slate-800);
+    --muted-foreground: var(--color-slate-400);
+    --accent: var(--color-slate-800);
+    --accent-foreground: var(--color-slate-100);
+    --border: --alpha(var(--color-slate-50) / 12%);
+    --input: --alpha(var(--color-slate-50) / 18%);
+    --outline: var(--color-slate-600);
+    --sidebar-background: var(--color-slate-900);
+    --sidebar-foreground: var(--color-slate-100);
+    --sidebar-primary: var(--color-fit-blue);
+    --sidebar-accent: var(--color-slate-800);
+    --sidebar-border: var(--color-slate-800);
+  }
+
+  html { color-scheme: dark; }
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-slate-950);
+    color: var(--color-slate-100);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1, h2, h3, h4, h5, h6 { font-family: var(--font-heading); line-height: 1.2; }
+  code, kbd, pre, samp { font-family: var(--font-mono); }
 }

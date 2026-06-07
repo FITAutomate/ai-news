@@ -1,0 +1,343 @@
+/*
+  FIT brand layer for AI News Pulse (issue #7).
+
+  Source of record: FITAutomate/fit-solutions/brand @ d2fef9e
+  (pinned in .agent/prp/evidence/2026-06-07-issue7-brand-snapshot/).
+
+  Tokens (fit-blue, fit-green, slate neutrals, Poppins/Open Sans/JetBrains Mono)
+  are defined and mapped onto Starwind's semantic tokens in starwind.css. This file
+  styles the AI News page's bespoke classes — including the markup that app.js renders
+  at runtime (.card, .badge, .stat, etc.) — so the dynamic surface is branded WITHOUT
+  changing app.js. Imported by starwind.css so Tailwind processes it.
+
+  Brand rules applied:
+  - fit-blue (#007CE8) leads: links, accents, primary actions, active states.
+  - fit-green (#1CD000) is status/approval only — not used decoratively here.
+  - slate scale for all structure (dark surfaces, never navy/black).
+  - Poppins headings, Open Sans body, JetBrains Mono for data/metadata.
+*/
+
+@layer components {
+  /* ── Layout shell ───────────────────────────────────────────── */
+  .container {
+    width: min(1120px, 92vw);
+    margin: 0 auto;
+    padding: 3rem 0 4rem;
+  }
+
+  .top-menu {
+    position: sticky;
+    top: 0.8rem;
+    z-index: 10;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    border: 1px solid var(--color-slate-800);
+    border-radius: 14px;
+    padding: 0.7rem 0.95rem;
+    background-color: --alpha(var(--color-slate-900) / 80%);
+    backdrop-filter: blur(8px);
+  }
+
+  .brand {
+    color: var(--color-slate-50);
+    text-decoration: none;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .brand:hover { color: var(--color-fit-blue); }
+
+  .menu-links {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+  }
+  .menu-links a {
+    color: var(--color-slate-300);
+    text-decoration: none;
+    font-size: 0.9rem;
+  }
+  .menu-links a:hover { color: var(--color-fit-blue); }
+
+  .week-picker {
+    color: var(--color-slate-400);
+    font-size: 0.82rem;
+  }
+  /* Native <select> kept (app.js targets #weekSelect); styled to match Starwind inputs. */
+  .week-select {
+    background-color: var(--color-slate-800);
+    color: var(--color-slate-100);
+    border: 1px solid var(--color-slate-700);
+    border-radius: 8px;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.82rem;
+    font-family: var(--font-sans);
+  }
+  .week-select:focus-visible {
+    outline: 2px solid var(--color-fit-blue);
+    outline-offset: 1px;
+  }
+
+  /* ── Hero ───────────────────────────────────────────────────── */
+  .hero { padding: 1rem 0 0.5rem; }
+  .hero h1 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: clamp(2.1rem, 7vw, 3rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--color-slate-50);
+  }
+  .site-title { display: flex; align-items: center; gap: 0.75rem; }
+  .site-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px --alpha(var(--color-slate-950) / 60%);
+  }
+  @media (max-width: 520px) {
+    .site-icon { width: 34px; height: 34px; }
+  }
+  .kicker {
+    color: var(--color-fit-blue);
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    margin: 0 0 0.35rem;
+  }
+  .subtitle {
+    color: var(--color-slate-300);
+    max-width: 760px;
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    line-height: 1.7;
+  }
+
+  /* ── Stats (rendered by app.js into #stats) ─────────────────── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.85rem;
+    margin-top: 1.4rem;
+  }
+  .stat {
+    border: 1px solid var(--color-slate-800);
+    background-color: var(--color-slate-900);
+    padding: 0.85rem 1rem;
+    border-radius: 14px;
+  }
+  .stat .label {
+    font-size: 0.72rem;
+    color: var(--color-slate-400);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-family: var(--font-mono);
+  }
+  .stat .value {
+    margin-top: 0.3rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    color: var(--color-slate-50);
+  }
+
+  /* ── Sections ───────────────────────────────────────────────── */
+  .section { margin-top: 2.5rem; }
+  .section-head h2 {
+    margin: 0;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-slate-50);
+  }
+  .section-head p {
+    margin: 0.4rem 0 1.1rem;
+    color: var(--color-slate-400);
+  }
+
+  /* ── News grid + cards (rendered by app.js into #newsGrid) ──── */
+  .news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 1rem;
+  }
+  .card {
+    background-color: var(--color-slate-900);
+    border: 1px solid var(--color-slate-800);
+    border-radius: 16px;
+    padding: 1.1rem;
+    box-shadow: 0 10px 30px --alpha(var(--color-slate-950) / 35%);
+    transform: translateY(14px);
+    opacity: 0;
+    animation: rise 600ms ease forwards;
+    transition: border-color 140ms ease, transform 140ms ease;
+  }
+  .card:hover {
+    border-color: var(--color-fit-blue);
+    transform: translateY(-2px);
+  }
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+  }
+  /* Category badge — informational (slate + fit-blue), NOT status; fit-green reserved. */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.76rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background-color: --alpha(var(--color-fit-blue) / 14%);
+    color: var(--color-slate-100);
+    border: 1px solid --alpha(var(--color-fit-blue) / 35%);
+    font-family: var(--font-sans);
+  }
+  .rating {
+    font-size: 0.82rem;
+    color: #f5c451; /* rating indicator (gold) — distinct from brand status colours */
+    letter-spacing: 0.04em;
+  }
+  .card h3 {
+    margin: 0.75rem 0 0.5rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.05rem;
+    line-height: 1.3;
+    color: var(--color-slate-50);
+  }
+  .card p {
+    margin: 0;
+    color: var(--color-slate-300);
+    line-height: 1.7;
+  }
+  .tags {
+    margin-top: 0.8rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.7rem;
+    color: var(--color-slate-300);
+    background-color: var(--color-slate-800);
+    border: 1px solid var(--color-slate-700);
+    border-radius: 999px;
+    padding: 0.18rem 0.55rem;
+    font-family: var(--font-mono);
+  }
+  .card-meta {
+    margin-top: 0.85rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.76rem;
+    color: var(--color-slate-400);
+    font-family: var(--font-mono);
+  }
+  .card a {
+    color: var(--color-fit-blue);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .card a:hover { text-decoration: underline; }
+
+  /* ── Footer ─────────────────────────────────────────────────── */
+  .site-footer {
+    margin-top: 2.8rem;
+    border-top: 1px solid var(--color-slate-800);
+    padding: 1.5rem 0.9rem 1.2rem;
+    color: var(--color-slate-400);
+    background-color: --alpha(var(--color-slate-900) / 45%);
+  }
+  .footer-inner {
+    width: min(1120px, 92vw);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) auto minmax(220px, 1fr);
+    align-items: center;
+    gap: 1rem;
+  }
+  .footer-copy {
+    margin: 0;
+    font-size: 0.84rem;
+    color: var(--color-slate-400);
+  }
+  .footer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    justify-self: center;
+  }
+  .footer-social {
+    justify-self: end;
+    display: inline-flex;
+    gap: 0.5rem;
+  }
+  .social-link {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    border: 1px solid var(--color-slate-700);
+    background-color: var(--color-slate-800);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-slate-300);
+    text-decoration: none;
+    transition: transform 120ms ease, border-color 120ms ease, color 120ms ease;
+  }
+  .social-link svg { width: 15px; height: 15px; fill: currentColor; }
+  .social-link:hover {
+    transform: translateY(-1px);
+    color: var(--color-fit-blue);
+    border-color: var(--color-fit-blue);
+  }
+  .footer-meta {
+    width: min(1120px, 92vw);
+    margin: 0.95rem auto 0;
+    font-size: 0.74rem;
+    color: var(--color-slate-500);
+    text-align: center;
+    font-family: var(--font-mono);
+  }
+
+  /* ── Ambient background accents — fit-blue only, restrained ──── */
+  .bg-orb {
+    position: fixed;
+    width: 320px;
+    height: 320px;
+    filter: blur(60px);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+  .orb-a { background: var(--color-fit-blue); top: -90px; left: -70px; }
+  .orb-b { background: var(--color-slate-500); right: -60px; bottom: -100px; opacity: 0.12; }
+
+  @media (max-width: 700px) {
+    .container { width: 93vw; padding-top: 2rem; }
+    .top-menu { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .menu-links { flex-wrap: wrap; }
+    .card-meta { flex-direction: column; align-items: flex-start; }
+    .footer-inner { width: 93vw; grid-template-columns: 1fr; gap: 0.85rem; text-align: center; }
+    .footer-cta { justify-self: center; flex-wrap: wrap; justify-content: center; }
+    .footer-social { justify-self: center; }
+    .footer-meta { width: 93vw; }
+  }
+}
+
+@keyframes rise {
+  to { transform: translateY(0); opacity: 1; }
+}
