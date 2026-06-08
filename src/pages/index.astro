@@ -1,19 +1,18 @@
 ---
-// AI News Pulse — home page (Astro skeleton conversion, issue #6).
+// AI News Pulse — home page (issue #7: FIT brand applied).
 //
-// This reproduces the previous root index.html 1:1. No visual or behavioral change:
-// - Same <head> (fonts, description, favicon) and same body markup.
-// - styles.css and app.js are served verbatim from ./public (staged by
-//   scripts/stage-astro-public.mjs), so relative paths and url("./news-bg.png")
-//   inside the CSS resolve exactly as before.
-// - The app.js <script> uses `is:inline` so Astro does NOT bundle/transform it —
-//   it loads as the same classic script the current site uses, preserving the
-//   runtime fetch of ./news-data.json and ./archive/manifest.json.
+// Brand source of record: fit-solutions/brand@d2fef9e (pinned in
+// .agent/prp/evidence/2026-06-07-issue7-brand-snapshot/). Tokens + page styling live in
+// src/styles/starwind.css (FIT-mapped Starwind tokens) and src/styles/brand.css.
 //
-// Brand tokens / typography changes are explicitly out of scope here (issue #7).
+// Behavior preserved: app.js still renders #stats, #newsGrid, and populates the native
+// #weekSelect at runtime by fetching ./news-data.json and ./archive/manifest.json. Those
+// hooks are kept exactly; app.js is loaded with `is:inline` (unchanged, unbundled).
+import "../styles/starwind.css";
+import { Button } from "../components/starwind/button";
 ---
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,15 +20,11 @@
   <meta name="description" content="Live-style visual summary of major AI news through June 6, 2026." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Open+Sans:wght@400;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
   <link rel="icon" href="./icon.png" type="image/png" />
   <link rel="apple-touch-icon" href="./icon.png" />
 </head>
 <body>
-  <div class="bg-orb orb-a"></div>
-  <div class="bg-orb orb-b"></div>
-
   <main class="container">
     <nav class="top-menu" aria-label="Main menu">
       <a href="#top" class="brand">FIT Automate</a>
@@ -63,8 +58,8 @@
       <p class="footer-copy">&copy; 2026 Forward IT Thinking Inc. All rights reserved.</p>
 
       <div class="footer-cta" aria-label="Primary links">
-        <a class="cta-pill cta-primary" href="https://fitautomate.com">Visit FIT Automate</a>
-        <a class="cta-pill" href="https://fitautomate.com/contact">Start a Project</a>
+        <Button href="https://fitautomate.com" variant="primary" size="sm">Visit FIT Automate</Button>
+        <Button href="https://fitautomate.com/contact" variant="outline" size="sm">Start a Project</Button>
       </div>
 
       <nav class="footer-social" aria-label="Social links">

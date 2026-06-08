@@ -26,13 +26,16 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicDir = path.join(root, 'public');
 
 // Canonical runtime assets the browser fetches/links at the site root.
+//
+// #7 note: styling moved into the Astro-bundled src/styles/{starwind,brand}.css, and the
+// FIT brand uses a clean slate surface — so styles.css and news-bg.png are no longer
+// referenced by the page and are NOT staged. They remain in the repo root for the legacy
+// GitHub Pages site until the deploy phases (#8/#5/#10). app.js stays (runtime renderer).
 const ASSETS = [
-  'styles.css',
-  'app.js',
-  'icon.png',
-  'news-bg.png',
-  'news-data.json',
-  'archive', // directory: manifest.json + weekly news-YYYY-WW.json files
+  'app.js',          // runtime renderer (unchanged; loaded via is:inline)
+  'icon.png',        // favicon + hero icon
+  'news-data.json',  // current-week payload (fetched at runtime by app.js)
+  'archive',         // manifest.json + weekly news-YYYY-WW.json files (fetched at runtime)
 ];
 
 async function main() {
