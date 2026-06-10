@@ -52,6 +52,12 @@ The #7 brand work uses Starwind **Pro**, but the license is **NOT** needed for a
 3. Browser smoke test: 12 cards, stats, 24 week options, assets load, console clean, brand intact.
 Checklist: `.agent/prp/reviews/2026-06-10-issue8-pages-smoke-test.md`.
 
+## Field outcome (2026-06-10) — first deploy + root-directory fix
+- **First attempt failed.** The dashboard setup initially set **Root directory = `web`** (carried over from the existing internal FIT procedure / the `web/` layout used by the fit-docs repos). Result: build failed in ~9s with `Error: Cannot find cwd: /opt/buildhome/repo/web` — *before* npm ran. (The log's `No Wrangler configuration file found. Continuing.` line is normal and was **not** the cause.)
+- **Fix:** set Root directory to the **repo root** (blank / `/`); build command `npm run build` and output `dist/` were already correct and left unchanged. Retry → **green build**.
+- **Verified live 2026-06-10:** `https://ai-news.fitautomate.com/` → `200`; `news-data.json`, `archive/manifest.json`, `icon.png` → `200`; in-browser render shows **12 cards, stats populated, 24 week options**. Custom domain **Active + SSL**; DNS `ai-news.fitautomate.com` CNAME → `ai-news-7oh.pages.dev` (Cloudflare-proxied). Actual project name came up as **`ai-news-7oh`** (Cloudflare auto-suffixed); the custom domain makes the `*.pages.dev` name moot.
+- **Confirmed:** Root directory **MUST** be the repo root for `ai-news`, **not** `web`. The procedure (`.agent/prp/procedures/cloudflare-deploy-astro-via-pages.md`) now carries this gotcha + a correction flag for the older internal procedure (route to forge#1).
+
 ## Open items for John / owner
 - **Dashboard step is yours:** I have no Cloudflare integration in this runtime; the Connect-to-Git click and first deploy are a dashboard action for the FIT account holder.
 - Confirm the project name `ai-news` is free in the FIT account (no collision with existing projects).
