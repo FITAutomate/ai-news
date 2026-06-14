@@ -203,3 +203,5 @@ GitHub Pages is configured for this repository.
 - Pages URL: `https://fitautomate.github.io/ai-news/`
 - Branch: `main`
 - Folder: `/(root)`
+
+** Update with CloudFlare deployment details **
