@@ -2,6 +2,8 @@
 
 AI News Pulse is a weekly AI briefing site for high-level, actionable updates.
 
+**Live:** https://ai-news.fitautomate.com (canonical, hosted on Cloudflare Pages). The legacy `https://fitautomate.github.io/ai-news/` now redirects here.
+
 ## Repo standards
 
 This repo follows the FIT Automate `.agent/` standards layout. Operating rules live in:
@@ -35,7 +37,7 @@ Everything here is **static, JSON-driven, and portable**. You only need:
 | Refresh week list after adding/changing archives | `node scripts/sync-archive-manifest.mjs` (repo root) |
 | Map a calendar date to a week key (optional) | `node scripts/week-key-from-date.mjs YYYY-MM-DD` |
 | Curate new links | Optional web browser or search; **no** MCP or database is required by the repo |
-| Publish | `git` push to `main` (GitHub Pages) |
+| Publish | `git` push to `main` — Cloudflare Pages auto-builds and deploys to ai-news.fitautomate.com |
 
 ## Quick start
 
@@ -148,7 +150,7 @@ Selection constraints:
 6. Run `node scripts/sync-archive-manifest.mjs` so `archive/manifest.json` includes the new week.
 7. Run local smoke test and verify rendering + week selector behavior.
 8. Commit and push (include `archive/manifest.json` when the archive set changed).
-9. Confirm GitHub Pages deploy.
+9. Confirm the Cloudflare Pages deploy at https://ai-news.fitautomate.com (auto-built from the push to `main`).
 
 Suggested commit message format:
 
@@ -197,11 +199,17 @@ radial-gradient(circle at 88% 14%, rgba(28, 208, 0, 0.18) 0%, transparent 34%),
 
 ## Deploy
 
-GitHub Pages is configured for this repository.
+Production is hosted on **Cloudflare Pages** (Git-connected), serving the Astro build.
 
 - Repo: `https://github.com/FITAutomate/ai-news`
-- Pages URL: `https://fitautomate.github.io/ai-news/`
-- Branch: `main`
-- Folder: `/(root)`
+- **Canonical URL: `https://ai-news.fitautomate.com`** (Cloudflare Pages custom domain)
+- Cloudflare Pages project: `ai-news` — production branch `main`, Connect-to-Git
+- Build: framework **Astro**, build command `npm run build`, output `dist/`, **root directory = repo root** (not `web/`), Node 22+
+- Every push to `main` auto-builds and deploys. For a manual build use **Deployments → Create deployment** from `main` (note: "Retry/Redeploy" rebuilds the *original* commit, not the latest).
 
-** Update with CloudFlare deployment details **
+### Legacy GitHub Pages
+
+- Old URL: `https://fitautomate.github.io/ai-news/` — now a **redirect shim** (`index.html`) that sets `rel=canonical` and forwards to the Cloudflare URL. Kept live during the soak period; full retirement is tracked in issue `#10`.
+- The data workflow is unchanged: `news-data.json` + `archive/` live at the repo root, and both the Cloudflare build (via `scripts/stage-astro-public.mjs`) and the legacy assets read from there.
+
+Procedure: the FIT canonical "Cloudflare — Deploy Astro Site via Pages" runbook, plus `.agent/prp/evidence/2026-06-10-issue8-cloudflare-pages-git-config.md`.
