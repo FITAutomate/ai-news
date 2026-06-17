@@ -172,7 +172,7 @@
     .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } /* tablet: 2 columns */
   }
   @media (max-width: 520px) {
-    .news-grid { grid-template-columns: 1fr; } /* mobile: 1 column */
+    .news-grid { grid-template-columns: minmax(0, 1fr); } /* mobile: 1 column */
   }
   .card {
     background-color: var(--color-slate-900);
