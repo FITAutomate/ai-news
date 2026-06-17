@@ -169,10 +169,10 @@
     gap: 1rem;
   }
   @media (max-width: 700px) {
-    .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } /* tablet: 2 columns */
+    .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 520px) {
-    .news-grid { grid-template-columns: minmax(0, 1fr); } /* mobile: 1 column */
+    .news-grid { grid-template-columns: minmax(0, 1fr); }
   }
   .card {
     background-color: var(--color-slate-900);
