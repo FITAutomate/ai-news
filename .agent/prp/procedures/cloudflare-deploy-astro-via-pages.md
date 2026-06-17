@@ -6,6 +6,8 @@
 
 **Last updated:** 2026-06-10 · **Author:** Nico · **Applies to:** Astro static-output sites deployed to Cloudflare Pages via the dashboard **Connect to Git** flow (NOT local `wrangler` upload).
 
+> **⚠️ Correction flag — existing internal procedure (raised 2026-06-10):** The internal FIT deploy procedure that predates this doc instructs setting the Pages **root / deployment directory to `web`**. That value is correct only for `web/`-layout repos (fit-docs / fit-solutions) and **breaks root-layout Astro repos like `ai-news`** — it caused the first `ai-news` deploy to fail (see §4.3). The older procedure needs correcting; the fix + the canonical-home decision are tracked via **forge#1** (Quinn / Sage). Exact path of the offending doc is pending confirmation from John.
+
 ---
 
 ## 1. Purpose & scope
@@ -44,7 +46,7 @@ Source: Cloudflare Pages — Git integration (retrieved 2026-06-10).
 - **Framework preset:** Astro. The preset fills in default build command + output dir, but verify them against the repo (below).
 - **Build command:** use the repo's package.json `build` script via **`npm run build`** — do **not** hardcode `astro build` if the repo relies on `prebuild`/`postbuild` hooks (Cloudflare runs the npm lifecycle, so `npm run build` triggers them; calling `astro build` directly skips them).
 - **Build output directory:** `dist/` (Astro default).
-- **Root directory:** repo root (`/`) unless it's a monorepo.
+- **Root directory:** the **repo root** (leave blank, or `/`) unless it's a genuine monorepo. ⚠️ **Field-tested gotcha (`ai-news`, 2026-06-10):** do **not** set this to `web`. `web/` is the presentation-layer layout used by the fit-docs / fit-solutions repos; `ai-news` keeps its Astro project at the repo root. Setting root to `web` fails the build in ~9 seconds with `Error: Cannot find cwd: /opt/buildhome/repo/web`, *before* npm runs.
 - **Node version:** Cloudflare reads `.nvmrc` / `.node-version`, or a `NODE_VERSION` build env var. If the repo requires Node ≥ a specific major and the default builder image is older, set `NODE_VERSION` explicitly.
 
 ### 4.4 Environment variables
