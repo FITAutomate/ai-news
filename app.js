@@ -366,6 +366,23 @@ async function init() {
     });
   }
 
+  // Header brand: clicking "FIT Automate" returns to the current (latest) week.
+  // Keep the native href="#top" scroll; just reset week state and re-render.
+  const brand = document.querySelector(".brand");
+  if (brand) {
+    brand.addEventListener("click", async () => {
+      const next = new URL(window.location.href);
+      next.searchParams.delete("week");
+      window.history.replaceState({}, "", next);
+      if (select) select.value = "current";
+      try {
+        await renderWeek("current");
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  }
+
   try {
     await renderWeek(initialWeek);
   } catch (error) {
