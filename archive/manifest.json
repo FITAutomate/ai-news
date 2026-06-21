@@ -167,6 +167,13 @@
       "file": "archive/news-2026-24.json",
       "dateFrom": "2026-06-08",
       "dateTo": "2026-06-13"
+    },
+    {
+      "key": "2026-25",
+      "label": "2026-W25 (Jun 14-Jun 20, 2026)",
+      "file": "archive/news-2026-25.json",
+      "dateFrom": "2026-06-16",
+      "dateTo": "2026-06-20"
     }
   ]
 }
