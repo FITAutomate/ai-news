@@ -30,5 +30,5 @@ node scripts/sync-archive-manifest.mjs
 - New archive file `archive/news-YYYY-WW.json`
 - Updated `news-data.json`
 - Updated `archive/manifest.json` (via `scripts/sync-archive-manifest.mjs`)
-- Updated `index.html` (metadata and `app.js` cache-bust token)
-- Optional publish to `origin/main`
+- Updated `src/pages/index.astro` (metadata and `app.js` cache-bust token; root `index.html` is the GitHub Pages redirect shim — not edited)
+- Optional publish to `origin/main` (push triggers the Cloudflare Pages deploy)
