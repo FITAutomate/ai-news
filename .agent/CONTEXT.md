@@ -8,9 +8,10 @@ and does not duplicate it.
 
 ## Repo purpose
 
-Publication home for the FIT Automate weekly AI news brief. Currently a lightweight static site
-deployed via GitHub Pages. Slated to migrate to Astro + FIT brand + Cloudflare Pages under issue
-`#3`'s bootstrap PRP and the implementation issue map proposed alongside this scaffolding.
+Publication home for the FIT Automate weekly AI news brief. Runs as an Astro static site with the
+FIT brand system, deployed via Cloudflare Pages at https://ai-news.fitautomate.com. Migration from
+the legacy GitHub Pages static site completed 2026-06-17 (cutover PR #19); GitHub Pages retired
+under issue #10 (2026-07-01).
 
 ## Lineage
 
@@ -19,11 +20,10 @@ deployed via GitHub Pages. Slated to migrate to Astro + FIT brand + Cloudflare P
 - Local style reference: closed issue `FITAutomate/ai-news#1`
 - Repo-standards pattern reference: `FITAutomate/agent-onboarding`,
   `FITAutomate/fit-knows-pro-dev`
+- Migration retro: `.agent/prp/reports/2026-07-01-ai-news-migration-retro.md`
 
 ## Boundaries (summary -- full rules in `.agent/AGENT.md`)
 
-- No Astro conversion, brand redesign, Starwind install, Cloudflare setup, DNS change, or Pages
-  retirement until the implementation issue map is approved.
 - No secrets/env values in source.
 - Public copy and naming choices route out to Maya and Quinn respectively.
 
@@ -43,10 +43,8 @@ phases land.
 
 ## Current files of interest
 
-- `index.html`, `styles.css`, `app.js` -- static app shell.
 - `news-data.json` -- current week's data payload.
 - `archive/manifest.json` and `archive/news-YYYY-WW.json` -- weekly archive store.
 - `scripts/sync-archive-manifest.mjs`, `scripts/week-key-from-date.mjs` -- existing automation.
 - `skills/ai-news-weekly/` -- weekly update skill.
-- `update-plan.md` -- legacy planning note; predates the PRP layout introduced in this PR. To be
-  reviewed and either archived under `.agent/prp/archive/` or removed by a follow-up issue.
+- `astro.config.mjs`, `package.json` -- Astro site configuration.
