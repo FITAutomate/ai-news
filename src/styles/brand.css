@@ -41,14 +41,41 @@
     backdrop-filter: blur(8px);
   }
 
+  /* ── Brand lockup (issue #17) — matches agent-onboarding TopNav ── */
+  /* Pattern: ● FIT Automate / AI NEWS                                */
+  /* Blue dot + Poppins wordmark + JetBrains Mono section suffix.     */
   .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     color: var(--color-slate-50);
     text-decoration: none;
     font-family: var(--font-heading);
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.01em;
   }
   .brand:hover { color: var(--color-fit-blue-300); }
+  .brand-dot {
+    display: inline-block;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 9999px;
+    background-color: var(--color-fit-blue);
+    box-shadow: 0 0 12px 2px --alpha(var(--color-fit-blue) / 50%);
+    flex-shrink: 0;
+  }
+  .brand-section {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-slate-400);
+  }
+  @media (max-width: 520px) {
+    .brand-section { display: none; }
+  }
 
   .menu-links {
     display: flex;
@@ -92,17 +119,9 @@
     letter-spacing: -0.02em;
     color: var(--color-slate-50);
   }
-  .site-title { display: flex; align-items: center; gap: 0.75rem; }
-  .site-icon {
-    width: 42px;
-    height: 42px;
-    flex: 0 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 8px 24px --alpha(var(--color-slate-950) / 60%);
-  }
-  @media (max-width: 520px) {
-    .site-icon { width: 34px; height: 34px; }
-  }
+  /* Issue #17: icon moved out of h1 — the FIT Automate lockup in the nav now
+     carries the brand identity; the h1 is just the page title. */
+  .site-title { display: block; }
   .kicker {
     color: var(--color-fit-blue);
     text-transform: uppercase;
@@ -144,6 +163,12 @@
     font-weight: 600;
     font-family: var(--font-heading);
     color: var(--color-slate-50);
+  }
+  /* Issue #18: Sourcing cell value is descriptive text — scale down for fit. */
+  .stat--sourcing .value {
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.4;
   }
 
   /* ── Sections ───────────────────────────────────────────────── */

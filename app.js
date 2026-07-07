@@ -254,19 +254,33 @@ function getRatingStars(rating) {
 }
 
 function renderStats(news, meta) {
+  // Issue #18: collapsed redundant 1:1 Stories/Primary Sources into a single
+  // "Sourcing" cell that frames the match as a credibility signal, yielding a
+  // clean 3-cell strip (Sourcing · Window · Themes). An optional 4th "Lead"
+  // cell surfaces the top-rated story's category — genuinely dynamic each week.
+  const sourceCount = new Set(news.map((n) => n.source)).size;
+  const sourcingValue = `${news.length} stories · ${sourceCount} primary sources`;
+
+  // Top-rated story category for the dynamic "Lead" cell.
+  const topStory = [...news].sort((a, b) => (Number(b.rating) || 0) - (Number(a.rating) || 0))[0];
+  const leadValue = topStory ? topStory.category : null;
+
   const stats = [
-    { label: "Stories", value: String(news.length) },
+    { label: "Sourcing", value: sourcingValue, modifier: "stat--sourcing" },
     { label: "Window", value: meta.window || "N/A" },
-    { label: "Primary Sources", value: String(new Set(news.map((n) => n.source)).size) },
     { label: "Themes", value: meta.themes || "N/A" }
   ];
+
+  if (leadValue) {
+    stats.push({ label: "Lead", value: leadValue });
+  }
 
   const statsEl = document.getElementById("stats");
   statsEl.innerHTML = "";
 
   stats.forEach((item) => {
     const div = document.createElement("div");
-    div.className = "stat";
+    div.className = item.modifier ? `stat ${item.modifier}` : "stat";
     div.innerHTML = `<div class="label">${item.label}</div><div class="value">${item.value}</div>`;
     statsEl.appendChild(div);
   });
@@ -311,7 +325,7 @@ function renderMeta(meta) {
 
   const footerText = document.querySelector(".footer-meta");
   if (footerText && meta.dataDate) {
-    footerText.textContent = `Built for GitHub Pages \u2022 Data date: ${meta.dataDate}`;
+    footerText.textContent = `Data date: ${meta.dataDate}`;
   }
 }
 
