@@ -1,5 +1,8 @@
 # FIT Automate Weekly Update Plan
 
+> Archived 2026-07-01 from repo root (issue #10). Content remains valid for the weekly update
+> workflow; moved here per Q7 resolution to clear legacy root-level planning docs.
+
 ## Goal
 
 Publish a high-level weekly AI summary that is genuinely useful to John, with links worth clicking.
@@ -34,10 +37,10 @@ Choose stories that are:
 - New (avoid repeating last week's same point)
 - Diverse (not all from one vendor)
 
-Selection constraints (to prevent “row 1 = all OpenAI”):
+Selection constraints (to prevent "row 1 = all OpenAI"):
 - Max 2 stories per vendor category per week (OpenAI/Anthropic/Google/Microsoft/Meta/Amazon/Apple)
 - Max 1 story per vendor in the top 3 cards
-- Avoid “same announcement twice” (e.g., two posts that are just different angles of the same launch)
+- Avoid "same announcement twice" (e.g., two posts that are just different angles of the same launch)
 
 ## Weekly workflow
 
@@ -48,28 +51,28 @@ Selection constraints (to prevent “row 1 = all OpenAI”):
    - Policy and regulation
    - John-focus pass with: n8n, Airtable, Make, MCP, agents, RAG, vector DB, evaluation, tool use, workflow automation
 2. Score candidates with stars:
-   - 5★ direct stack impact or major model/platform change
-   - 4★ strong practical signal likely to matter soon
-   - 3★ useful but not urgent (only if needed to hit 9)
-   - 1-2★ skip
+   - 5* direct stack impact or major model/platform change
+   - 4* strong practical signal likely to matter soon
+   - 3* useful but not urgent (only if needed to hit 9)
+   - 1-2* skip
 3. Select top 9-12 stories while preserving mix and diversity.
 4. Update `news-data.json` (`meta` + `news`).
 5. Create or update the archive file: `archive/news-YYYY-WW.json`.
-6. **Run the repo scripts from the repository root** (so the site and selector stay in sync):
-   - **Validate JSON** (required before commit):  
+6. Run the repo scripts from the repository root (so the site and selector stay in sync):
+   - Validate JSON (required before commit):
      `node skills/ai-news-weekly/scripts/validate-news-json.mjs news-data.json archive/news-YYYY-WW.json`
-   - **Rebuild the week list** (required whenever you add or change an archive file):  
-     `node scripts/sync-archive-manifest.mjs`  
-     This regenerates `archive/manifest.json`, which `app.js` uses to populate the Week dropdown. You do **not** edit week `<option>`s in `index.html` and you do **not** add paths to `app.js` by hand.
-   - **Optional** — confirm which week key a calendar date maps to (uses the manifest):  
+   - Rebuild the week list (required whenever you add or change an archive file):
+     `node scripts/sync-archive-manifest.mjs`
+     This regenerates `archive/manifest.json`, which `app.js` uses to populate the Week dropdown.
+     You do not edit week options in `index.html` and you do not add paths to `app.js` by hand.
+   - Optional -- confirm which week key a calendar date maps to (uses the manifest):
      `node scripts/week-key-from-date.mjs YYYY-MM-DD`
-7. Update **`index.html`** only for **page copy/metadata**: `<title>`, meta description, hero “Updated” line, footer data date, and the **`app.js?v=...`** cache-bust token on the script tag.
-8. Local smoke test:
-   - `python -m http.server 8080` (or `npx serve .`)
-   - Verify cards render, emoji + stars render, **Read source** links work.
-   - Verify the **Week** selector lists all archive weeks and loads the new week.
-9. Commit + push to `main`. **Stage `archive/manifest.json`** whenever the set of archive weeks or their labels/ranges changed (after step 6).
-10. Confirm GitHub Pages deploy completes.
+7. Update site metadata for the new week.
+8. Local smoke test: verify cards render, emoji + stars render, Read source links work,
+   and the Week selector lists all archive weeks.
+9. Commit + push to `main`. Stage `archive/manifest.json` whenever the set of archive weeks
+   or their labels/ranges changed.
+10. Confirm Cloudflare Pages deploy completes at https://ai-news.fitautomate.com.
 
 ## Commit message format
 
