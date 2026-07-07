@@ -254,33 +254,20 @@ function getRatingStars(rating) {
 }
 
 function renderStats(news, meta) {
-  // Issue #18: collapsed redundant 1:1 Stories/Primary Sources into a single
-  // "Sourcing" cell that frames the match as a credibility signal, yielding a
-  // clean 3-cell strip (Sourcing · Window · Themes). An optional 4th "Lead"
-  // cell surfaces the top-rated story's category — genuinely dynamic each week.
-  const sourceCount = new Set(news.map((n) => n.source)).size;
-  const sourcingValue = `${news.length} stories · ${sourceCount} primary sources`;
-
-  // Top-rated story category for the dynamic "Lead" cell.
-  const topStory = [...news].sort((a, b) => (Number(b.rating) || 0) - (Number(a.rating) || 0))[0];
-  const leadValue = topStory ? topStory.category : null;
-
+  // Issue #18 (round 2, John review): removed Sourcing/Stories/Primary Sources
+  // entirely — every article has a unique source, so those counts are always 1:1
+  // and convey no useful info. Strip is now just Window + Themes (both dynamic).
   const stats = [
-    { label: "Sourcing", value: sourcingValue, modifier: "stat--sourcing" },
     { label: "Window", value: meta.window || "N/A" },
     { label: "Themes", value: meta.themes || "N/A" }
   ];
-
-  if (leadValue) {
-    stats.push({ label: "Lead", value: leadValue });
-  }
 
   const statsEl = document.getElementById("stats");
   statsEl.innerHTML = "";
 
   stats.forEach((item) => {
     const div = document.createElement("div");
-    div.className = item.modifier ? `stat ${item.modifier}` : "stat";
+    div.className = "stat";
     div.innerHTML = `<div class="label">${item.label}</div><div class="value">${item.value}</div>`;
     statsEl.appendChild(div);
   });
@@ -297,7 +284,12 @@ function renderNews(news) {
 
     const emoji = CATEGORY_EMOJI[item.category] || "\uD83D\uDCF0";
     const stars = getRatingStars(item.rating);
-    const tags = Array.isArray(item.tags) ? item.tags : [];
+    // Issue #18 round 2: limit tags to 3 max to reduce card crowding.
+    const tags = Array.isArray(item.tags) ? item.tags.slice(0, 3) : [];
+
+    // Truncate summary to ~140 chars for a cleaner card (full text on source).
+    const summary = String(item.summary || "");
+    const truncated = summary.length > 140 ? summary.slice(0, 137).replace(/\s+\S*$/, "") + "\u2026" : summary;
 
     card.innerHTML = `
       <div class="card-head">
@@ -305,7 +297,7 @@ function renderNews(news) {
         <span class="rating" title="${item.rating || 1} out of 5">${stars}</span>
       </div>
       <h3>${item.title}</h3>
-      <p>${item.summary}</p>
+      <p>${truncated}</p>
       <div class="tags">${tags.map((tag) => `<span class="tag">#${tag}</span>`).join(" ")}</div>
       <div class="card-meta">
         <span>${item.date}</span>
