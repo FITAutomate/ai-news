@@ -41,14 +41,41 @@
     backdrop-filter: blur(8px);
   }
 
+  /* ── Brand lockup (issue #17) — matches agent-onboarding TopNav ── */
+  /* Pattern: ● FIT Automate / AI NEWS                                */
+  /* Blue dot + Poppins wordmark + JetBrains Mono section suffix.     */
   .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     color: var(--color-slate-50);
     text-decoration: none;
     font-family: var(--font-heading);
+    font-size: 1rem;
     font-weight: 600;
     letter-spacing: -0.01em;
   }
   .brand:hover { color: var(--color-fit-blue-300); }
+  .brand-dot {
+    display: inline-block;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 9999px;
+    background-color: var(--color-fit-blue);
+    box-shadow: 0 0 12px 2px --alpha(var(--color-fit-blue) / 50%);
+    flex-shrink: 0;
+  }
+  .brand-section {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-slate-400);
+  }
+  @media (max-width: 520px) {
+    .brand-section { display: none; }
+  }
 
   .menu-links {
     display: flex;
@@ -64,21 +91,37 @@
 
   .week-picker {
     color: var(--color-slate-400);
-    font-size: 0.82rem;
+    font-size: 0.78rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
-  /* Native <select> kept (app.js targets #weekSelect); styled to match Starwind inputs. */
+  /* Native <select> kept (app.js targets #weekSelect and builds options
+     dynamically from archive/manifest.json). Styled to feel intentional
+     rather than default. Full Starwind Select migration requires app.js
+     refactoring — tracked separately. */
   .week-select {
+    appearance: none;
     background-color: var(--color-slate-800);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.5rem center;
     color: var(--color-slate-100);
     border: 1px solid var(--color-slate-700);
     border-radius: 8px;
-    padding: 0.3rem 0.5rem;
+    padding: 0.35rem 1.6rem 0.35rem 0.6rem;
     font-size: 0.82rem;
-    font-family: var(--font-sans);
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: border-color 120ms ease, box-shadow 120ms ease;
+  }
+  .week-select:hover {
+    border-color: var(--color-fit-blue-300);
   }
   .week-select:focus-visible {
-    outline: 2px solid var(--color-fit-blue);
-    outline-offset: 1px;
+    outline: none;
+    border-color: var(--color-fit-blue);
+    box-shadow: 0 0 0 2px --alpha(var(--color-fit-blue) / 25%);
   }
 
   /* ── Hero ───────────────────────────────────────────────────── */
@@ -92,16 +135,16 @@
     letter-spacing: -0.02em;
     color: var(--color-slate-50);
   }
-  .site-title { display: flex; align-items: center; gap: 0.75rem; }
+  /* Issue #17 (round 2): restored an icon in the hero h1, but using a
+     news-related emoji (📰) instead of the old brain/globe image. */
+  .site-title { display: flex; align-items: center; gap: 0.65rem; }
   .site-icon {
-    width: 42px;
-    height: 42px;
-    flex: 0 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 8px 24px --alpha(var(--color-slate-950) / 60%);
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
   }
   @media (max-width: 520px) {
-    .site-icon { width: 34px; height: 34px; }
+    .site-icon { font-size: 1.6rem; }
   }
   .kicker {
     color: var(--color-fit-blue);
@@ -145,7 +188,6 @@
     font-family: var(--font-heading);
     color: var(--color-slate-50);
   }
-
   /* ── Sections ───────────────────────────────────────────────── */
   .section { margin-top: 2.5rem; }
   .section-head h2 {
@@ -174,16 +216,21 @@
   @media (max-width: 520px) {
     .news-grid { grid-template-columns: minmax(0, 1fr); }
   }
+  /* Issue #18 round 2: increased padding and added subtle separation between
+     content zones for less crowded cards. */
   .card {
     background-color: var(--color-slate-900);
     border: 1px solid var(--color-slate-800);
     border-radius: 16px;
-    padding: 1.1rem;
+    padding: 1.25rem 1.3rem;
     box-shadow: 0 10px 30px --alpha(var(--color-slate-950) / 35%);
     transform: translateY(14px);
     opacity: 0;
     animation: rise 600ms ease forwards;
     transition: border-color 140ms ease, transform 140ms ease;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
   .card:hover {
     border-color: var(--color-fit-blue);
@@ -224,14 +271,15 @@
   }
   .card p {
     margin: 0;
-    color: var(--color-slate-300);
-    line-height: 1.7;
+    color: var(--color-slate-400);
+    font-size: 0.88rem;
+    line-height: 1.55;
   }
   .tags {
-    margin-top: 0.8rem;
+    margin-top: 0.65rem;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
+    gap: 0.3rem;
   }
   .tag {
     display: inline-flex;
@@ -245,13 +293,15 @@
     font-family: var(--font-mono);
   }
   .card-meta {
-    margin-top: 0.85rem;
+    margin-top: auto;
+    padding-top: 0.7rem;
+    border-top: 1px solid var(--color-slate-800);
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 0.5rem;
     font-size: 0.76rem;
-    color: var(--color-slate-400);
+    color: var(--color-slate-500);
     font-family: var(--font-mono);
   }
   .card a {

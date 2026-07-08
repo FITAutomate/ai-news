@@ -27,7 +27,11 @@ import { Button } from "../components/starwind/button";
 <body>
   <main class="container">
     <nav class="top-menu" aria-label="Main menu">
-      <a href="#top" class="brand">FIT Automate</a>
+      <a href="#top" class="brand">
+        <span class="brand-dot" aria-hidden="true"></span>
+        <span>FIT Automate</span>
+        <span class="brand-section">/ AI News</span>
+      </a>
       <div class="menu-links">
         <a href="#stories">Top Stories</a>
         <label class="week-picker" for="weekSelect">Week</label>
@@ -39,7 +43,7 @@ import { Button } from "../components/starwind/button";
 
     <header class="hero" id="top">
       <p class="kicker">Updated: July 4, 2026</p>
-      <h1 class="site-title"><img class="site-icon" src="./icon.png" alt="" />AI News Pulse</h1>
+      <h1 class="site-title"><span class="site-icon" aria-hidden="true">📰</span>AI News Pulse</h1>
       <p class="subtitle">A fluid visual snapshot of major model launches, infrastructure spend, and market signals.</p>
       <div class="stats" id="stats"></div>
     </header>
@@ -78,7 +82,7 @@ import { Button } from "../components/starwind/button";
       </nav>
     </div>
 
-    <p class="footer-meta">Built for GitHub Pages • Data date: 2026-07-04</p>
+    <p class="footer-meta">Data date: 2026-07-04</p>
   </footer>
 
   <script is:inline src="./app.js?v=20260704a"></script>
