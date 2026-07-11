@@ -1,26 +1,38 @@
 ---
 name: ai-news-weekly
-description: Creates and publishes the FIT Automate weekly AI News Pulse update for the ai-news repository—research, archive JSON, current-week rollover, manifest sync, page metadata, validation, and optional publish via push to main (Cloudflare Pages auto-deploy).
-version: 1.2.0
+description: Creates and publishes the FIT Automate Weekly AI News Insights update for the ai-news repository—research, archive JSON, current-week rollover, manifest sync, page metadata, validation, and optional publish via push to main (Cloudflare Pages auto-deploy).
+version: 1.3.0
 ---
 
 # AI News Weekly
 
 ## Overview
 
-This skill standardizes the weekly AI News Pulse publishing workflow for this **repository** (clone or worktree path may vary). It covers source collection, story curation, JSON generation, site wiring, quality checks, and publish steps.
+This skill standardizes the **Weekly AI News Insights** publishing workflow for this **repository** (clone or worktree path may vary). It covers source collection, story curation, JSON generation, site wiring, quality checks, and publish steps.
+
+Product name on the page: **Weekly AI News Insights** (nav lockup: `FIT Automate / Insights`).
 
 ## Tooling (minimal contract)
 
 The skill assumes only:
 
-- **Local file access** to the repo (read/write JSON, HTML, JS, CSS).
+- **Local file access** to the repo (read/write JSON, Astro page, CSS as needed for metadata only).
 - **JSON validation** via `node skills/ai-news-weekly/scripts/validate-news-json.mjs` (see Step 6).
 - **Archive index** via `node scripts/sync-archive-manifest.mjs` from the repo root (see Step 5).
 - **Optional** week lookup: `node scripts/week-key-from-date.mjs YYYY-MM-DD` (uses `archive/manifest.json`).
 - **Optional web lookup** when curating (browser, search, or any MCP you choose—none required by this repo).
 - **Node build** via `npm run build` — stages root `news-data.json`, `archive/`, `app.js`, and `icon.png` into Astro `public/`, then runs `astro build` (pre-push smoke check).
 - **Git** when publishing — a push to `main` triggers the Cloudflare Pages build and deploy.
+
+## Hard guards (do not break the masthead)
+
+Weekly runs must **not** regress the locked header:
+
+1. **Do not overwrite `app.js`** during a normal weekly publish. Runtime rendering (`renderMeta`, week selector, cards) stays as shipped. Only change `app.js` in an explicit UI/fix PR.
+2. **Do not recreate or edit a root `index.html`.** Production page is `src/pages/index.astro` only (GitHub Pages shim retired).
+3. **Do not reintroduce** header stats cells (Stories, Primary Sources, Window, Themes). The masthead is brand + week picker; the hero kicker is `Week NN · Updated {label}` only.
+4. Keep writing `meta.window` and `meta.themes` in JSON (schema still requires them for archive continuity). They are **not** rendered in the header until a future interactive Themes feature lands.
+5. Card truncation (~140 chars) and tag limit (3) are UI-side in `app.js` — write full summaries/tags in JSON; do not pre-truncate.
 
 ## When to Use
 
@@ -32,23 +44,24 @@ Typical triggers:
 - "Add Week 15"
 - "Update current news and publish"
 - "Build this week's FIT Automate AI brief"
+- "Run Weekly AI News Insights"
 
 ## Required Inputs
 
 Collect these from user if missing:
 
 - Target week key (example: `2026-14`)
-- Date window text (example: `Mar 29-Apr 4, 2026`)
-- Data date (`YYYY-MM-DD`)
+- Date window text (example: `Mar 29-Apr 4, 2026`) — stored in `meta.window` for archive; not shown in header
+- Data date (`YYYY-MM-DD`) — Saturday publish date / `meta.dataDate`
 - Whether to push live after update
 
 ## Workflow
 
 ### Step 1: Gather project context
 
-1. Read [README.md](../../README.md), [app.js](../../app.js), [src/pages/index.astro](../../src/pages/index.astro) (the production page), and current [news-data.json](../../news-data.json). Note: root `index.html` is now only the GitHub Pages redirect shim — do not edit it for weekly updates.
+1. Read [README.md](../../README.md), [app.js](../../app.js) (read-only for weekly runs), [src/pages/index.astro](../../src/pages/index.astro) (the production page), and current [news-data.json](../../news-data.json).
 2. Confirm archive naming: `archive/news-YYYY-WW.json`.
-3. Confirm week discovery: [archive/manifest.json](../../archive/manifest.json) (rebuilt in Step 5) and [app.js](../../app.js) (loads manifest at runtime).
+3. Confirm week discovery: [archive/manifest.json](../../archive/manifest.json) (rebuilt in Step 5) and [app.js](../../app.js) (loads manifest at runtime; week picker + `Week NN` kicker).
 
 Use [Weekly Update Checklist](references/weekly-update-checklist.md) for exact file touchpoints.
 
@@ -69,6 +82,7 @@ Use [Source Selection Rules](references/source-selection-rules.md) to keep quali
    - `meta.updatedLabel`, `meta.dataDate`, `meta.window`, `meta.themes`
    - `news[]` with `category,date,title,summary,source,sourceLabel,rating,tags`
 4. Use 12 stories unless user explicitly requests a different count.
+5. `meta.updatedLabel` should match the Saturday publish date shown in the hero (e.g. `July 11, 2026`). `app.js` renders `Week {WW} · Updated {updatedLabel}` from the week key / manifest + this field.
 
 ### Step 4: Roll current week forward
 
@@ -78,11 +92,13 @@ Use [Source Selection Rules](references/source-selection-rules.md) to keep quali
 ### Step 5: Wire UI and docs
 
 1. From the repo root, run `node scripts/sync-archive-manifest.mjs` to refresh [archive/manifest.json](../../archive/manifest.json) (week selector is built from this file; do not hand-edit `app.js` week maps).
-2. Update production page metadata in [src/pages/index.astro](../../src/pages/index.astro). Root `index.html` is now only the GitHub Pages redirect shim — do NOT edit it.
-   - `<title>` month/year (static — edit here)
-   - `<meta name="description">` date (static — edit here)
+2. Update production page metadata in [src/pages/index.astro](../../src/pages/index.astro) only:
+   - `<title>` — keep product name **Weekly AI News Insights** + month/year (e.g. `Weekly AI News Insights - July 2026`)
+   - `<meta name="description">` date / window phrasing (static SEO)
+   - Hero kicker **static fallback** to match first paint: `Week {WW} · Updated {Month DD, YYYY}` (runtime overwrites from JSON + week key)
+   - Footer `Data date:` static fallback to `meta.dataDate`
    - cache-bust token on the `app.js` script tag, e.g. `src="./app.js?v=YYYYMMDDx"` (bump every release)
-   - The hero "Updated" date and footer data date are rendered at runtime by `app.js`'s `renderMeta()` from `news-data.json` `meta.updatedLabel` / `meta.dataDate` (set in Steps 3-4) — that JSON is the source of truth. Update the static fallbacks in `index.astro` to match for first-paint/SEO. (Note: the footer's "Built for GitHub Pages" literal is hardcoded in `app.js` `renderMeta()` and is stale post-migration — track its correction separately, outside the weekly run.)
+3. Do **not** change masthead markup (`.masthead`, brand lockup, `#weekSelect`) or restyle the header as part of a weekly run.
 
 ### Step 6: Validate and build before commit
 
@@ -97,9 +113,9 @@ Use [Source Selection Rules](references/source-selection-rules.md) to keep quali
 
 1. Run git status in repo.
 2. Stage only weekly-news files (see [Publish Procedure](references/publish-procedure.md)).
-3. Avoid staging unrelated modified files.
-4. Commit with clear message, then push `main`. The push triggers a Cloudflare Pages build and deploy — there is no GitHub Pages publish step.
-5. Verify the deploy at https://ai-news.fitautomate.com: the new week renders, the week selector lists it, and the console is clean. Optionally confirm the Cloudflare Pages dashboard deployment's source commit matches `main` HEAD.
+3. Avoid staging unrelated modified files (and do not stage accidental `app.js` / `brand.css` edits unless this is an explicit UI PR).
+4. Commit with clear message, then push `main`. The push triggers a Cloudflare Pages build and deploy.
+5. Verify the deploy at https://ai-news.fitautomate.com: new week in the selector, kicker shows `Week NN · Updated …`, stories render, console clean.
 
 Use [Publish Procedure](references/publish-procedure.md) for safe staging and push sequence.
 
@@ -126,6 +142,6 @@ A completed run should produce:
 1. New archive file: `archive/news-YYYY-WW.json`
 2. Updated current file: `news-data.json`
 3. Updated `archive/manifest.json` (via sync script)
-4. Updated `src/pages/index.astro` metadata and cache-bust token
+4. Updated `src/pages/index.astro` metadata, kicker fallback, and cache-bust token
 5. A clean `npm run build`
 6. Optional commit/push + verified Cloudflare deploy at https://ai-news.fitautomate.com when requested
