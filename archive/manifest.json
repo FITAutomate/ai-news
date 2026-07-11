@@ -188,6 +188,13 @@
       "file": "archive/news-2026-27.json",
       "dateFrom": "2026-06-29",
       "dateTo": "2026-07-04"
+    },
+    {
+      "key": "2026-28",
+      "label": "2026-W28 (Jul 5-11, 2026)",
+      "file": "archive/news-2026-28.json",
+      "dateFrom": "2026-07-07",
+      "dateTo": "2026-07-11"
     }
   ]
 }
