@@ -43,8 +43,9 @@ phases land.
 
 ## Current files of interest
 
+- `src/pages/index.astro`, `src/styles/brand.css`, `app.js` -- Astro page shell + runtime renderer.
 - `news-data.json` -- current week's data payload.
 - `archive/manifest.json` and `archive/news-YYYY-WW.json` -- weekly archive store.
 - `scripts/sync-archive-manifest.mjs`, `scripts/week-key-from-date.mjs` -- existing automation.
-- `skills/ai-news-weekly/` -- weekly update skill.
+- `skills/ai-news-weekly/` -- weekly update skill (product: Weekly AI News Insights).
 - `astro.config.mjs`, `package.json` -- Astro site configuration.

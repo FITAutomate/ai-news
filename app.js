@@ -25,6 +25,8 @@ const CATEGORY_EMOJI = {
 let weekFileMap = {
   current: "./news-data.json"
 };
+/** Manifest week rows — used to resolve "current" into a Week NN label for John. */
+let manifestWeeks = [];
 
 async function loadWeekFileMap() {
   const map = { current: "./news-data.json" };
@@ -253,24 +255,31 @@ function getRatingStars(rating) {
   return "\u2605".repeat(clamped) + "\u2606".repeat(5 - clamped);
 }
 
-function renderStats(news, meta) {
-  // Issue #18 (round 2, John review): removed Sourcing/Stories/Primary Sources
-  // entirely — every article has a unique source, so those counts are always 1:1
-  // and convey no useful info. Strip is now just Window + Themes (both dynamic).
-  const stats = [
-    { label: "Window", value: meta.window || "N/A" },
-    { label: "Themes", value: meta.themes || "N/A" }
-  ];
+function weekNumberFromKey(weekKey) {
+  if (!weekKey || weekKey === "current") return null;
+  const match = String(weekKey).match(/-(\d{1,2})$/);
+  return match ? Number(match[1]) : null;
+}
 
+function resolveWeekNumber(weekKey, meta) {
+  const fromKey = weekNumberFromKey(weekKey);
+  if (fromKey != null) return fromKey;
+
+  const dataDate = meta && meta.dataDate ? String(meta.dataDate) : "";
+  if (dataDate && Array.isArray(manifestWeeks)) {
+    const hit = manifestWeeks.find(
+      (w) => w.dateFrom && w.dateTo && dataDate >= w.dateFrom && dataDate <= w.dateTo
+    );
+    if (hit) return weekNumberFromKey(hit.key);
+  }
+  return null;
+}
+
+function renderStats() {
+  // Round 1 masthead: Window is redundant with Updated; Themes are curated copy,
+  // not filters/links — keep them out of the header until they become interactive.
   const statsEl = document.getElementById("stats");
-  statsEl.innerHTML = "";
-
-  stats.forEach((item) => {
-    const div = document.createElement("div");
-    div.className = "stat";
-    div.innerHTML = `<div class="label">${item.label}</div><div class="value">${item.value}</div>`;
-    statsEl.appendChild(div);
-  });
+  if (statsEl) statsEl.innerHTML = "";
 }
 
 function renderNews(news) {
@@ -309,10 +318,14 @@ function renderNews(news) {
   });
 }
 
-function renderMeta(meta) {
+function renderMeta(meta, weekKey) {
   const kicker = document.querySelector(".kicker");
   if (kicker && meta.updatedLabel) {
-    kicker.textContent = `Updated: ${meta.updatedLabel}`;
+    const weekNum = resolveWeekNumber(weekKey, meta);
+    const weekPart = weekNum != null ? `Week ${weekNum}` : null;
+    kicker.textContent = weekPart
+      ? `${weekPart} \u00b7 Updated ${meta.updatedLabel}`
+      : `Updated ${meta.updatedLabel}`;
   }
 
   const footerText = document.querySelector(".footer-meta");
@@ -332,8 +345,8 @@ async function renderWeek(weekKey) {
   // Visual polish: keep the selected stories but present the top row with more variety.
   const news = diversifyTop(selected);
 
-  renderMeta(meta);
-  renderStats(news, meta);
+  renderMeta(meta, weekKey);
+  renderStats();
   renderNews(news);
 }
 
@@ -345,9 +358,11 @@ async function init() {
   try {
     const { map, weeks } = await loadWeekFileMap();
     weekFileMap = map;
+    manifestWeeks = weeks;
     fillWeekSelector(weeks);
   } catch (error) {
     console.error(error);
+    manifestWeeks = [];
     if (select) {
       select.innerHTML = `<option value="current">Current</option>`;
     }

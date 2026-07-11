@@ -1,5 +1,5 @@
 ---
-// AI News Pulse — home page (issue #7: FIT brand applied).
+// AI News Insights — home page (issue #7: FIT brand applied).
 //
 // Brand source of record: fit-solutions/brand@d2fef9e (pinned in
 // .agent/prp/evidence/2026-06-07-issue7-brand-snapshot/). Tokens + page styling live in
@@ -16,8 +16,8 @@ import { Button } from "../components/starwind/button";
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI News Pulse - July 2026</title>
-  <meta name="description" content="Live-style visual summary of major AI news through July 4, 2026." />
+  <title>Weekly AI News Insights - July 2026</title>
+  <meta name="description" content="Weekly AI news insights through July 4, 2026 — curated for business audiences." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Open+Sans:wght@400;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
@@ -26,14 +26,13 @@ import { Button } from "../components/starwind/button";
 </head>
 <body>
   <main class="container">
-    <nav class="top-menu" aria-label="Main menu">
+    <nav class="masthead" aria-label="Main menu">
       <a href="#top" class="brand">
         <span class="brand-dot" aria-hidden="true"></span>
         <span>FIT Automate</span>
-        <span class="brand-section">/ AI News</span>
+        <span class="brand-section">/ Insights</span>
       </a>
-      <div class="menu-links">
-        <a href="#stories">Top Stories</a>
+      <div class="week-control">
         <label class="week-picker" for="weekSelect">Week</label>
         <select id="weekSelect" class="week-select" aria-label="Select week">
           <option value="current">Current</option>
@@ -42,10 +41,10 @@ import { Button } from "../components/starwind/button";
     </nav>
 
     <header class="hero" id="top">
-      <p class="kicker">Updated: July 4, 2026</p>
-      <h1 class="site-title"><span class="site-icon" aria-hidden="true">📰</span>AI News Pulse</h1>
-      <p class="subtitle">A fluid visual snapshot of major model launches, infrastructure spend, and market signals.</p>
-      <div class="stats" id="stats"></div>
+      <p class="kicker">Week 27 · Updated July 4, 2026</p>
+      <h1 class="site-title">Weekly AI News Insights</h1>
+      <p class="subtitle">Curated signals on model launches, infrastructure spend, and market moves.</p>
+      <div class="stats" id="stats" hidden></div>
     </header>
 
     <section class="section" id="stories">
@@ -85,6 +84,6 @@ import { Button } from "../components/starwind/button";
     <p class="footer-meta">Data date: 2026-07-04</p>
   </footer>
 
-  <script is:inline src="./app.js?v=20260704a"></script>
+  <script is:inline src="./app.js?v=20260711b"></script>
 </body>
 </html>
