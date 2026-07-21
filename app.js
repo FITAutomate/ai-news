@@ -319,13 +319,22 @@ function renderNews(news) {
 }
 
 function renderMeta(meta, weekKey) {
+  const weekNum = resolveWeekNumber(weekKey, meta);
+
   const kicker = document.querySelector(".kicker");
   if (kicker && meta.updatedLabel) {
-    const weekNum = resolveWeekNumber(weekKey, meta);
     const weekPart = weekNum != null ? `Week ${weekNum}` : null;
     kicker.textContent = weekPart
       ? `${weekPart} \u00b7 Updated ${meta.updatedLabel}`
       : `Updated ${meta.updatedLabel}`;
+  }
+
+  // Dynamic page title \u2014 includes week number and archive flag.
+  if (weekNum != null) {
+    const isArchive = weekKey !== "current";
+    document.title = isArchive
+      ? `Week ${weekNum} AI News (Archive) \u2014 FIT Automate`
+      : `Week ${weekNum} AI News \u2014 FIT Automate`;
   }
 
   const footerText = document.querySelector(".footer-meta");
