@@ -2,16 +2,23 @@
 @import "tw-animate-css";
 @import "./brand.css";
 @plugin "@tailwindcss/forms";
-@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant dark (&:where([data-fit-theme="dark"], [data-fit-theme="dark"] *));
 
-/* ── FIT brand tokens (issue #7) — source: fit-solutions/brand@d2fef9e ── */
+/* ── FIT brand tokens — source: fitautomate-com/src/styles/fit-theme.css canon ── */
 @theme {
   --color-fit-blue: #007ce8;
+  --color-fit-blue-200: #a8d3f9;
   /* Approved on-dark tint of fit-blue for SMALL text/links on slate surfaces, so they
      clear WCAG AA normal-text contrast (6.06:1 on slate-900). Canonical #007CE8 stays for
      primary fills, large text, and non-text accents. (Per Quinn, PR #12.) */
-  --color-fit-blue-300: #3b9bf0;
+  --color-fit-blue-300: #6fb5f4;
+  --color-fit-blue-400: #3396ee;
+  --color-fit-blue-500: #007ce8;
+  --color-fit-blue-600: #0067c7;
+  --color-fit-blue-700: #0053a3;
+  --color-fit-blue-800: #064382;
   --color-fit-green: #1cd000;
+  --color-fit-green-500: #1cd000;
   --font-sans: "Open Sans", ui-sans-serif, system-ui, sans-serif;
   --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
@@ -128,23 +135,23 @@
   --sidebar-outline: var(--color-neutral-400);
 }
 
-.dark {
-  --background: var(--color-neutral-950);
-  --foreground: var(--color-neutral-50);
-  --card: var(--color-neutral-900);
-  --card-foreground: var(--color-neutral-50);
-  --popover: var(--color-neutral-800);
-  --popover-foreground: var(--color-neutral-50);
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-neutral-50);
-  --primary-accent: var(--color-blue-400);
-  --secondary: var(--color-neutral-800);
-  --secondary-foreground: var(--color-neutral-50);
-  --secondary-accent: var(--color-neutral-50);
-  --muted: var(--color-neutral-800);
-  --muted-foreground: var(--color-neutral-400);
-  --accent: var(--color-neutral-700);
-  --accent-foreground: var(--color-neutral-100);
+[data-fit-theme="dark"] {
+  --background: var(--color-slate-950);
+  --foreground: var(--color-slate-50);
+  --card: var(--color-slate-900);
+  --card-foreground: var(--color-slate-50);
+  --popover: var(--color-slate-800);
+  --popover-foreground: var(--color-slate-50);
+  --primary: var(--color-fit-blue);
+  --primary-foreground: var(--color-slate-50);
+  --primary-accent: var(--color-fit-blue-400);
+  --secondary: var(--color-slate-800);
+  --secondary-foreground: var(--color-slate-50);
+  --secondary-accent: var(--color-slate-50);
+  --muted: var(--color-slate-800);
+  --muted-foreground: var(--color-slate-400);
+  --accent: var(--color-slate-700);
+  --accent-foreground: var(--color-slate-100);
   --info: var(--color-sky-300);
   --info-foreground: var(--color-sky-950);
   --success: var(--color-green-300);
@@ -152,20 +159,20 @@
   --warning: var(--color-amber-300);
   --warning-foreground: var(--color-amber-950);
   --error: var(--color-red-800);
-  --error-foreground: var(--color-neutral-50);
-  --border: --alpha(var(--color-neutral-50) / 10%);
-  --input: --alpha(var(--color-neutral-50) / 15%);
-  --outline: var(--color-neutral-500);
+  --error-foreground: var(--color-slate-50);
+  --border: --alpha(var(--color-slate-50) / 10%);
+  --input: --alpha(var(--color-slate-50) / 15%);
+  --outline: var(--color-slate-500);
 
   /* sidebars variables */
-  --sidebar-background: var(--color-neutral-900);
-  --sidebar-foreground: var(--color-neutral-50);
-  --sidebar-primary: var(--color-blue-700);
-  --sidebar-primary-foreground: var(--color-neutral-50);
-  --sidebar-accent: var(--color-neutral-800);
-  --sidebar-accent-foreground: var(--color-neutral-100);
-  --sidebar-border: var(--color-neutral-800);
-  --sidebar-outline: var(--color-neutral-600);
+  --sidebar-background: var(--color-slate-900);
+  --sidebar-foreground: var(--color-slate-50);
+  --sidebar-primary: var(--color-fit-blue);
+  --sidebar-primary-foreground: var(--color-slate-50);
+  --sidebar-accent: var(--color-slate-800);
+  --sidebar-accent-foreground: var(--color-slate-100);
+  --sidebar-border: var(--color-slate-800);
+  --sidebar-outline: var(--color-slate-600);
 }
 
 @layer base {
@@ -181,15 +188,16 @@
 }
 
 /* ════════════════════════════════════════════════════════════════
-   FIT brand overrides (issue #7) — map Starwind semantic tokens to FIT.
-   Source of record: FITAutomate/fit-solutions/brand @ d2fef9e
+   FIT brand overrides — map Starwind semantic tokens to FIT.
+   Source of record: fitautomate-com/src/styles/fit-theme.css canon
    - fit-blue (#007CE8) = primary/accent
    - fit-green (#1CD000) = status/approval semantics only
-   - slate = structural neutrals; dark surfaces (never navy/black)
+   - slate = structural neutrals
+   - Light/dark follows OS via data-fit-theme attribute
    ════════════════════════════════════════════════════════════════ */
 @layer base {
-  :root,
-  .dark {
+  /* ── Theme-agnostic brand semantics ────────────────────────── */
+  :root {
     --primary: var(--color-fit-blue);
     /* Accessible primary-button treatment: dark slate label on the canonical fit-blue fill
        = 4.85:1 (AA). White-on-fit-blue is only 4.16:1, so we keep the #007CE8 fill and darken
@@ -198,13 +206,60 @@
     --primary-accent: var(--color-fit-blue);
     --success: var(--color-fit-green);
     --success-foreground: #042b0a;
+
+    /* ── Semantic surface/ink tokens (fit-theme.css canon) ────── */
+    --brand: var(--color-fit-blue-500);
+    --brand-hover: var(--color-fit-blue-600);
+    --approved: var(--color-fit-green-500);
   }
 
-  .dark {
-    --background: var(--color-slate-950);
-    --foreground: var(--color-slate-100);
-    --card: var(--color-slate-900);
-    --card-foreground: var(--color-slate-100);
+  /* ── Light theme ───────────────────────────────────────────── */
+  :root,
+  [data-fit-theme="light"] {
+    --surface: var(--color-slate-100);
+    --surface-raised: var(--color-slate-50);
+    --surface-sunken: var(--color-slate-200);
+    --ink: var(--color-slate-900);
+    --ink-strong: var(--color-slate-950);
+    --ink-muted: var(--color-slate-600);
+    --ink-subtle: var(--color-slate-400);
+    --border-strong: var(--color-slate-300);
+    --link: var(--color-fit-blue-700);
+    --link-hover: var(--color-fit-blue-800);
+    --shadow-card: 0 18px 44px rgba(2,12,22,0.14);
+    --glow-opacity: 6%;
+    --glow-opacity-secondary: 4%;
+    --masthead-bg: rgba(241, 245, 249, 0.88);
+
+    --background: var(--surface);
+    --foreground: var(--ink);
+    --card: var(--surface-raised);
+    --card-foreground: var(--ink);
+
+    color-scheme: light;
+  }
+
+  /* ── Dark theme ────────────────────────────────────────────── */
+  [data-fit-theme="dark"] {
+    --surface: var(--color-slate-900);
+    --surface-raised: var(--color-slate-800);
+    --surface-sunken: var(--color-slate-950);
+    --ink: var(--color-slate-100);
+    --ink-strong: var(--color-slate-50);
+    --ink-muted: var(--color-slate-400);
+    --ink-subtle: var(--color-slate-500);
+    --border-strong: var(--color-slate-600);
+    --link: var(--color-fit-blue-300);
+    --link-hover: var(--color-fit-blue-400);
+    --shadow-card: 0 18px 44px rgba(2,12,22,0.42);
+    --glow-opacity: 10%;
+    --glow-opacity-secondary: 6%;
+    --masthead-bg: rgba(2, 6, 23, 0.88);
+
+    --background: var(--surface-sunken);
+    --foreground: var(--ink);
+    --card: var(--surface);
+    --card-foreground: var(--ink);
     --popover: var(--color-slate-800);
     --popover-foreground: var(--color-slate-100);
     --secondary: var(--color-slate-800);
@@ -222,20 +277,28 @@
     --sidebar-primary: var(--color-fit-blue);
     --sidebar-accent: var(--color-slate-800);
     --sidebar-border: var(--color-slate-800);
+
+    color-scheme: dark;
   }
 
-  html { color-scheme: dark; }
+  /* ── Base styles ───────────────────────────────────────────── */
+  html { background-color: var(--background); }
+  html, body {
+    transition: background-color 0.45s, color 0.45s;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html, body { transition: none; }
+  }
   body {
     font-family: var(--font-sans);
-    color: var(--color-slate-100);
+    color: var(--foreground);
     line-height: 1.7;
     overflow-x: hidden;
-    background-color: var(--color-slate-950);
-    /* Overflow-safe ambient glow (replaces the removed fixed orbs). A painted background
-       cannot create horizontal scroll, unlike the old position:fixed orb elements. */
+    background-color: var(--background);
+    /* Overflow-safe ambient glow — opacity varies by theme via custom property */
     background-image:
-      radial-gradient(900px circle at 12% -8%, --alpha(var(--color-fit-blue) / 10%), transparent 60%),
-      radial-gradient(720px circle at 102% 2%, --alpha(var(--color-fit-blue) / 6%), transparent 55%);
+      radial-gradient(900px circle at 12% -8%, --alpha(var(--color-fit-blue) / var(--glow-opacity)), transparent 60%),
+      radial-gradient(720px circle at 102% 2%, --alpha(var(--color-fit-blue) / var(--glow-opacity-secondary)), transparent 55%);
     background-repeat: no-repeat;
     background-attachment: fixed;
   }

@@ -33,7 +33,9 @@ const publicDir = path.join(root, 'public');
 // GitHub Pages site until the deploy phases (#8/#5/#10). app.js stays (runtime renderer).
 const ASSETS = [
   'app.js',          // runtime renderer (unchanged; loaded via is:inline)
-  'icon.png',        // favicon + hero icon
+  'icon.png',        // apple-touch-icon
+  'icon-up.svg',     // primary SVG favicon (brain-circuit mark, matching fitautomate.com)
+  'favicon.ico',     // ICO fallback favicon (may not exist yet — skipped with warning)
   'news-data.json',  // current-week payload (fetched at runtime by app.js)
   'archive',         // manifest.json + weekly news-YYYY-WW.json files (fetched at runtime)
 ];

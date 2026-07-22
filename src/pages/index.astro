@@ -1,9 +1,12 @@
 ---
-// AI News Insights — home page (issue #7: FIT brand applied).
+// AI News Insights — home page.
 //
-// Brand source of record: fit-solutions/brand@d2fef9e (pinned in
-// .agent/prp/evidence/2026-06-07-issue7-brand-snapshot/). Tokens + page styling live in
-// src/styles/starwind.css (FIT-mapped Starwind tokens) and src/styles/brand.css.
+// Brand source of record: fitautomate-com/src/styles/fit-theme.css canon.
+// Tokens + page styling live in src/styles/starwind.css (FIT-mapped Starwind tokens)
+// and src/styles/brand.css.
+//
+// Light/dark: follows OS preference via data-fit-theme attribute, matching
+// fitautomate.com. No visible toggle — system only.
 //
 // Behavior preserved: app.js still renders #stats, #newsGrid, and populates the native
 // #weekSelect at runtime by fetching ./news-data.json and ./archive/manifest.json. Those
@@ -12,16 +15,29 @@ import "../styles/starwind.css";
 import { Button } from "../components/starwind/button";
 ---
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <!-- Theme follows the system — no visible switcher (Brand-Update canon).
+       Must stay inline and blocking, before any CSS paint, to avoid theme flash. -->
+  <script is:inline>
+    (function () {
+      var mq = window.matchMedia("(prefers-color-scheme: dark)");
+      function apply() {
+        document.documentElement.setAttribute("data-fit-theme", mq.matches ? "dark" : "light");
+      }
+      apply();
+      mq.addEventListener("change", apply);
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Weekly AI News Insights - July 2026</title>
-  <meta name="description" content="Weekly AI news insights through July 18, 2026 — curated for business audiences." />
+  <title>Weekly AI News Insights — FIT Automate</title>
+  <meta name="description" content="Weekly AI news insights — curated for business audiences by FIT Automate." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&family=Open+Sans:wght@400;600&family=Poppins:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="icon" href="./icon.png" type="image/png" />
+  <link rel="icon" type="image/svg+xml" href="./icon-up.svg" />
+  <link rel="icon" href="./favicon.ico" />
   <link rel="apple-touch-icon" href="./icon.png" />
 </head>
 <body>
@@ -58,7 +74,7 @@ import { Button } from "../components/starwind/button";
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="footer-copy">&copy; 2026 Forward IT Thinking Inc. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 FIT Automate. All rights reserved.</p>
 
       <div class="footer-cta" aria-label="Primary links">
         <Button href="https://fitautomate.com" variant="primary" size="sm">Visit FIT Automate</Button>
@@ -84,6 +100,6 @@ import { Button } from "../components/starwind/button";
     <p class="footer-meta">Data date: 2026-07-18</p>
   </footer>
 
-  <script is:inline src="./app.js?v=20260718a"></script>
+  <script is:inline src="./app.js?v=20260721a"></script>
 </body>
 </html>
