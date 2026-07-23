@@ -94,56 +94,60 @@
   --color-sidebar-outline: var(--sidebar-outline);
 }
 
+/* Base surface/semantic tokens — canon slate model (LIGHT).
+   These are unlayered and therefore authoritative (unlayered beats @layer base),
+   so the canon values live here directly. surface=slate-100 canvas, cards RISE
+   to slate-50, sunken=slate-200. fit-blue is primary; slate is the neutral. */
 :root {
-  --background: var(--color-white);
-  --foreground: var(--color-neutral-950);
-  --card: var(--color-white);
-  --card-foreground: var(--color-neutral-950);
-  --popover: var(--color-white);
-  --popover-foreground: var(--color-neutral-950);
-  --primary: var(--color-blue-700);
-  --primary-foreground: var(--color-neutral-50);
-  --primary-accent: var(--color-blue-700);
-  --secondary: var(--color-neutral-200);
-  --secondary-foreground: var(--color-neutral-950);
-  --secondary-accent: var(--color-neutral-950);
-  --muted: var(--color-neutral-100);
-  --muted-foreground: var(--color-neutral-600);
-  --accent: var(--color-neutral-100);
-  --accent-foreground: var(--color-neutral-900);
+  --background: var(--color-slate-100);
+  --foreground: var(--color-slate-900);
+  --card: var(--color-slate-50);
+  --card-foreground: var(--color-slate-900);
+  --popover: var(--color-slate-50);
+  --popover-foreground: var(--color-slate-900);
+  --primary: var(--color-fit-blue);
+  --primary-foreground: #020617;
+  --primary-accent: var(--color-fit-blue);
+  --secondary: var(--color-slate-200);
+  --secondary-foreground: var(--color-slate-900);
+  --secondary-accent: var(--color-slate-900);
+  --muted: var(--color-slate-100);
+  --muted-foreground: var(--color-slate-600);
+  --accent: var(--color-slate-100);
+  --accent-foreground: var(--color-slate-900);
   --info: var(--color-sky-300);
   --info-foreground: var(--color-sky-950);
-  --success: var(--color-green-300);
-  --success-foreground: var(--color-green-950);
+  --success: var(--color-fit-green);
+  --success-foreground: #042b0a;
   --warning: var(--color-amber-300);
   --warning-foreground: var(--color-amber-950);
   --error: var(--color-red-700);
-  --error-foreground: var(--color-neutral-50);
-  --border: var(--color-neutral-200);
-  --input: var(--color-neutral-200);
-  --outline: var(--color-neutral-400);
+  --error-foreground: var(--color-slate-50);
+  --border: var(--color-slate-200);
+  --input: var(--color-slate-200);
+  --outline: var(--color-slate-400);
   --radius: 0.625rem;
 
   /* sidebar variables */
-  --sidebar-background: var(--color-neutral-50);
-  --sidebar-foreground: var(--color-neutral-950);
-  --sidebar-primary: var(--color-blue-700);
-  --sidebar-primary-foreground: var(--color-neutral-50);
-  --sidebar-accent: var(--color-neutral-100);
-  --sidebar-accent-foreground: var(--color-neutral-900);
-  --sidebar-border: var(--color-neutral-200);
-  --sidebar-outline: var(--color-neutral-400);
+  --sidebar-background: var(--color-slate-50);
+  --sidebar-foreground: var(--color-slate-900);
+  --sidebar-primary: var(--color-fit-blue);
+  --sidebar-primary-foreground: #020617;
+  --sidebar-accent: var(--color-slate-100);
+  --sidebar-accent-foreground: var(--color-slate-900);
+  --sidebar-border: var(--color-slate-200);
+  --sidebar-outline: var(--color-slate-400);
 }
 
 [data-fit-theme="dark"] {
-  --background: var(--color-slate-950);
-  --foreground: var(--color-slate-50);
-  --card: var(--color-slate-900);
-  --card-foreground: var(--color-slate-50);
+  --background: var(--color-slate-900);
+  --foreground: var(--color-slate-100);
+  --card: var(--color-slate-800);
+  --card-foreground: var(--color-slate-100);
   --popover: var(--color-slate-800);
-  --popover-foreground: var(--color-slate-50);
+  --popover-foreground: var(--color-slate-100);
   --primary: var(--color-fit-blue);
-  --primary-foreground: var(--color-slate-50);
+  --primary-foreground: #020617;
   --primary-accent: var(--color-fit-blue-400);
   --secondary: var(--color-slate-800);
   --secondary-foreground: var(--color-slate-50);
@@ -256,9 +260,9 @@
     --glow-opacity-secondary: 6%;
     --masthead-bg: rgba(2, 6, 23, 0.88);
 
-    --background: var(--surface-sunken);
+    --background: var(--surface);
     --foreground: var(--ink);
-    --card: var(--surface);
+    --card: var(--surface-raised);
     --card-foreground: var(--ink);
     --popover: var(--color-slate-800);
     --popover-foreground: var(--color-slate-100);
