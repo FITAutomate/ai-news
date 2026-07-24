@@ -24,21 +24,24 @@
     padding: 2.25rem 0 4rem;
   }
 
-  /* Masthead A: one clean band — brand left, week control right.
-     No floating pill, no jump-link clutter. Soft sticky for archive UX. */
+  /* Masthead A: a lifted card surface — brand left, week control right.
+     Same border, radius and shadow as .card; translucent + blurred so content
+     reads through it. Small sticky offset keeps the rounded top corners visible. */
   .masthead {
     position: sticky;
-    top: 0;
+    top: 0.75rem;
     z-index: 10;
     margin: 0 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--border-strong);
+    padding: 0.85rem 1.2rem;
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
     background-color: var(--masthead-bg);
     backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-card);
   }
 
   /* Brand lockup: ● FIT Automate / INSIGHTS */
