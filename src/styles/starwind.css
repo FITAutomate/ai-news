@@ -231,8 +231,8 @@
     --link: var(--color-fit-blue-700);
     --link-hover: var(--color-fit-blue-800);
     --shadow-card: 0 18px 44px rgba(2,12,22,0.14);
-    --glow-opacity: 6%;
-    --glow-opacity-secondary: 4%;
+    --glow-opacity: 13%;
+    --glow-opacity-secondary: 9%;
     --masthead-bg: rgba(241, 245, 249, 0.88);
 
     --background: var(--surface);
@@ -256,8 +256,8 @@
     --link: var(--color-fit-blue-300);
     --link-hover: var(--color-fit-blue-400);
     --shadow-card: 0 18px 44px rgba(2,12,22,0.42);
-    --glow-opacity: 10%;
-    --glow-opacity-secondary: 6%;
+    --glow-opacity: 22%;
+    --glow-opacity-secondary: 16%;
     --masthead-bg: rgba(2, 6, 23, 0.88);
 
     --background: var(--surface);
