@@ -1,0 +1,314 @@
+name: fit-ai-news-weekly
+description: |
+  Use when: You want the Weekly AI News Insights edition researched, built, validated
+  and PUBLISHED end to end with no further input.
+  Triggers: "run the saturday news", "run this week's news", "run the weekly ai news",
+            "publish this week's AI news", "run weekly ai news insights".
+  Does: (1) preflight — verifies the checkout is on main, clean and current, then derives
+  the ISO week key and target date; (2) curates the edition by following the canonical
+  skills/ai-news-weekly/SKILL.md (research, archive JSON, roll current week, page
+  metadata); (3) rebuilds archive/manifest.json; (4) validates both JSON files and runs
+  the Astro build as a pre-push smoke check; (5) commits ONLY the weekly-news files and
+  pushes main, which triggers the Cloudflare Pages deploy; (6) polls the live site.
+  Accepts an optional YYYY-MM-DD in the message to target a specific Saturday, and the
+  word "force" to overwrite an existing week.
+  NOT for: UI or styling changes (app.js / brand.css / masthead — those are explicit PRs),
+  backfilling several weeks in one run, or editing past editions.
+
+# All AI nodes use Claude models. Pinned so they don't inherit a Codex default —
+# Codex on a ChatGPT account rejects haiku/sonnet/opus and the run fails (Archon #19).
+provider: claude
+
+# Runs in the LIVE checkout, not a worktree. Two deliberate reasons:
+#   1. The whole point is publishing to main. A worktree would commit to a throwaway
+#      branch that then needs merging — which defeats "end to end, no input from me".
+#   2. Skill edits are picked up immediately. A worktree only ever contains COMMITTED
+#      state, so tuning skills/ai-news-weekly/ would not take effect until committed.
+# The preflight node is what makes this safe: it refuses to run on a dirty tree.
+worktree:
+  enabled: false
+
+nodes:
+  # ── 1. Preflight ────────────────────────────────────────────────────────────
+  # Deterministic. Establishes that publishing is safe BEFORE any AI spend, and
+  # derives every value the later nodes need into $ARTIFACTS_DIR/run.env.
+  - id: preflight
+    bash: |
+      set -euo pipefail
+
+      if [ ! -f news-data.json ] || [ ! -d archive ]; then
+        echo "ERROR: cwd does not look like the ai-news repo (no news-data.json / archive/)." >&2
+        exit 1
+      fi
+
+      branch="$(git rev-parse --abbrev-ref HEAD)"
+      if [ "$branch" != "main" ]; then
+        echo "ERROR: on branch '$branch'. This workflow publishes to main; switch first." >&2
+        exit 1
+      fi
+
+      # Refuse to run with modified TRACKED files. Without a worktree this is the
+      # only thing standing between an unrelated edit and a published commit.
+      # Untracked files are deliberately tolerated: the publish node stages an
+      # explicit allow-list, so a stray new file can never ride along in a commit.
+      if [ -n "$(git status --porcelain --untracked-files=no)" ]; then
+        echo "ERROR: tracked files are modified. Commit or stash before publishing:" >&2
+        git status --short --untracked-files=no >&2
+        exit 1
+      fi
+
+      git fetch origin main --quiet
+      behind="$(git rev-list --count HEAD..origin/main)"
+      if [ "$behind" != "0" ]; then
+        echo "ERROR: local main is $behind commit(s) behind origin/main. Pull first." >&2
+        exit 1
+      fi
+
+      # Target date: an explicit YYYY-MM-DD anywhere in the message wins, else today.
+      raw="$ARGUMENTS"
+      target="$(printf '%s' "$raw" | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}' | head -1 || true)"
+      if [ -z "$target" ]; then
+        target="$(date +%F)"
+      fi
+
+      # ISO-8601 week key (YYYY-WW). Matches the archive/news-YYYY-WW.json convention
+      # already on disk — verified against news-2026-30.json = 2026-07-25.
+      week_key="$(node -e "
+        const d = new Date('$target' + 'T12:00:00Z');
+        const t = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
+        const day = t.getUTCDay() || 7;
+        t.setUTCDate(t.getUTCDate() + 4 - day);
+        const ys = new Date(Date.UTC(t.getUTCFullYear(), 0, 1));
+        const w = Math.ceil(((t - ys) / 86400000 + 1) / 7);
+        console.log(t.getUTCFullYear() + '-' + String(w).padStart(2, '0'));
+      ")"
+
+      archive_file="archive/news-${week_key}.json"
+
+      # Existing week is a hard stop unless the message says "force". Silently
+      # overwriting a published edition is the one mistake that is expensive to undo.
+      if [ -f "$archive_file" ]; then
+        if printf '%s' "$raw" | grep -qi 'force'; then
+          echo "NOTICE: $archive_file exists — overwriting because 'force' was given."
+        else
+          echo "ERROR: $archive_file already exists (week $week_key is published)." >&2
+          echo "       Re-run with the word 'force' in the message to overwrite." >&2
+          exit 1
+        fi
+      fi
+
+      updated_label="$(node -e "
+        const d = new Date('$target' + 'T12:00:00Z');
+        console.log(d.toLocaleDateString('en-US',
+          { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' }));
+      ")"
+
+      mkdir -p "$ARTIFACTS_DIR"
+      {
+        echo "TARGET_DATE=$target"
+        echo "WEEK_KEY=$week_key"
+        echo "ARCHIVE_FILE=$archive_file"
+        echo "UPDATED_LABEL=$updated_label"
+      } > "$ARTIFACTS_DIR/run.env"
+
+      echo "target date   : $target"
+      echo "week key      : $week_key"
+      echo "archive file  : $archive_file"
+      echo "updated label : $updated_label"
+      echo "branch        : $branch (clean, level with origin/main)"
+
+  # ── 2. Curate and build the edition ─────────────────────────────────────────
+  # The ONLY AI node. It follows the canonical skill rather than restating it, so
+  # improving curation means editing skills/ai-news-weekly/ — nothing here changes.
+  - id: curate
+    depends_on: [preflight]
+    model: large
+    prompt: |
+      You are producing this week's **Weekly AI News Insights** edition for the
+      FIT Automate ai-news site. You are running unattended — there is no human to
+      ask. Make the editorial calls yourself and finish the job.
+
+      Run parameters (authoritative — do not recompute them):
+
+      $preflight.output
+
+      ## Your instructions live in the skill, not in this prompt
+
+      Read these files now and follow them exactly. They are the source of truth and
+      they change over time — this prompt deliberately does not duplicate their rules:
+
+      1. `skills/ai-news-weekly/SKILL.md` — the full procedure
+      2. `skills/ai-news-weekly/references/source-selection-rules.md` — editorial and
+         sourcing constraints
+      3. `skills/ai-news-weekly/references/weekly-update-checklist.md` — file-by-file
+         touchpoints
+      4. `skills/ai-news-weekly/assets/week-news-template.json` — schema baseline
+
+      If anything below appears to conflict with SKILL.md, **SKILL.md wins** — except
+      for the scope boundary in the next section, which is set by this workflow.
+
+      ## Scope: perform Steps 1 through 5 ONLY
+
+      Do Step 1 (gather context), Step 2 (collect and verify stories), Step 3 (build
+      `$ARCHIVE_FILE` from run.env above), Step 4 (roll it forward into
+      `news-data.json`), and the Step 5 page-metadata edits to
+      `src/pages/index.astro` (title, description, hero kicker static fallback,
+      footer data date, and the `app.js?v=` cache-bust token).
+
+      Do NOT do any of the following — later deterministic nodes own them, and doing
+      them here will cause duplicate or conflicting work:
+
+      - Do NOT run `node scripts/sync-archive-manifest.mjs` (node `sync-manifest`)
+      - Do NOT run the validator or `npm run build` (node `validate`)
+      - Do NOT run `git add`, `git commit`, or `git push` (node `publish`)
+
+      **You are not being asked whether to publish.** Publishing is automatic once
+      validation passes. Do not end your turn asking for confirmation, and do not
+      describe the edition as "ready to publish" — just write the files correctly.
+
+      ## Honour the masthead guards
+
+      SKILL.md's "Hard guards" section is binding. In particular do not touch `app.js`,
+      do not create a root `index.html`, do not reintroduce header stats cells, and do
+      not pre-truncate summaries or tags.
+
+      ## Editorial standard
+
+      Twelve stories unless the run message asked for a different count. Balanced
+      across policy, business, infrastructure/chips, and builder tooling. Every
+      `source` URL must be one you actually fetched and confirmed resolves to the
+      headline and date you are citing — a dead or mismatched link is the one defect
+      that reliably reaches readers. Keep strictly inside the target week window.
+
+      Use `meta.updatedLabel` exactly as given in run.env above.
+
+      When you are done, state which files you wrote and the twelve headlines.
+
+  # ── 3. Rebuild the archive manifest ─────────────────────────────────────────
+  - id: sync-manifest
+    depends_on: [curate]
+    bash: |
+      set -euo pipefail
+      node scripts/sync-archive-manifest.mjs
+      echo "manifest weeks: $(node -e "console.log(require('./archive/manifest.json').weeks.length)")"
+
+  # ── 4. Validate, then build ─────────────────────────────────────────────────
+  # The pre-push smoke check. A failure here stops the run before anything is
+  # committed, which is exactly what should happen.
+  - id: validate
+    depends_on: [sync-manifest]
+    bash: |
+      set -euo pipefail
+      . "$ARTIFACTS_DIR/run.env"
+
+      if [ ! -f "$ARCHIVE_FILE" ]; then
+        echo "ERROR: $ARCHIVE_FILE was not created by the curate node." >&2
+        exit 1
+      fi
+
+      node skills/ai-news-weekly/scripts/validate-news-json.mjs \
+        news-data.json "$ARCHIVE_FILE"
+
+      count="$(node -e "console.log(require('./news-data.json').news.length)")"
+      echo "news-data.json stories: $count"
+
+      npm run build
+      echo "astro build OK"
+
+  # ── 5. Commit and publish ───────────────────────────────────────────────────
+  # Deterministic ON PURPOSE. When an agent owns this step it reliably reports
+  # "ready to push" and stops; a bash node either pushes or fails the run.
+  # Staging is an explicit allow-list so an unrelated edit can never ride along.
+  - id: publish
+    depends_on: [validate]
+    bash: |
+      set -euo pipefail
+      . "$ARTIFACTS_DIR/run.env"
+
+      git add -- \
+        news-data.json \
+        "$ARCHIVE_FILE" \
+        archive/manifest.json \
+        src/pages/index.astro
+
+      if git diff --cached --quiet; then
+        echo "ERROR: nothing staged — the curate node produced no changes." >&2
+        exit 1
+      fi
+
+      echo "--- staged ---"
+      git diff --cached --name-only
+
+      # Anything the allow-list did not stage stays behind by design. Surface it so
+      # an unexpected edit is visible in the run log rather than silently dropped.
+      leftover="$(git status --porcelain --untracked-files=all | grep -v '^M ' || true)"
+      if [ -n "$leftover" ]; then
+        echo "--- left uncommitted (not part of a weekly run) ---"
+        echo "$leftover"
+      fi
+
+      git commit -m "feat(news): Weekly AI News Insights — week $WEEK_KEY ($UPDATED_LABEL)"
+      git push origin main
+      echo "pushed $(git rev-parse --short HEAD) to origin/main — Cloudflare Pages deploying"
+
+  # ── 6. Verify the deploy ────────────────────────────────────────────────────
+  # Non-fatal by design: the publish above already succeeded, and Cloudflare Pages
+  # builds asynchronously. A slow deploy is not a failed run, so this reports and
+  # exits 0 rather than marking a published edition as failed.
+  - id: verify-deploy
+    depends_on: [publish]
+    bash: |
+      set -uo pipefail
+      . "$ARTIFACTS_DIR/run.env"
+      url="https://ai-news.fitautomate.com/news-data.json"
+
+      for i in 1 2 3 4 5 6 7 8; do
+        live="$(curl -fsS --max-time 20 "$url" 2>/dev/null \
+          | node -e "let s='';process.stdin.on('data',d=>s+=d).on('end',()=>{try{console.log(JSON.parse(s).meta.dataDate)}catch(e){console.log('')}})" || true)"
+        if [ "$live" = "$TARGET_DATE" ]; then
+          echo "LIVE: ai-news.fitautomate.com serving dataDate $live (week $WEEK_KEY)"
+          exit 0
+        fi
+        echo "attempt $i/8: live dataDate='$live', want '$TARGET_DATE' — waiting 30s"
+        sleep 30
+      done
+
+      echo "NOTE: deploy not visible yet after ~4 minutes. The push succeeded, so this"
+      echo "      is almost certainly Cloudflare still building. Check:"
+      echo "      https://ai-news.fitautomate.com"
+      exit 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Future additions (deliberately NOT in this version)
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# 1. Curation review gate. Insert an `approval:` node between `curate` and
+#    `sync-manifest` so the twelve selected stories can be reviewed before the
+#    edition is written and pushed:
+#
+#      - id: review-curation
+#        depends_on: [curate]
+#        approval:
+#          message: |
+#            Week $WEEK_KEY curated. Approve to validate and publish, or reject
+#            with feedback to discard.
+#          capture_response: true
+#
+#    …and repoint `sync-manifest` to `depends_on: [review-curation]`. Note this
+#    requires `interactive: true` at the workflow level for the gate to pause
+#    correctly in the Web UI, and it removes the unattended property that is the
+#    whole point of the current design — so it is a deliberate trade, not an
+#    upgrade. Deferred 2026-08-01 by decision: the generic wire-service editorial
+#    standard has not produced an irrelevant story, so the gate would cost a
+#    Saturday interruption to catch a defect that does not occur in practice.
+#
+# 2. Scheduling. Once a few unattended runs have proven out, this becomes a
+#    Windows Scheduled Task on the Run-FitRepoOverview.ps1 pattern:
+#      archon workflow run fit-ai-news-weekly --cwd D:\dev\github\ai-news
+#    Saturday morning, wrapper tees to a dated log. Until then it is invoked by
+#    saying "run the saturday news" in Archon chat or Slack.
+#
+# 3. Reuse for other subjects. Nodes 1 and 3-6 are subject-agnostic — only the
+#    `curate` prompt names the skill. A competitor-monitoring or keyword-research
+#    edition is this same file with a different skill path and different validate
+#    and publish targets.
