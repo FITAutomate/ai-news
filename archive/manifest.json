@@ -209,6 +209,13 @@
       "file": "archive/news-2026-30.json",
       "dateFrom": "2026-07-20",
       "dateTo": "2026-07-25"
+    },
+    {
+      "key": "2026-31",
+      "label": "2026-W31 (Jul 26-Aug 1, 2026)",
+      "file": "archive/news-2026-31.json",
+      "dateFrom": "2026-07-26",
+      "dateTo": "2026-08-01"
     }
   ]
 }
