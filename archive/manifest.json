@@ -223,6 +223,13 @@
       "file": "archive/news-2026-32.json",
       "dateFrom": "2026-08-02",
       "dateTo": "2026-08-08"
+    },
+    {
+      "key": "2026-33",
+      "label": "2026-W33 (Aug 9-Aug 15, 2026)",
+      "file": "archive/news-2026-33.json",
+      "dateFrom": "2026-08-10",
+      "dateTo": "2026-08-15"
     }
   ]
 }
