@@ -1,130 +1,130 @@
 {
   "meta": {
-    "updatedLabel": "October 3, 2026",
-    "dataDate": "2026-10-03",
-    "window": "Sep 27-Oct 3, 2026",
-    "themes": "Frontier Models Advance, Enterprise Agents Scale, AI Infrastructure Expands, Agent Safety Moves Down the Stack"
+    "updatedLabel": "October 10, 2026",
+    "dataDate": "2026-10-10",
+    "window": "Oct 4-10, 2026",
+    "themes": "Efficient Models Arrive, Enterprise Agents Consolidate, Local AI Infrastructure Expands, Agent Safety Gets Operational"
   },
   "news": [
     {
       "category": "Anthropic",
-      "date": "2026-09-28",
-      "title": "Anthropic launched Claude Sonnet 5.5 with faster, lower-cost work",
-      "summary": "Anthropic released Claude Sonnet 5.5 with more than 30% faster output and up to 30% lower cost per task, alongside stronger coding, long-horizon work, and cyber safeguards.",
-      "source": "https://www.anthropic.com/claude-sonnet-5-5",
+      "date": "2026-10-07",
+      "title": "Anthropic launched Claude Haiku 5.5 for high-volume agent work",
+      "summary": "Anthropic released Claude Haiku 5.5 as its fastest small model, priced about 75% lower per task than Haiku 4.5 and tuned for summaries, subagents, browser use, and other high-volume workloads.",
+      "source": "https://www.anthropic.com/claude-haiku-5-5",
       "sourceLabel": "Anthropic",
       "rating": 5,
-      "tags": ["Claude", "Sonnet 5.5", "Agentic Coding", "Cost Efficiency", "Safety"]
+      "tags": ["Claude", "Haiku 5.5", "Small Models", "Agents", "Cost Efficiency"]
     },
     {
       "category": "OpenAI",
-      "date": "2026-09-29",
-      "title": "OpenAI introduced Dots as always-on agents for ongoing tasks",
-      "summary": "OpenAI unveiled Dots at DevDay 2026 as proactive agents designed to keep working on ongoing tasks between conversations on a user's behalf.",
-      "source": "https://apnews.com/article/sam-altman-openai-conference-dots-agent-77b6b8888145869206996d7509d24256",
-      "sourceLabel": "AP News",
+      "date": "2026-10-07",
+      "title": "OpenAI rolled out GPT-6 with Intelligent UI in ChatGPT",
+      "summary": "OpenAI began rolling out GPT-6 in ChatGPT with responses that can combine text, visuals, and interactive tools while continuing to stream findings during longer reasoning and tool-use work.",
+      "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "sourceLabel": "OpenAI",
       "rating": 5,
-      "tags": ["OpenAI", "Dots", "Agents", "DevDay", "Automation"]
+      "tags": ["GPT-6", "ChatGPT", "Intelligent UI", "Interactive Tools", "Reasoning"]
     },
     {
       "category": "Google",
-      "date": "2026-09-30",
-      "title": "Google introduced Gemini 4 Argon for long-horizon professional work",
-      "summary": "Google announced Gemini 4 Argon for complex coding, enterprise knowledge work, and cyber defense, beginning with a phased rollout to trusted defenders through Fairwind.",
-      "source": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
-      "sourceLabel": "Google",
+      "date": "2026-10-08",
+      "title": "Google introduced a universal Gemini agent for enterprise work",
+      "summary": "Google Cloud introduced the Gemini agent as a governed enterprise system that can use business context, tools, connectors, and multiple models to complete knowledge work, media, data, and coding tasks.",
+      "source": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+      "sourceLabel": "Google Cloud",
       "rating": 5,
-      "tags": ["Gemini 4", "Argon", "Long-horizon", "Cybersecurity", "Coding"]
+      "tags": ["Gemini", "Enterprise Agents", "Workspace", "Governance", "Automation"]
     },
     {
       "category": "Business",
-      "date": "2026-09-28",
-      "title": "AMD agreed to acquire World Labs for about $8.2 billion",
-      "summary": "AMD agreed to acquire Fei-Fei Li's World Labs in an all-stock deal valued at about $8.2 billion to bring spatial-intelligence model expertise into its AI compute roadmap.",
-      "source": "https://ir.amd.com/news-events/press-releases/detail/1299/amd-to-acquire-world-labs-to-advance-the-future-of-ai-compute",
-      "sourceLabel": "AMD",
+      "date": "2026-10-06",
+      "title": "Atlassian expanded its OpenAI partnership across Rovo and its platform",
+      "summary": "Atlassian and OpenAI expanded their agreement to put GPT-6-family models behind Rovo agents and connect them with Atlassian's Teamwork Graph, while more than 3,000 Atlassian developers use Codex.",
+      "source": "https://openai.com/index/atlassian-partnership/",
+      "sourceLabel": "OpenAI",
       "rating": 5,
-      "tags": ["AMD", "World Labs", "Acquisition", "Spatial Intelligence", "AI Compute"]
+      "tags": ["Atlassian", "OpenAI", "Rovo", "Enterprise Adoption", "Teamwork Graph"]
     },
     {
       "category": "Business",
-      "date": "2026-09-28",
-      "title": "Meta launched an enterprise platform around Muse and its AI stack",
-      "summary": "Meta launched Meta Enterprise Platform to package Muse, Meta Business Agent, Muse API, Muse Code, models, and infrastructure for business customers.",
-      "source": "https://about.fb.com/news/2026/09/launching-meta-enterprise-platform/",
-      "sourceLabel": "Meta",
+      "date": "2026-10-06",
+      "title": "SAP agreed to acquire AI work-intelligence company TechWolf",
+      "summary": "SAP agreed to acquire TechWolf and bring its organizational context graph, AI models, and research team into SuccessFactors to support skills mapping, workforce planning, and organizational redesign.",
+      "source": "https://news.sap.com/2026/10/sap-to-acquire-techwolf-evidence-based-work-age-of-ai/",
+      "sourceLabel": "SAP",
       "rating": 4,
-      "tags": ["Meta", "Enterprise AI", "Muse", "Agents", "Business Platform"]
+      "tags": ["SAP", "TechWolf", "Acquisition", "Workforce AI", "SuccessFactors"]
     },
     {
       "category": "Business",
-      "date": "2026-10-01",
-      "title": "Barclays expanded Claude across operations and software engineering",
-      "summary": "Barclays expanded its Anthropic partnership, targeting Claude Code adoption by half of its developers in 2026 while scaling governed AI for customer support and operations.",
-      "source": "https://www.anthropic.com/news/barclays-scales-claude",
-      "sourceLabel": "Anthropic",
+      "date": "2026-10-07",
+      "title": "Biohub partners committed $1.8 billion to AI-ready biology data",
+      "summary": "The US government, Meta, Google DeepMind, Isomorphic Labs, and Biohub committed $1.8 billion to create standardized biological datasets for predictive AI models that could accelerate drug research.",
+      "source": "https://www.marketscreener.com/news/us-government-google-join-zuckerberg-backed-biohub-in-1-8-billion-push-ai-biology-data-ce785dded88eff21",
+      "sourceLabel": "Reuters",
       "rating": 4,
-      "tags": ["Barclays", "Claude Code", "Enterprise Adoption", "Banking", "Governance"]
+      "tags": ["Biohub", "AI Biology", "Open Data", "Drug Discovery", "Research"]
     },
     {
       "category": "Infrastructure",
-      "date": "2026-09-30",
-      "title": "Google Cloud expanded infrastructure for large agent fleets",
-      "summary": "Google Cloud detailed new compute, network, storage, and orchestration capabilities, including an open-source GKE Agent Substrate for denser isolated agent sandboxes.",
-      "source": "https://cloud.google.com/blog/topics/ai-infrastructure/whats-new-in-ai-infrastructure-this-month",
-      "sourceLabel": "Google Cloud",
-      "rating": 4,
-      "tags": ["Google Cloud", "GKE", "Agent Infrastructure", "Sandboxes", "Orchestration"]
+      "date": "2026-10-07",
+      "title": "NVIDIA and Microsoft opened RTX Spark Windows systems for preorder",
+      "summary": "NVIDIA and Microsoft opened preorders for RTX Spark laptops and previewed DGX Station for Windows, bringing the NVIDIA AI stack and local agent workloads to laptops and compact desktops.",
+      "source": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
+      "sourceLabel": "NVIDIA",
+      "rating": 5,
+      "tags": ["NVIDIA", "Microsoft", "RTX Spark", "Local AI", "AI PCs"]
     },
     {
-      "category": "Chips",
-      "date": "2026-09-30",
-      "title": "Micron reported record results as AI memory demand surged",
-      "summary": "Micron reported record fiscal 2026 results, citing AI-driven demand while highlighting data-center memory growth and new storage products for KV-cache workloads.",
-      "source": "https://investors.micron.com/news/press-release/2026/Micron-Technology-Inc--Reports-Record-Fiscal-Fourth-Quarter-and-Full-Year-2026-Results/",
-      "sourceLabel": "Micron",
-      "rating": 4,
-      "tags": ["Micron", "Memory", "AI Infrastructure", "Data Centers", "KV Cache"]
+      "category": "Infrastructure",
+      "date": "2026-10-06",
+      "title": "Google and Constellation signed a deal to add 890 MW of nuclear capacity",
+      "summary": "Google and Constellation signed a 20-year agreement to add 890 MW of nuclear capacity to the PJM grid and pair Gemini Enterprise with grid operations under an expanded technology alliance.",
+      "source": "https://www.googlecloudpresscorner.com/2026-10-06-Google-and-Constellation-Announce-Landmark-Agreement-to-Bring-890-MW-of-New-Nuclear-Capacity-to-PJM-Grid-as-Part-of-Long-Term-Power-Deal",
+      "sourceLabel": "Google Cloud",
+      "rating": 5,
+      "tags": ["Google", "Constellation", "Nuclear Energy", "Data Centers", "Grid Infrastructure"]
     },
     {
       "category": "Policy",
-      "date": "2026-09-29",
-      "title": "US tech leaders signed a voluntary AI safety accord",
-      "summary": "Leading AI companies signed a White House accord calling for internal controls, external audits, and board-level review while leaving open the possibility of future regulation.",
-      "source": "https://apnews.com/article/trump-ai-anthropic-musk-595796511f110fc006cca0d01329733e",
-      "sourceLabel": "AP News",
-      "rating": 5,
-      "tags": ["AI Policy", "Safety", "Audits", "Governance", "United States"]
-    },
-    {
-      "category": "Dev Tools",
-      "date": "2026-09-28",
-      "title": "Cloudflare launched cf as an agent-first CLI for its full API",
-      "summary": "Cloudflare released the cf CLI in open beta with agent-oriented command discovery, JSON-first output, typed configuration, and coverage for more than 3,000 API operations.",
-      "source": "https://blog.cloudflare.com/cloudflare-cf-cli-launch/",
-      "sourceLabel": "Cloudflare",
-      "rating": 5,
-      "tags": ["Cloudflare", "CLI", "Agents", "API", "Developer Tools"]
-    },
-    {
-      "category": "Dev Tools",
-      "date": "2026-09-29",
-      "title": "Microsoft added Azure Canvases to GitHub Copilot workflows",
-      "summary": "Microsoft published three Azure Canvases that give GitHub Copilot users shared interactive workspaces for hosted skills, resource queries, and cloud-cost analysis.",
-      "source": "https://developer.microsoft.com/blog/azure-canvases/",
-      "sourceLabel": "Microsoft",
+      "date": "2026-10-09",
+      "title": "EU tech chief said the AI Act can address risks from rogue agents",
+      "summary": "EU technology chief Henna Virkkunen said the AI Act covers the full model lifecycle and can address emerging agent risks as regulators assess safety and transparency responses from more than 30 companies.",
+      "source": "https://uk.marketscreener.com/news/eu-tech-chief-says-bloc-well-equipped-to-fend-off-rogue-ai-risk-ce785ddcdb88f52c",
+      "sourceLabel": "Reuters",
       "rating": 4,
-      "tags": ["Azure", "GitHub Copilot", "Canvases", "Agents", "Cloud Operations"]
+      "tags": ["EU AI Act", "Agent Safety", "Regulation", "Transparency", "Governance"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-10-05",
+      "title": "AWS released a SageMaker inference-optimization skill for coding agents",
+      "summary": "AWS released an MCP-compatible skill that lets Kiro, Claude Code, Codex, and other coding agents benchmark SageMaker endpoints, compare configurations, and generate reviewable Python SDK code.",
+      "source": "https://aws.amazon.com/blogs/machine-learning/new-agent-skill-amazon-sagemaker-optimized-generative-ai-inference-for-your-coding-agent/",
+      "sourceLabel": "AWS",
+      "rating": 5,
+      "tags": ["AWS", "SageMaker", "Agent Skills", "MCP", "Inference"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-10-07",
+      "title": "GitHub made local sandboxing generally available for Copilot agents",
+      "summary": "GitHub made local sandboxing generally available across Copilot CLI, the Copilot app, and VS Code Agent Host, with policies for filesystem, network, credential, MCP, and language-server access.",
+      "source": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/",
+      "sourceLabel": "GitHub",
+      "rating": 5,
+      "tags": ["GitHub Copilot", "Sandboxing", "Agent Security", "Developer Tools", "MCP"]
     },
     {
       "category": "Security",
-      "date": "2026-09-28",
-      "title": "NVIDIA launched an open safety stack for autonomous agents",
-      "summary": "NVIDIA introduced OpenShell runtime boundaries and the Sentry hardware watchdog to trace agent actions, enforce policies, and quarantine agents that leave defined limits.",
-      "source": "https://nvidianews.nvidia.com/news/open-agent-safety-platform",
-      "sourceLabel": "NVIDIA",
+      "date": "2026-10-06",
+      "title": "Anthropic expanded verified access to advanced cyber capabilities",
+      "summary": "Anthropic expanded its Cyber Verification Program to three access tiers for qualified defenders after partners reported at least 129,000 verified vulnerabilities found with Claude models from April through July.",
+      "source": "https://www.anthropic.com/news/cyber-verification-program",
+      "sourceLabel": "Anthropic",
       "rating": 5,
-      "tags": ["NVIDIA", "OpenShell", "Agent Security", "Policy Enforcement", "BlueField"]
+      "tags": ["Anthropic", "Cybersecurity", "Verification", "Vulnerability Research", "Safeguards"]
     }
   ]
 }
