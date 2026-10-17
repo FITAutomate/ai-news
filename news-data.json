@@ -1,130 +1,130 @@
 {
   "meta": {
-    "updatedLabel": "October 10, 2026",
-    "dataDate": "2026-10-10",
-    "window": "Oct 4-10, 2026",
-    "themes": "Efficient Models Arrive, Enterprise Agents Consolidate, Local AI Infrastructure Expands, Agent Safety Gets Operational"
+    "updatedLabel": "October 17, 2026",
+    "dataDate": "2026-10-17",
+    "window": "Oct 11-17, 2026",
+    "themes": "Frontier Agent Models Expand, AI Business Signals Diverge, Custom Inference Infrastructure Scales, Agent Evaluation Becomes Operational"
   },
   "news": [
     {
-      "category": "Anthropic",
-      "date": "2026-10-07",
-      "title": "Anthropic launched Claude Haiku 5.5 for high-volume agent work",
-      "summary": "Anthropic released Claude Haiku 5.5 as its fastest small model, priced about 75% lower per task than Haiku 4.5 and tuned for summaries, subagents, browser use, and other high-volume workloads.",
-      "source": "https://www.anthropic.com/claude-haiku-5-5",
-      "sourceLabel": "Anthropic",
+      "category": "Meta",
+      "date": "2026-10-12",
+      "title": "Meta released Muse Wonder models for agentic work",
+      "summary": "Meta introduced Muse Wonder and Muse Wonder Full with active memory, error recovery, and frontier coding capabilities for personal and professional agent tasks.",
+      "source": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
+      "sourceLabel": "Meta",
       "rating": 5,
-      "tags": ["Claude", "Haiku 5.5", "Small Models", "Agents", "Cost Efficiency"]
-    },
-    {
-      "category": "OpenAI",
-      "date": "2026-10-07",
-      "title": "OpenAI rolled out GPT-6 with Intelligent UI in ChatGPT",
-      "summary": "OpenAI began rolling out GPT-6 in ChatGPT with responses that can combine text, visuals, and interactive tools while continuing to stream findings during longer reasoning and tool-use work.",
-      "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
-      "sourceLabel": "OpenAI",
-      "rating": 5,
-      "tags": ["GPT-6", "ChatGPT", "Intelligent UI", "Interactive Tools", "Reasoning"]
+      "tags": ["Meta", "Muse Wonder", "Frontier Models", "Agents", "Coding"]
     },
     {
       "category": "Google",
-      "date": "2026-10-08",
-      "title": "Google introduced a universal Gemini agent for enterprise work",
-      "summary": "Google Cloud introduced the Gemini agent as a governed enterprise system that can use business context, tools, connectors, and multiple models to complete knowledge work, media, data, and coding tasks.",
-      "source": "https://cloud.google.com/blog/products/ai-machine-learning/welcome-to-gemini-at-work-2026",
+      "date": "2026-10-13",
+      "title": "Google made Gemini 4 Argon broadly available",
+      "summary": "Google released Gemini 4 Argon for long, multi-step enterprise work through Gemini for business, its API, AI Studio, and the Antigravity developer platform.",
+      "source": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud",
       "sourceLabel": "Google Cloud",
       "rating": 5,
-      "tags": ["Gemini", "Enterprise Agents", "Workspace", "Governance", "Automation"]
+      "tags": ["Gemini 4 Argon", "Enterprise AI", "Long-Running Tasks", "Agents", "API"]
     },
     {
-      "category": "Business",
-      "date": "2026-10-06",
-      "title": "Atlassian expanded its OpenAI partnership across Rovo and its platform",
-      "summary": "Atlassian and OpenAI expanded their agreement to put GPT-6-family models behind Rovo agents and connect them with Atlassian's Teamwork Graph, while more than 3,000 Atlassian developers use Codex.",
-      "source": "https://openai.com/index/atlassian-partnership/",
+      "category": "OpenAI",
+      "date": "2026-10-15",
+      "title": "OpenAI opened a sponsored GPT-Rosalind plan for academic labs",
+      "summary": "OpenAI launched the Rosalind Academic Plan with up to 30 free seats for eligible US university labs using its specialized life-sciences model and workbench.",
+      "source": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
       "sourceLabel": "OpenAI",
-      "rating": 5,
-      "tags": ["Atlassian", "OpenAI", "Rovo", "Enterprise Adoption", "Teamwork Graph"]
-    },
-    {
-      "category": "Business",
-      "date": "2026-10-06",
-      "title": "SAP agreed to acquire AI work-intelligence company TechWolf",
-      "summary": "SAP agreed to acquire TechWolf and bring its organizational context graph, AI models, and research team into SuccessFactors to support skills mapping, workforce planning, and organizational redesign.",
-      "source": "https://news.sap.com/2026/10/sap-to-acquire-techwolf-evidence-based-work-age-of-ai/",
-      "sourceLabel": "SAP",
       "rating": 4,
-      "tags": ["SAP", "TechWolf", "Acquisition", "Workforce AI", "SuccessFactors"]
+      "tags": ["GPT-Rosalind", "Life Sciences", "Academic Research", "Tool Orchestration", "Trusted Access"]
     },
     {
       "category": "Business",
-      "date": "2026-10-07",
-      "title": "Biohub partners committed $1.8 billion to AI-ready biology data",
-      "summary": "The US government, Meta, Google DeepMind, Isomorphic Labs, and Biohub committed $1.8 billion to create standardized biological datasets for predictive AI models that could accelerate drug research.",
-      "source": "https://www.marketscreener.com/news/us-government-google-join-zuckerberg-backed-biohub-in-1-8-billion-push-ai-biology-data-ce785dded88eff21",
+      "date": "2026-10-13",
+      "title": "Character.AI filed for bankruptcy and agreed to a Disney asset sale",
+      "summary": "Character.AI entered Chapter 11 with a $20 million Disney bid for some assets after legal, regulatory, and operating pressures left the chatbot company deeply unprofitable.",
+      "source": "https://www.investing.com/news/stock-market-news/characterai-files-for-bankruptcy-agrees-to-sell-some-assets-to-disney-for-20-million-4945401",
       "sourceLabel": "Reuters",
+      "rating": 5,
+      "tags": ["Character.AI", "Bankruptcy", "Disney", "AI Economics", "Consumer AI"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-10-15",
+      "title": "GTCR and Elliott agreed to acquire CCC for $6.1 billion",
+      "summary": "GTCR and Elliott agreed to buy insurance AI platform CCC Intelligent Solutions for about $6.1 billion, with plans to accelerate its AI and agentic capabilities.",
+      "source": "https://cccis.gcs-web.com/news-releases/news-release-details/ccc-intelligent-solutions-signs-definitive-agreement-be-acquired",
+      "sourceLabel": "CCC Intelligent Solutions",
       "rating": 4,
-      "tags": ["Biohub", "AI Biology", "Open Data", "Drug Discovery", "Research"]
+      "tags": ["CCC", "Acquisition", "Insurance AI", "Private Equity", "Vertical SaaS"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-10-16",
+      "title": "Abu Dhabi formed TAMM Global to export its AI government platform",
+      "summary": "Abu Dhabi established TAMM Global as a private-sector company that will license its AI-powered government services platform and operating model internationally.",
+      "source": "https://www.mediaoffice.abudhabi/en/government-affairs/under-the-directives-of-khaled-bin-mohamed-bin-zayed-department-of-government-enablement-announces-establishment-of-tamm-global-company-to-expand-tamm-platforms-global-reach/",
+      "sourceLabel": "Abu Dhabi Media Office",
+      "rating": 4,
+      "tags": ["TAMM Global", "GovTech", "AI Adoption", "Digital Services", "Licensing"]
     },
     {
       "category": "Infrastructure",
-      "date": "2026-10-07",
-      "title": "NVIDIA and Microsoft opened RTX Spark Windows systems for preorder",
-      "summary": "NVIDIA and Microsoft opened preorders for RTX Spark laptops and previewed DGX Station for Windows, bringing the NVIDIA AI stack and local agent workloads to laptops and compact desktops.",
-      "source": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
-      "sourceLabel": "NVIDIA",
+      "date": "2026-10-12",
+      "title": "Microsoft set Azure Maia for multi-gigawatt deployment",
+      "summary": "Microsoft said Maia 200 is serving production AI workloads and Maia 300 will begin 2027 deployments with a target of 40% more tokens per megawatt than leading GPU systems.",
+      "source": "https://blogs.microsoft.com/blog/2026/10/12/microsoft-to-expand-azure-maia-system-to-multi-gigawatt-deployments/",
+      "sourceLabel": "Microsoft",
       "rating": 5,
-      "tags": ["NVIDIA", "Microsoft", "RTX Spark", "Local AI", "AI PCs"]
+      "tags": ["Microsoft", "Azure Maia", "AI Accelerators", "Inference", "Data Centers"]
     },
     {
       "category": "Infrastructure",
-      "date": "2026-10-06",
-      "title": "Google and Constellation signed a deal to add 890 MW of nuclear capacity",
-      "summary": "Google and Constellation signed a 20-year agreement to add 890 MW of nuclear capacity to the PJM grid and pair Gemini Enterprise with grid operations under an expanded technology alliance.",
-      "source": "https://www.googlecloudpresscorner.com/2026-10-06-Google-and-Constellation-Announce-Landmark-Agreement-to-Bring-890-MW-of-New-Nuclear-Capacity-to-PJM-Grid-as-Part-of-Long-Term-Power-Deal",
-      "sourceLabel": "Google Cloud",
-      "rating": 5,
-      "tags": ["Google", "Constellation", "Nuclear Energy", "Data Centers", "Grid Infrastructure"]
+      "date": "2026-10-12",
+      "title": "Intel detailed its GPU D-series for large-scale inference",
+      "summary": "Intel detailed an air-cooled 350-watt GPU D-series design with up to 480 GB of memory for sustained inference, long contexts, and concurrent agent workloads.",
+      "source": "https://www.intel.com/content/www/us/en/newsroom/news/artificial-intelligence/intel-accelerates-open-infrastructure-agentic-ai-era.html",
+      "sourceLabel": "Intel",
+      "rating": 4,
+      "tags": ["Intel", "GPU D-Series", "Inference", "Open Infrastructure", "Agentic AI"]
     },
     {
       "category": "Policy",
-      "date": "2026-10-09",
-      "title": "EU tech chief said the AI Act can address risks from rogue agents",
-      "summary": "EU technology chief Henna Virkkunen said the AI Act covers the full model lifecycle and can address emerging agent risks as regulators assess safety and transparency responses from more than 30 companies.",
-      "source": "https://uk.marketscreener.com/news/eu-tech-chief-says-bloc-well-equipped-to-fend-off-rogue-ai-risk-ce785ddcdb88f52c",
-      "sourceLabel": "Reuters",
-      "rating": 4,
-      "tags": ["EU AI Act", "Agent Safety", "Regulation", "Transparency", "Governance"]
-    },
-    {
-      "category": "Dev Tools",
-      "date": "2026-10-05",
-      "title": "AWS released a SageMaker inference-optimization skill for coding agents",
-      "summary": "AWS released an MCP-compatible skill that lets Kiro, Claude Code, Codex, and other coding agents benchmark SageMaker endpoints, compare configurations, and generate reviewable Python SDK code.",
-      "source": "https://aws.amazon.com/blogs/machine-learning/new-agent-skill-amazon-sagemaker-optimized-generative-ai-inference-for-your-coding-agent/",
-      "sourceLabel": "AWS",
+      "date": "2026-10-12",
+      "title": "Britain moved to strengthen defenses against advanced AI risks",
+      "summary": "The UK announced expanded frontier-model evaluations, cyber-defense pilots, possible legal protections, and incident planning for failures involving autonomous AI agents.",
+      "source": "https://www.gov.uk/government/news/britain-steps-up-national-defences-against-growing-ai-risks",
+      "sourceLabel": "UK Government",
       "rating": 5,
-      "tags": ["AWS", "SageMaker", "Agent Skills", "MCP", "Inference"]
-    },
-    {
-      "category": "Dev Tools",
-      "date": "2026-10-07",
-      "title": "GitHub made local sandboxing generally available for Copilot agents",
-      "summary": "GitHub made local sandboxing generally available across Copilot CLI, the Copilot app, and VS Code Agent Host, with policies for filesystem, network, credential, MCP, and language-server access.",
-      "source": "https://github.blog/changelog/2026-10-07-local-sandboxing-for-github-copilot-now-generally-available/",
-      "sourceLabel": "GitHub",
-      "rating": 5,
-      "tags": ["GitHub Copilot", "Sandboxing", "Agent Security", "Developer Tools", "MCP"]
+      "tags": ["UK", "AI Safety", "Cybersecurity", "Incident Response", "AI Regulation"]
     },
     {
       "category": "Security",
-      "date": "2026-10-06",
-      "title": "Anthropic expanded verified access to advanced cyber capabilities",
-      "summary": "Anthropic expanded its Cyber Verification Program to three access tiers for qualified defenders after partners reported at least 129,000 verified vulnerabilities found with Claude models from April through July.",
-      "source": "https://www.anthropic.com/news/cyber-verification-program",
-      "sourceLabel": "Anthropic",
+      "date": "2026-10-15",
+      "title": "GitHub made agentic code-scanning autofix generally available",
+      "summary": "GitHub's agentic autofix can investigate code-scanning alerts, generate and validate fixes with CodeQL, and open reviewable draft pull requests for enterprise customers.",
+      "source": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/",
+      "sourceLabel": "GitHub",
       "rating": 5,
-      "tags": ["Anthropic", "Cybersecurity", "Verification", "Vulnerability Research", "Safeguards"]
+      "tags": ["GitHub Copilot", "CodeQL", "Agentic Autofix", "Application Security", "Pull Requests"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-10-16",
+      "title": "Google shared four evaluation lessons from building agent plugins",
+      "summary": "Google advised agent builders to score tool-call trajectories, preserve asynchronous turn structure, compare live and plan-only runs, and maintain expert golden sets.",
+      "source": "https://cloud.google.com/blog/topics/developers-practitioners/four-eval-engineering-lessons",
+      "sourceLabel": "Google Cloud",
+      "rating": 5,
+      "tags": ["Agent Evaluation", "Tool Calls", "Golden Sets", "Plugins", "Developer Workflow"]
+    },
+    {
+      "category": "Agents",
+      "date": "2026-10-16",
+      "title": "AWS published a nine-stage production agent evaluation framework",
+      "summary": "AWS described a nine-stage AgentCore evaluation loop spanning golden sets, CI and deployment gates, canaries, adversarial tests, drift monitoring, and automated feedback.",
+      "source": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+      "sourceLabel": "AWS",
+      "rating": 5,
+      "tags": ["AWS", "AgentCore", "Agent Evaluation", "CI/CD", "Production AI"]
     }
   ]
 }
