@@ -293,6 +293,13 @@
       "file": "archive/news-2026-42.json",
       "dateFrom": "2026-10-12",
       "dateTo": "2026-10-17"
+    },
+    {
+      "key": "2026-43",
+      "label": "2026-W43 (Oct 18-24, 2026)",
+      "file": "archive/news-2026-43.json",
+      "dateFrom": "2026-10-18",
+      "dateTo": "2026-10-24"
     }
   ]
 }

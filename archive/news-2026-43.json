@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "updatedLabel": "October 24, 2026",
+    "dataDate": "2026-10-24",
+    "window": "Oct 18-24, 2026",
+    "themes": "Cloud Model Choice Expands, AI Investment Reshapes Work, AI Factories Mature, Agent Governance Moves Into Production"
+  },
+  "news": [
+    {
+      "category": "OpenAI",
+      "date": "2026-10-21",
+      "title": "OpenAI models arrived on Google Cloud",
+      "summary": "Google Cloud added GPT-6 Astra, GPT-6.1 Sol, and GPT-6 Luna to its model garden, with marketplace billing and Codex workflow connections for enterprise customers.",
+      "source": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers",
+      "sourceLabel": "Google Cloud",
+      "rating": 5,
+      "tags": ["OpenAI", "Google Cloud", "Model Garden", "Codex", "Enterprise AI"]
+    },
+    {
+      "category": "Anthropic",
+      "date": "2026-10-22",
+      "title": "Google Cloud added an Anthropic-managed Claude option",
+      "summary": "Google Cloud launched an Anthropic-managed Claude deployment with day-zero model access, managed agents, skills, and code execution alongside its Google-managed option.",
+      "source": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+      "sourceLabel": "Google Cloud",
+      "rating": 5,
+      "tags": ["Claude", "Google Cloud", "Managed Agents", "Model Choice", "Enterprise AI"]
+    },
+    {
+      "category": "Anthropic",
+      "date": "2026-10-21",
+      "title": "Anthropic previewed Claude Duet as a proactive agent",
+      "summary": "Anthropic opened a waitlisted Claude Duet preview that monitors connected apps, prepares daily briefs, completes delegated work, and requests approval before acting.",
+      "source": "https://claude.com/resources/articles/claude-duet",
+      "sourceLabel": "Anthropic",
+      "rating": 5,
+      "tags": ["Claude Duet", "Proactive Agents", "Connected Apps", "Human Approval", "Small Business"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-10-20",
+      "title": "OpenAI acquired Orchestra Bio",
+      "summary": "OpenAI acquired Orchestra Bio to combine its drug-development coordination platform with Rosalind models and tools for life-sciences research workflows.",
+      "source": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
+      "sourceLabel": "OpenAI",
+      "rating": 4,
+      "tags": ["OpenAI", "Acquisition", "Orchestra Bio", "Life Sciences", "AI Agents"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-10-18",
+      "title": "Anthropic committed equity to a public benefit fund",
+      "summary": "Anthropic committed 5% of its shares to a new public benefit fund, with a mechanism that can add equity as the company's value increases.",
+      "source": "https://www.anthropic.com/news/public-benefit-fund",
+      "sourceLabel": "Anthropic",
+      "rating": 4,
+      "tags": ["Anthropic", "Public Benefit", "Equity", "Economic Impact", "Governance"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-10-23",
+      "title": "Barclays tied 5,000 planned job cuts to AI efficiency",
+      "summary": "Barclays said it plans to cut about 5% of its workforce as organizational simplification and AI-driven technology efficiency reshape support functions.",
+      "source": "https://apnews.com/article/ai-layoffs-meta-microsoft-barclays-300bd6c2585b4a6996c2ac553d870055",
+      "sourceLabel": "Associated Press",
+      "rating": 5,
+      "tags": ["Barclays", "Workforce", "AI Adoption", "Banking", "Automation"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-10-22",
+      "title": "NVIDIA launched Minerva for AI factory observability",
+      "summary": "NVIDIA launched Minerva, an AIOps platform that unifies infrastructure and workload telemetry to detect failures and improve GPU uptime across AI factories.",
+      "source": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+      "sourceLabel": "NVIDIA",
+      "rating": 5,
+      "tags": ["NVIDIA", "Minerva", "AIOps", "AI Factories", "Observability"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-10-21",
+      "title": "HPE and NVIDIA expanded secure agentic AI infrastructure",
+      "summary": "HPE expanded its NVIDIA-backed AI Factory portfolio with governed MCP services, mixed-GPU clusters, Vera CPU racks, and secure agent runtime support.",
+      "source": "https://www.hpe.com/us/en/newsroom/press-release/2026/10/hpe-teams-with-nvidia-to-advance-secure-agentic-ai-across-enterprises-and-industrial-environments.html",
+      "sourceLabel": "HPE",
+      "rating": 4,
+      "tags": ["HPE", "NVIDIA", "AI Factory", "MCP", "Secure Agents"]
+    },
+    {
+      "category": "Policy",
+      "date": "2026-10-21",
+      "title": "Australia updated its responsible AI policy for government",
+      "summary": "Australia updated the policy requiring federal agencies to assign accountable officials, publish transparency statements, maintain use-case registers, and assess AI impacts.",
+      "source": "https://www.digital.gov.au/ai/ai-in-government-policy",
+      "sourceLabel": "Australian Government",
+      "rating": 4,
+      "tags": ["Australia", "AI Policy", "Government", "Transparency", "Impact Assessment"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-10-21",
+      "title": "Google opened Agents CLI to multiple frameworks",
+      "summary": "Google's Agents CLI extension system now supports alternate frameworks and custom governance commands, including a first-party LangChain extension with pinned Git revisions.",
+      "source": "https://developers.googleblog.com/powering-the-agent-development-lifecycle-with-any-framework-from-adk-to-langchain-and-beyond/",
+      "sourceLabel": "Google Developers",
+      "rating": 5,
+      "tags": ["Agents CLI", "LangChain", "Extensions", "Governance", "Developer Workflow"]
+    },
+    {
+      "category": "Automation",
+      "date": "2026-10-19",
+      "title": "Amazon Bedrock added structured outputs for Claude",
+      "summary": "Amazon Bedrock added schema-constrained JSON and strict tool inputs for Claude models, reducing custom parsing and retry logic in production automations.",
+      "source": "https://aws.amazon.com/blogs/machine-learning/structured-outputs-for-anthropic-claude-models-on-amazon-bedrock/",
+      "sourceLabel": "AWS",
+      "rating": 5,
+      "tags": ["Amazon Bedrock", "Claude", "Structured Outputs", "JSON Schema", "Tool Use"]
+    },
+    {
+      "category": "Security",
+      "date": "2026-10-19",
+      "title": "Microsoft framed enterprise agents as security insiders",
+      "summary": "Microsoft proposed continuous identity, permission, data, network, and runtime controls for enterprise agents, supervised by risk-aware guardian agents.",
+      "source": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+      "sourceLabel": "Microsoft",
+      "rating": 5,
+      "tags": ["Microsoft", "Agent Security", "Identity", "Runtime Controls", "Guardian Agents"]
+    }
+  ]
+}

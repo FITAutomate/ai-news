@@ -1,130 +1,130 @@
 {
   "meta": {
-    "updatedLabel": "October 17, 2026",
-    "dataDate": "2026-10-17",
-    "window": "Oct 11-17, 2026",
-    "themes": "Frontier Agent Models Expand, AI Business Signals Diverge, Custom Inference Infrastructure Scales, Agent Evaluation Becomes Operational"
+    "updatedLabel": "October 24, 2026",
+    "dataDate": "2026-10-24",
+    "window": "Oct 18-24, 2026",
+    "themes": "Cloud Model Choice Expands, AI Investment Reshapes Work, AI Factories Mature, Agent Governance Moves Into Production"
   },
   "news": [
     {
-      "category": "Meta",
-      "date": "2026-10-12",
-      "title": "Meta released Muse Wonder models for agentic work",
-      "summary": "Meta introduced Muse Wonder and Muse Wonder Full with active memory, error recovery, and frontier coding capabilities for personal and professional agent tasks.",
-      "source": "https://about.fb.com/news/2026/10/introducing-muse-wonder-models/",
-      "sourceLabel": "Meta",
-      "rating": 5,
-      "tags": ["Meta", "Muse Wonder", "Frontier Models", "Agents", "Coding"]
-    },
-    {
-      "category": "Google",
-      "date": "2026-10-13",
-      "title": "Google made Gemini 4 Argon broadly available",
-      "summary": "Google released Gemini 4 Argon for long, multi-step enterprise work through Gemini for business, its API, AI Studio, and the Antigravity developer platform.",
-      "source": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-4-argon-available-on-google-cloud",
+      "category": "OpenAI",
+      "date": "2026-10-21",
+      "title": "OpenAI models arrived on Google Cloud",
+      "summary": "Google Cloud added GPT-6 Astra, GPT-6.1 Sol, and GPT-6 Luna to its model garden, with marketplace billing and Codex workflow connections for enterprise customers.",
+      "source": "https://cloud.google.com/blog/products/ai-machine-learning/google-cloud-brings-openai-models-to-customers",
       "sourceLabel": "Google Cloud",
       "rating": 5,
-      "tags": ["Gemini 4 Argon", "Enterprise AI", "Long-Running Tasks", "Agents", "API"]
+      "tags": ["OpenAI", "Google Cloud", "Model Garden", "Codex", "Enterprise AI"]
     },
     {
-      "category": "OpenAI",
-      "date": "2026-10-15",
-      "title": "OpenAI opened a sponsored GPT-Rosalind plan for academic labs",
-      "summary": "OpenAI launched the Rosalind Academic Plan with up to 30 free seats for eligible US university labs using its specialized life-sciences model and workbench.",
-      "source": "https://openai.com/index/introducing-the-rosalind-academic-plan/",
+      "category": "Anthropic",
+      "date": "2026-10-22",
+      "title": "Google Cloud added an Anthropic-managed Claude option",
+      "summary": "Google Cloud launched an Anthropic-managed Claude deployment with day-zero model access, managed agents, skills, and code execution alongside its Google-managed option.",
+      "source": "https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud",
+      "sourceLabel": "Google Cloud",
+      "rating": 5,
+      "tags": ["Claude", "Google Cloud", "Managed Agents", "Model Choice", "Enterprise AI"]
+    },
+    {
+      "category": "Anthropic",
+      "date": "2026-10-21",
+      "title": "Anthropic previewed Claude Duet as a proactive agent",
+      "summary": "Anthropic opened a waitlisted Claude Duet preview that monitors connected apps, prepares daily briefs, completes delegated work, and requests approval before acting.",
+      "source": "https://claude.com/resources/articles/claude-duet",
+      "sourceLabel": "Anthropic",
+      "rating": 5,
+      "tags": ["Claude Duet", "Proactive Agents", "Connected Apps", "Human Approval", "Small Business"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-10-20",
+      "title": "OpenAI acquired Orchestra Bio",
+      "summary": "OpenAI acquired Orchestra Bio to combine its drug-development coordination platform with Rosalind models and tools for life-sciences research workflows.",
+      "source": "https://openai.com/index/openai-to-acquire-orchestra-bio/",
       "sourceLabel": "OpenAI",
       "rating": 4,
-      "tags": ["GPT-Rosalind", "Life Sciences", "Academic Research", "Tool Orchestration", "Trusted Access"]
+      "tags": ["OpenAI", "Acquisition", "Orchestra Bio", "Life Sciences", "AI Agents"]
     },
     {
       "category": "Business",
-      "date": "2026-10-13",
-      "title": "Character.AI filed for bankruptcy and agreed to a Disney asset sale",
-      "summary": "Character.AI entered Chapter 11 with a $20 million Disney bid for some assets after legal, regulatory, and operating pressures left the chatbot company deeply unprofitable.",
-      "source": "https://www.investing.com/news/stock-market-news/characterai-files-for-bankruptcy-agrees-to-sell-some-assets-to-disney-for-20-million-4945401",
-      "sourceLabel": "Reuters",
+      "date": "2026-10-18",
+      "title": "Anthropic committed equity to a public benefit fund",
+      "summary": "Anthropic committed 5% of its shares to a new public benefit fund, with a mechanism that can add equity as the company's value increases.",
+      "source": "https://www.anthropic.com/news/public-benefit-fund",
+      "sourceLabel": "Anthropic",
+      "rating": 4,
+      "tags": ["Anthropic", "Public Benefit", "Equity", "Economic Impact", "Governance"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-10-23",
+      "title": "Barclays tied 5,000 planned job cuts to AI efficiency",
+      "summary": "Barclays said it plans to cut about 5% of its workforce as organizational simplification and AI-driven technology efficiency reshape support functions.",
+      "source": "https://apnews.com/article/ai-layoffs-meta-microsoft-barclays-300bd6c2585b4a6996c2ac553d870055",
+      "sourceLabel": "Associated Press",
       "rating": 5,
-      "tags": ["Character.AI", "Bankruptcy", "Disney", "AI Economics", "Consumer AI"]
-    },
-    {
-      "category": "Business",
-      "date": "2026-10-15",
-      "title": "GTCR and Elliott agreed to acquire CCC for $6.1 billion",
-      "summary": "GTCR and Elliott agreed to buy insurance AI platform CCC Intelligent Solutions for about $6.1 billion, with plans to accelerate its AI and agentic capabilities.",
-      "source": "https://cccis.gcs-web.com/news-releases/news-release-details/ccc-intelligent-solutions-signs-definitive-agreement-be-acquired",
-      "sourceLabel": "CCC Intelligent Solutions",
-      "rating": 4,
-      "tags": ["CCC", "Acquisition", "Insurance AI", "Private Equity", "Vertical SaaS"]
-    },
-    {
-      "category": "Business",
-      "date": "2026-10-16",
-      "title": "Abu Dhabi formed TAMM Global to export its AI government platform",
-      "summary": "Abu Dhabi established TAMM Global as a private-sector company that will license its AI-powered government services platform and operating model internationally.",
-      "source": "https://www.mediaoffice.abudhabi/en/government-affairs/under-the-directives-of-khaled-bin-mohamed-bin-zayed-department-of-government-enablement-announces-establishment-of-tamm-global-company-to-expand-tamm-platforms-global-reach/",
-      "sourceLabel": "Abu Dhabi Media Office",
-      "rating": 4,
-      "tags": ["TAMM Global", "GovTech", "AI Adoption", "Digital Services", "Licensing"]
+      "tags": ["Barclays", "Workforce", "AI Adoption", "Banking", "Automation"]
     },
     {
       "category": "Infrastructure",
-      "date": "2026-10-12",
-      "title": "Microsoft set Azure Maia for multi-gigawatt deployment",
-      "summary": "Microsoft said Maia 200 is serving production AI workloads and Maia 300 will begin 2027 deployments with a target of 40% more tokens per megawatt than leading GPU systems.",
-      "source": "https://blogs.microsoft.com/blog/2026/10/12/microsoft-to-expand-azure-maia-system-to-multi-gigawatt-deployments/",
-      "sourceLabel": "Microsoft",
+      "date": "2026-10-22",
+      "title": "NVIDIA launched Minerva for AI factory observability",
+      "summary": "NVIDIA launched Minerva, an AIOps platform that unifies infrastructure and workload telemetry to detect failures and improve GPU uptime across AI factories.",
+      "source": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+      "sourceLabel": "NVIDIA",
       "rating": 5,
-      "tags": ["Microsoft", "Azure Maia", "AI Accelerators", "Inference", "Data Centers"]
+      "tags": ["NVIDIA", "Minerva", "AIOps", "AI Factories", "Observability"]
     },
     {
       "category": "Infrastructure",
-      "date": "2026-10-12",
-      "title": "Intel detailed its GPU D-series for large-scale inference",
-      "summary": "Intel detailed an air-cooled 350-watt GPU D-series design with up to 480 GB of memory for sustained inference, long contexts, and concurrent agent workloads.",
-      "source": "https://www.intel.com/content/www/us/en/newsroom/news/artificial-intelligence/intel-accelerates-open-infrastructure-agentic-ai-era.html",
-      "sourceLabel": "Intel",
+      "date": "2026-10-21",
+      "title": "HPE and NVIDIA expanded secure agentic AI infrastructure",
+      "summary": "HPE expanded its NVIDIA-backed AI Factory portfolio with governed MCP services, mixed-GPU clusters, Vera CPU racks, and secure agent runtime support.",
+      "source": "https://www.hpe.com/us/en/newsroom/press-release/2026/10/hpe-teams-with-nvidia-to-advance-secure-agentic-ai-across-enterprises-and-industrial-environments.html",
+      "sourceLabel": "HPE",
       "rating": 4,
-      "tags": ["Intel", "GPU D-Series", "Inference", "Open Infrastructure", "Agentic AI"]
+      "tags": ["HPE", "NVIDIA", "AI Factory", "MCP", "Secure Agents"]
     },
     {
       "category": "Policy",
-      "date": "2026-10-12",
-      "title": "Britain moved to strengthen defenses against advanced AI risks",
-      "summary": "The UK announced expanded frontier-model evaluations, cyber-defense pilots, possible legal protections, and incident planning for failures involving autonomous AI agents.",
-      "source": "https://www.gov.uk/government/news/britain-steps-up-national-defences-against-growing-ai-risks",
-      "sourceLabel": "UK Government",
-      "rating": 5,
-      "tags": ["UK", "AI Safety", "Cybersecurity", "Incident Response", "AI Regulation"]
-    },
-    {
-      "category": "Security",
-      "date": "2026-10-15",
-      "title": "GitHub made agentic code-scanning autofix generally available",
-      "summary": "GitHub's agentic autofix can investigate code-scanning alerts, generate and validate fixes with CodeQL, and open reviewable draft pull requests for enterprise customers.",
-      "source": "https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/",
-      "sourceLabel": "GitHub",
-      "rating": 5,
-      "tags": ["GitHub Copilot", "CodeQL", "Agentic Autofix", "Application Security", "Pull Requests"]
+      "date": "2026-10-21",
+      "title": "Australia updated its responsible AI policy for government",
+      "summary": "Australia updated the policy requiring federal agencies to assign accountable officials, publish transparency statements, maintain use-case registers, and assess AI impacts.",
+      "source": "https://www.digital.gov.au/ai/ai-in-government-policy",
+      "sourceLabel": "Australian Government",
+      "rating": 4,
+      "tags": ["Australia", "AI Policy", "Government", "Transparency", "Impact Assessment"]
     },
     {
       "category": "Dev Tools",
-      "date": "2026-10-16",
-      "title": "Google shared four evaluation lessons from building agent plugins",
-      "summary": "Google advised agent builders to score tool-call trajectories, preserve asynchronous turn structure, compare live and plan-only runs, and maintain expert golden sets.",
-      "source": "https://cloud.google.com/blog/topics/developers-practitioners/four-eval-engineering-lessons",
-      "sourceLabel": "Google Cloud",
+      "date": "2026-10-21",
+      "title": "Google opened Agents CLI to multiple frameworks",
+      "summary": "Google's Agents CLI extension system now supports alternate frameworks and custom governance commands, including a first-party LangChain extension with pinned Git revisions.",
+      "source": "https://developers.googleblog.com/powering-the-agent-development-lifecycle-with-any-framework-from-adk-to-langchain-and-beyond/",
+      "sourceLabel": "Google Developers",
       "rating": 5,
-      "tags": ["Agent Evaluation", "Tool Calls", "Golden Sets", "Plugins", "Developer Workflow"]
+      "tags": ["Agents CLI", "LangChain", "Extensions", "Governance", "Developer Workflow"]
     },
     {
-      "category": "Agents",
-      "date": "2026-10-16",
-      "title": "AWS published a nine-stage production agent evaluation framework",
-      "summary": "AWS described a nine-stage AgentCore evaluation loop spanning golden sets, CI and deployment gates, canaries, adversarial tests, drift monitoring, and automated feedback.",
-      "source": "https://aws.amazon.com/blogs/machine-learning/building-trust-in-ai-agents-a-production-ready-evaluation-framework-with-amazon-bedrock-agentcore/",
+      "category": "Automation",
+      "date": "2026-10-19",
+      "title": "Amazon Bedrock added structured outputs for Claude",
+      "summary": "Amazon Bedrock added schema-constrained JSON and strict tool inputs for Claude models, reducing custom parsing and retry logic in production automations.",
+      "source": "https://aws.amazon.com/blogs/machine-learning/structured-outputs-for-anthropic-claude-models-on-amazon-bedrock/",
       "sourceLabel": "AWS",
       "rating": 5,
-      "tags": ["AWS", "AgentCore", "Agent Evaluation", "CI/CD", "Production AI"]
+      "tags": ["Amazon Bedrock", "Claude", "Structured Outputs", "JSON Schema", "Tool Use"]
+    },
+    {
+      "category": "Security",
+      "date": "2026-10-19",
+      "title": "Microsoft framed enterprise agents as security insiders",
+      "summary": "Microsoft proposed continuous identity, permission, data, network, and runtime controls for enterprise agents, supervised by risk-aware guardian agents.",
+      "source": "https://blogs.microsoft.com/blog/2026/10/19/securing-the-agentic-insider/",
+      "sourceLabel": "Microsoft",
+      "rating": 5,
+      "tags": ["Microsoft", "Agent Security", "Identity", "Runtime Controls", "Guardian Agents"]
     }
   ]
 }
