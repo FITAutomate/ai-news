@@ -300,6 +300,13 @@
       "file": "archive/news-2026-43.json",
       "dateFrom": "2026-10-18",
       "dateTo": "2026-10-24"
+    },
+    {
+      "key": "2026-44",
+      "label": "2026-W44 (Oct 25-31, 2026)",
+      "file": "archive/news-2026-44.json",
+      "dateFrom": "2026-10-26",
+      "dateTo": "2026-10-31"
     }
   ]
 }
