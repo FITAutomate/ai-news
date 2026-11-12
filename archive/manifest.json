@@ -307,6 +307,13 @@
       "file": "archive/news-2026-44.json",
       "dateFrom": "2026-10-26",
       "dateTo": "2026-10-31"
+    },
+    {
+      "key": "2026-45",
+      "label": "2026-W45 (Nov 1-7, 2026)",
+      "file": "archive/news-2026-45.json",
+      "dateFrom": "2026-11-01",
+      "dateTo": "2026-11-07"
     }
   ]
 }

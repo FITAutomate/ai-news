@@ -1,130 +1,130 @@
 {
   "meta": {
-    "updatedLabel": "October 31, 2026",
-    "dataDate": "2026-10-31",
-    "window": "Oct 25-31, 2026",
-    "themes": "Efficient Computer-Use Models, Agent Platforms Consolidate, Capital Flows Into AI Infrastructure, Governed Automation Moves Into Production"
+    "updatedLabel": "November 7, 2026",
+    "dataDate": "2026-11-07",
+    "window": "Nov 1-7, 2026",
+    "themes": "Cybersecurity Models Advance, Enterprise Agents Reach Production, AI Capital Consolidates, Infrastructure Expands With New Controls"
   },
   "news": [
     {
       "category": "OpenAI",
-      "date": "2026-10-26",
-      "title": "OpenAI launched GPT-6.1 Terra for efficient computer use",
-      "summary": "OpenAI launched GPT-6.1 Terra for visual reasoning, computer use, and high-volume professional work at $1 per million input tokens and $5 per million output tokens.",
-      "source": "https://openai.com/index/introducing-gpt-6-1-terra/",
+      "date": "2026-11-05",
+      "title": "OpenAI introduced GPT-6 Cyber for authorized vulnerability research",
+      "summary": "OpenAI said GPT-6 Cyber improved 51% over GPT-5.6 Cyber on ExploitGym while adding stronger controls to keep security agents within researcher-defined scope.",
+      "source": "https://openai.com/index/introducing-gpt-6-cyber/",
       "sourceLabel": "OpenAI",
       "rating": 5,
-      "tags": ["OpenAI", "GPT-6.1 Terra", "Computer Use", "Visual Reasoning", "Codex"]
+      "tags": ["GPT-6 Cyber", "Cybersecurity", "Vulnerability Research", "Agent Safety", "Codex"]
     },
     {
-      "category": "OpenAI",
-      "date": "2026-10-29",
-      "title": "OpenAI reorganized its Model Spec around five values",
-      "summary": "OpenAI updated its Model Spec around human intent, harm minimization, honesty, human agency, and care, while adding guidance on context, oversight, and agency.",
-      "source": "https://openai.com/index/updated-model-spec/",
+      "category": "Google",
+      "date": "2026-11-05",
+      "title": "Google launched Gemini Omni 1.2 Flash with longer video and lower pricing",
+      "summary": "Google made Gemini Omni 1.2 Flash generally available with native 15-second video, multi-turn editing, stronger reference adherence, and pricing 30% below Omni 1.1.",
+      "source": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "sourceLabel": "Google",
+      "rating": 5,
+      "tags": ["Gemini Omni", "Video Generation", "Multimodal", "Gemini API", "Pricing"]
+    },
+    {
+      "category": "Platforms",
+      "date": "2026-11-05",
+      "title": "Mistral expanded Studio for enterprise agents, workflows, and apps",
+      "summary": "Mistral added managed agents and apps plus workflow, context, observability, and evaluation features to Studio, with cloud, VPC, and on-premises deployment options.",
+      "source": "https://mistral.ai/news/build-with-studio/",
+      "sourceLabel": "Mistral AI",
+      "rating": 5,
+      "tags": ["Mistral Studio", "Le Chonk", "Enterprise Agents", "MCP", "Observability"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-11-01",
+      "title": "Aramco took a 49% stake in Saudi AI company HUMAIN",
+      "summary": "Aramco contributed about $2.6 billion in cash plus AI and compute assets for 49% of HUMAIN, which plans to deploy 3 gigawatts of data center capacity by 2030.",
+      "source": "https://www.aramco.com/en/news-media/news/2026/pif-and-aramco-close-humain-transaction-to-accelerate-humains-global-growth",
+      "sourceLabel": "Aramco",
+      "rating": 5,
+      "tags": ["HUMAIN", "Aramco", "PIF", "AI Investment", "Data Centers"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-11-04",
+      "title": "OpenAI agreed to acquire Pierre Computer Company",
+      "summary": "OpenAI said Pierre's code storage, tree navigation, and diff-review technology will expand Codex tools for Git workflows used by developers and coding agents.",
+      "source": "https://openai.com/index/openai-to-acquire-pierre/",
       "sourceLabel": "OpenAI",
+      "rating": 5,
+      "tags": ["OpenAI", "Pierre", "Codex", "Acquisition", "Git"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-11-05",
+      "title": "Five9 agreed to acquire Level AI for about $325 million",
+      "summary": "Five9 said the acquisition will bring Level AI's customer-experience agents and conversation intelligence to more than 4,000 customers as integrated or standalone products.",
+      "source": "https://five9.gcs-web.com/news-releases/news-release-details/five9-acquire-level-ai-advancing-ai-powered-cx-platform",
+      "sourceLabel": "Five9",
       "rating": 4,
-      "tags": ["OpenAI", "Model Spec", "Alignment", "Human Agency", "Governance"]
-    },
-    {
-      "category": "Microsoft",
-      "date": "2026-10-28",
-      "title": "Microsoft opened its multi-model Copilot harness in Foundry",
-      "summary": "Microsoft made its Copilot harness available through Foundry, giving developers a managed orchestration layer for 20-plus models, tools, skills, plugins, and long-running agents.",
-      "source": "https://blogs.microsoft.com/blog/2026/10/28/introducing-the-microsoft-copilot-harness-unlocking-the-potential-of-truly-multi-model-agentic-work/",
-      "sourceLabel": "Microsoft",
-      "rating": 5,
-      "tags": ["Microsoft Foundry", "Copilot", "Multi-Model", "Agent Harness", "MCP"]
-    },
-    {
-      "category": "Business",
-      "date": "2026-10-26",
-      "title": "Anthropic filed for a proposed Nasdaq IPO",
-      "summary": "Anthropic filed an S-1 registration statement for a proposed public offering of Class A shares under the Nasdaq symbol ANT, with pricing and share count still unset.",
-      "source": "https://www.anthropic.com/news/s1-sec",
-      "sourceLabel": "Anthropic",
-      "rating": 5,
-      "tags": ["Anthropic", "IPO", "Nasdaq", "Capital Markets", "AI Business"]
-    },
-    {
-      "category": "Business",
-      "date": "2026-10-26",
-      "title": "Meta outlined up to $95 billion in equity financing for AI",
-      "summary": "Meta launched about $35 billion in underwritten offerings and outlined a future $60 billion at-the-market program to support AI infrastructure and personal superintelligence.",
-      "source": "https://investor.atmeta.com/investor-news/press-release-details/2026/Meta-Announces-Launch-of-Offering-of-Depositary-Shares-Representing-Series-A-Mandatory-Convertible-Preferred-Stock-and-Offering-of-Class-A-Common-Stock-in-Connection-with-Forward-Sale-Agreements/default.aspx",
-      "sourceLabel": "Meta",
-      "rating": 5,
-      "tags": ["Meta", "Equity Financing", "AI Infrastructure", "Capital Spending", "Superintelligence"]
-    },
-    {
-      "category": "Business",
-      "date": "2026-10-28",
-      "title": "GitHub said agents started more than 40% of pull requests",
-      "summary": "GitHub's 2026 Octoverse report said agents started more than 40% of pull requests in September, representing 110 million pull requests and sixfold growth since March.",
-      "source": "https://github.blog/news-insights/octoverse/octoverse-commits-pushes-reach-new-highs-in-2026-as-developers-build-with-agents/",
-      "sourceLabel": "GitHub",
-      "rating": 5,
-      "tags": ["GitHub", "Octoverse", "Coding Agents", "Developer Adoption", "Pull Requests"]
+      "tags": ["Five9", "Level AI", "Acquisition", "Customer Experience", "AI Agents"]
     },
     {
       "category": "Infrastructure",
-      "date": "2026-10-26",
-      "title": "SpaceX secured $40 billion in GPU financing",
-      "summary": "SpaceX reached a binding commitment for an approximately $40 billion Apollo-managed finance lease covering NVIDIA Vera Rubin GPUs and related equipment.",
-      "source": "https://www.apollo.com/insights-news/pressreleases/2026/10/spacex-secures--40-billion-in-the-largest-gpu-financing-ever",
-      "sourceLabel": "Apollo Global Management",
+      "date": "2026-11-04",
+      "title": "Google committed $15 billion to expand digital infrastructure in Malaysia",
+      "summary": "Google plans new data center campuses, a Malaysian cloud region, workforce programs, and more than 1 gigawatt of clean energy capacity through a 2027-2028 investment.",
+      "source": "https://www.googlecloudpresscorner.com/2026-11-04-Google-Announces-Digital-Infrastructure-Expansion-Local-Jobs-Water-Replenishment-and-Clean-Energy-Initiatives-with-US-15-Billion-Malaysia-Investment",
+      "sourceLabel": "Google Cloud",
       "rating": 5,
-      "tags": ["SpaceX", "Apollo", "NVIDIA", "Vera Rubin", "GPU Financing"]
+      "tags": ["Google Cloud", "Malaysia", "Data Centers", "Clean Energy", "AI Infrastructure"]
     },
     {
       "category": "Infrastructure",
-      "date": "2026-10-27",
-      "title": "Oracle will offer Google TPUs outside Google Cloud",
-      "summary": "Oracle said OCI will become the first hyperscaler outside Google to offer Google TPUs, expanding customer choice for large-model training and agentic inference in 2027.",
-      "source": "https://www.oracle.com/news/announcement/ai-world-oracle-brings-google-tpus-to-oracle-cloud-infrastructure-2026-10-27/",
-      "sourceLabel": "Oracle",
-      "rating": 5,
-      "tags": ["Oracle Cloud", "Google TPU", "AI Compute", "Training", "Inference"]
+      "date": "2026-11-06",
+      "title": "SageMaker added managed GPU partitioning for inference endpoints",
+      "summary": "Amazon SageMaker Inference now supports NVIDIA Multi-Instance GPU partitions so teams can isolate and right-size multiple models on one accelerator without managing Kubernetes.",
+      "source": "https://aws.amazon.com/blogs/machine-learning/sagemaker-inference-now-supports-multi-instance-gpu-to-maximize-gpu-utilization-for-model-endpoints/",
+      "sourceLabel": "AWS",
+      "rating": 4,
+      "tags": ["SageMaker", "NVIDIA MIG", "Inference", "GPU Utilization", "Cost Control"]
     },
     {
       "category": "Policy",
-      "date": "2026-10-29",
-      "title": "Canadian privacy regulators called for accountable health AI",
-      "summary": "Canada's privacy regulators urged governments and health organizations to require privacy-protective, reliable, safe, transparent, accountable, and rights-affirming AI governance.",
-      "source": "https://www.priv.gc.ca/en/opc-news/news-and-announcements/2026/nr-c_261029/",
-      "sourceLabel": "Office of the Privacy Commissioner of Canada",
+      "date": "2026-11-05",
+      "title": "The U.S. Justice Department formed a Super Intelligence Task Force",
+      "summary": "The DOJ created a task force to coordinate enforcement against unlawful super-intelligence use, harden risk reporting, and press companies for strong internal controls.",
+      "source": "https://www.justice.gov/opa/pr/department-justice-launches-super-intelligence-task-force",
+      "sourceLabel": "U.S. Department of Justice",
       "rating": 4,
-      "tags": ["Canada", "Health AI", "Privacy", "Accountability", "AI Policy"]
+      "tags": ["DOJ", "Super Intelligence", "Enforcement", "AI Policy", "Risk Controls"]
     },
     {
       "category": "Dev Tools",
-      "date": "2026-10-28",
-      "title": "Android Studio opened its toolchain to more than 40 coding agents",
-      "summary": "Android Studio Rabbit 2 became stable with support for Claude Agent, Codex, Antigravity, and more than 40 ACP-compatible agents plus official Claude Code and Codex plugins.",
-      "source": "https://developer.android.google.cn/blog/posts/build-it-your-way-a-next-era-of-android-development?hl=en",
-      "sourceLabel": "Android Developers",
+      "date": "2026-11-05",
+      "title": "Cursor started turning cloud-agent prompts into hosted live apps",
+      "summary": "Cursor's Build Live Apps can scaffold code, provision Postgres and sign-in, run security checks, and deploy a shareable application from a cloud-agent request.",
+      "source": "https://prod.cursor.com/changelog/build-live-apps",
+      "sourceLabel": "Cursor",
       "rating": 5,
-      "tags": ["Android Studio", "Coding Agents", "ACP", "Claude Code", "Codex"]
+      "tags": ["Cursor", "Cloud Agents", "App Deployment", "Postgres", "Security Checks"]
     },
     {
-      "category": "Dev Tools",
-      "date": "2026-10-28",
-      "title": "GitHub Agentic Workflows reached general availability",
-      "summary": "GitHub made Agentic Workflows generally available for reasoning-based automation in Actions, with natural-language definitions, sandboxing, threat detection, and model routing.",
-      "source": "https://github.blog/changelog/2026-10-28-github-agentic-workflows-generally-available/",
-      "sourceLabel": "GitHub",
-      "rating": 5,
-      "tags": ["GitHub Actions", "Agentic Workflows", "Automation", "Sandboxing", "Model Routing"]
-    },
-    {
-      "category": "Dev Tools",
-      "date": "2026-10-28",
-      "title": "Google documented a continuous evaluation loop for agents",
-      "summary": "Google showed how Agents CLI can generate, grade, compare, analyze, and optimize agent evaluations, including scheduled regression runs and threshold-based alerts.",
-      "source": "https://developers.googleblog.com/en/hill-climbing-agent-quality-with-agents-cli-evaluation/",
-      "sourceLabel": "Google Developers",
+      "category": "Security",
+      "date": "2026-11-04",
+      "title": "Amazon Quick added bounded automatic approvals for agent actions",
+      "summary": "Smart Approvals reviews eligible agent actions against the user's request while preserving policy denials, mandatory human review, single-use authorization, and audit evidence.",
+      "source": "https://aws.amazon.com/blogs/machine-learning/smart-approvals-in-amazon-quick-human-oversight-where-it-matters/",
+      "sourceLabel": "AWS",
       "rating": 4,
-      "tags": ["Agents CLI", "Evaluation", "Regression Testing", "Agent Quality", "Automation"]
+      "tags": ["Amazon Quick", "Agent Governance", "Approvals", "Prompt Injection", "Audit Logs"]
+    },
+    {
+      "category": "Agents",
+      "date": "2026-11-02",
+      "title": "Grok Bot 1.0 added proactive and shared AI teammates",
+      "summary": "Grok Bot 1.0 introduced team-shared bots that can work in Slack, Microsoft Teams, and meetings, monitor ongoing work, coordinate tasks, and request judgment for sensitive actions.",
+      "source": "https://x.ai/news/grok-bot-1-0",
+      "sourceLabel": "xAI",
+      "rating": 4,
+      "tags": ["Grok Bot", "AI Teammates", "Slack", "Microsoft Teams", "Proactive Agents"]
     }
   ]
 }

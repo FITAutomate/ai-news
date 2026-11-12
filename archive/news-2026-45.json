@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "updatedLabel": "November 7, 2026",
+    "dataDate": "2026-11-07",
+    "window": "Nov 1-7, 2026",
+    "themes": "Cybersecurity Models Advance, Enterprise Agents Reach Production, AI Capital Consolidates, Infrastructure Expands With New Controls"
+  },
+  "news": [
+    {
+      "category": "OpenAI",
+      "date": "2026-11-05",
+      "title": "OpenAI introduced GPT-6 Cyber for authorized vulnerability research",
+      "summary": "OpenAI said GPT-6 Cyber improved 51% over GPT-5.6 Cyber on ExploitGym while adding stronger controls to keep security agents within researcher-defined scope.",
+      "source": "https://openai.com/index/introducing-gpt-6-cyber/",
+      "sourceLabel": "OpenAI",
+      "rating": 5,
+      "tags": ["GPT-6 Cyber", "Cybersecurity", "Vulnerability Research", "Agent Safety", "Codex"]
+    },
+    {
+      "category": "Google",
+      "date": "2026-11-05",
+      "title": "Google launched Gemini Omni 1.2 Flash with longer video and lower pricing",
+      "summary": "Google made Gemini Omni 1.2 Flash generally available with native 15-second video, multi-turn editing, stronger reference adherence, and pricing 30% below Omni 1.1.",
+      "source": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "sourceLabel": "Google",
+      "rating": 5,
+      "tags": ["Gemini Omni", "Video Generation", "Multimodal", "Gemini API", "Pricing"]
+    },
+    {
+      "category": "Platforms",
+      "date": "2026-11-05",
+      "title": "Mistral expanded Studio for enterprise agents, workflows, and apps",
+      "summary": "Mistral added managed agents and apps plus workflow, context, observability, and evaluation features to Studio, with cloud, VPC, and on-premises deployment options.",
+      "source": "https://mistral.ai/news/build-with-studio/",
+      "sourceLabel": "Mistral AI",
+      "rating": 5,
+      "tags": ["Mistral Studio", "Le Chonk", "Enterprise Agents", "MCP", "Observability"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-11-01",
+      "title": "Aramco took a 49% stake in Saudi AI company HUMAIN",
+      "summary": "Aramco contributed about $2.6 billion in cash plus AI and compute assets for 49% of HUMAIN, which plans to deploy 3 gigawatts of data center capacity by 2030.",
+      "source": "https://www.aramco.com/en/news-media/news/2026/pif-and-aramco-close-humain-transaction-to-accelerate-humains-global-growth",
+      "sourceLabel": "Aramco",
+      "rating": 5,
+      "tags": ["HUMAIN", "Aramco", "PIF", "AI Investment", "Data Centers"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-11-04",
+      "title": "OpenAI agreed to acquire Pierre Computer Company",
+      "summary": "OpenAI said Pierre's code storage, tree navigation, and diff-review technology will expand Codex tools for Git workflows used by developers and coding agents.",
+      "source": "https://openai.com/index/openai-to-acquire-pierre/",
+      "sourceLabel": "OpenAI",
+      "rating": 5,
+      "tags": ["OpenAI", "Pierre", "Codex", "Acquisition", "Git"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-11-05",
+      "title": "Five9 agreed to acquire Level AI for about $325 million",
+      "summary": "Five9 said the acquisition will bring Level AI's customer-experience agents and conversation intelligence to more than 4,000 customers as integrated or standalone products.",
+      "source": "https://five9.gcs-web.com/news-releases/news-release-details/five9-acquire-level-ai-advancing-ai-powered-cx-platform",
+      "sourceLabel": "Five9",
+      "rating": 4,
+      "tags": ["Five9", "Level AI", "Acquisition", "Customer Experience", "AI Agents"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-11-04",
+      "title": "Google committed $15 billion to expand digital infrastructure in Malaysia",
+      "summary": "Google plans new data center campuses, a Malaysian cloud region, workforce programs, and more than 1 gigawatt of clean energy capacity through a 2027-2028 investment.",
+      "source": "https://www.googlecloudpresscorner.com/2026-11-04-Google-Announces-Digital-Infrastructure-Expansion-Local-Jobs-Water-Replenishment-and-Clean-Energy-Initiatives-with-US-15-Billion-Malaysia-Investment",
+      "sourceLabel": "Google Cloud",
+      "rating": 5,
+      "tags": ["Google Cloud", "Malaysia", "Data Centers", "Clean Energy", "AI Infrastructure"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-11-06",
+      "title": "SageMaker added managed GPU partitioning for inference endpoints",
+      "summary": "Amazon SageMaker Inference now supports NVIDIA Multi-Instance GPU partitions so teams can isolate and right-size multiple models on one accelerator without managing Kubernetes.",
+      "source": "https://aws.amazon.com/blogs/machine-learning/sagemaker-inference-now-supports-multi-instance-gpu-to-maximize-gpu-utilization-for-model-endpoints/",
+      "sourceLabel": "AWS",
+      "rating": 4,
+      "tags": ["SageMaker", "NVIDIA MIG", "Inference", "GPU Utilization", "Cost Control"]
+    },
+    {
+      "category": "Policy",
+      "date": "2026-11-05",
+      "title": "The U.S. Justice Department formed a Super Intelligence Task Force",
+      "summary": "The DOJ created a task force to coordinate enforcement against unlawful super-intelligence use, harden risk reporting, and press companies for strong internal controls.",
+      "source": "https://www.justice.gov/opa/pr/department-justice-launches-super-intelligence-task-force",
+      "sourceLabel": "U.S. Department of Justice",
+      "rating": 4,
+      "tags": ["DOJ", "Super Intelligence", "Enforcement", "AI Policy", "Risk Controls"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-11-05",
+      "title": "Cursor started turning cloud-agent prompts into hosted live apps",
+      "summary": "Cursor's Build Live Apps can scaffold code, provision Postgres and sign-in, run security checks, and deploy a shareable application from a cloud-agent request.",
+      "source": "https://prod.cursor.com/changelog/build-live-apps",
+      "sourceLabel": "Cursor",
+      "rating": 5,
+      "tags": ["Cursor", "Cloud Agents", "App Deployment", "Postgres", "Security Checks"]
+    },
+    {
+      "category": "Security",
+      "date": "2026-11-04",
+      "title": "Amazon Quick added bounded automatic approvals for agent actions",
+      "summary": "Smart Approvals reviews eligible agent actions against the user's request while preserving policy denials, mandatory human review, single-use authorization, and audit evidence.",
+      "source": "https://aws.amazon.com/blogs/machine-learning/smart-approvals-in-amazon-quick-human-oversight-where-it-matters/",
+      "sourceLabel": "AWS",
+      "rating": 4,
+      "tags": ["Amazon Quick", "Agent Governance", "Approvals", "Prompt Injection", "Audit Logs"]
+    },
+    {
+      "category": "Agents",
+      "date": "2026-11-02",
+      "title": "Grok Bot 1.0 added proactive and shared AI teammates",
+      "summary": "Grok Bot 1.0 introduced team-shared bots that can work in Slack, Microsoft Teams, and meetings, monitor ongoing work, coordinate tasks, and request judgment for sensitive actions.",
+      "source": "https://x.ai/news/grok-bot-1-0",
+      "sourceLabel": "xAI",
+      "rating": 4,
+      "tags": ["Grok Bot", "AI Teammates", "Slack", "Microsoft Teams", "Proactive Agents"]
+    }
+  ]
+}
