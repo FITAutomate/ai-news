@@ -1,130 +1,130 @@
 {
   "meta": {
-    "updatedLabel": "November 7, 2026",
-    "dataDate": "2026-11-07",
-    "window": "Nov 1-7, 2026",
-    "themes": "Cybersecurity Models Advance, Enterprise Agents Reach Production, AI Capital Consolidates, Infrastructure Expands With New Controls"
+    "updatedLabel": "November 14, 2026",
+    "dataDate": "2026-11-14",
+    "window": "Nov 8-14, 2026",
+    "themes": "Frontier Models Broaden Access, AI Platforms Consolidate, Data Center Supply Chains Shift, Agent Workflows Gain Operational Controls"
   },
   "news": [
     {
-      "category": "OpenAI",
-      "date": "2026-11-05",
-      "title": "OpenAI introduced GPT-6 Cyber for authorized vulnerability research",
-      "summary": "OpenAI said GPT-6 Cyber improved 51% over GPT-5.6 Cyber on ExploitGym while adding stronger controls to keep security agents within researcher-defined scope.",
-      "source": "https://openai.com/index/introducing-gpt-6-cyber/",
-      "sourceLabel": "OpenAI",
+      "category": "Anthropic",
+      "date": "2026-11-09",
+      "title": "Anthropic released Claude Fable 5.2 and Mythos 5.2 for difficult technical work",
+      "summary": "Anthropic said the models improve coding, reasoning, and vision, generate up to 30% faster than version 5.1, and add a faster optional mode.",
+      "source": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
+      "sourceLabel": "Anthropic",
       "rating": 5,
-      "tags": ["GPT-6 Cyber", "Cybersecurity", "Vulnerability Research", "Agent Safety", "Codex"]
-    },
-    {
-      "category": "Google",
-      "date": "2026-11-05",
-      "title": "Google launched Gemini Omni 1.2 Flash with longer video and lower pricing",
-      "summary": "Google made Gemini Omni 1.2 Flash generally available with native 15-second video, multi-turn editing, stronger reference adherence, and pricing 30% below Omni 1.1.",
-      "source": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
-      "sourceLabel": "Google",
-      "rating": 5,
-      "tags": ["Gemini Omni", "Video Generation", "Multimodal", "Gemini API", "Pricing"]
+      "tags": ["Claude Fable 5.2", "Claude Mythos 5.2", "Agentic Coding", "Cybersecurity", "Model Release"]
     },
     {
       "category": "Platforms",
-      "date": "2026-11-05",
-      "title": "Mistral expanded Studio for enterprise agents, workflows, and apps",
-      "summary": "Mistral added managed agents and apps plus workflow, context, observability, and evaluation features to Studio, with cloud, VPC, and on-premises deployment options.",
-      "source": "https://mistral.ai/news/build-with-studio/",
-      "sourceLabel": "Mistral AI",
+      "date": "2026-11-13",
+      "title": "GitHub added Gemini 4 Hydrogen to Copilot",
+      "summary": "GitHub made Google's fast agentic model generally available across Copilot plans and surfaces, including coding agent, CLI, IDEs, mobile, and the Copilot SDK.",
+      "source": "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot/",
+      "sourceLabel": "GitHub",
       "rating": 5,
-      "tags": ["Mistral Studio", "Le Chonk", "Enterprise Agents", "MCP", "Observability"]
+      "tags": ["GitHub Copilot", "Gemini 4 Hydrogen", "Coding Agents", "Tool Use", "Model Choice"]
+    },
+    {
+      "category": "Google",
+      "date": "2026-11-11",
+      "title": "Google released A2UI 1.0 for native agent interfaces",
+      "summary": "A2UI 1.0 gives agents an open protocol for interactive screens, with renderer SDKs for web and mobile plus agent SDKs for Python, TypeScript, and Dart.",
+      "source": "https://developers.googleblog.com/a2ui-10-build-delightful-fast-reliable-agentic-experiences/",
+      "sourceLabel": "Google Developers Blog",
+      "rating": 5,
+      "tags": ["A2UI", "Generative UI", "Agent Interfaces", "MCP Apps", "Open Protocol"]
     },
     {
       "category": "Business",
-      "date": "2026-11-01",
-      "title": "Aramco took a 49% stake in Saudi AI company HUMAIN",
-      "summary": "Aramco contributed about $2.6 billion in cash plus AI and compute assets for 49% of HUMAIN, which plans to deploy 3 gigawatts of data center capacity by 2030.",
-      "source": "https://www.aramco.com/en/news-media/news/2026/pif-and-aramco-close-humain-transaction-to-accelerate-humains-global-growth",
-      "sourceLabel": "Aramco",
+      "date": "2026-11-10",
+      "title": "Anthropic launched the roadshow for its proposed IPO",
+      "summary": "Anthropic began the roadshow for a proposed initial public offering of its Class A common stock after filing its registration statement in October.",
+      "source": "https://www.anthropic.com/news/roadshow-launch",
+      "sourceLabel": "Anthropic",
       "rating": 5,
-      "tags": ["HUMAIN", "Aramco", "PIF", "AI Investment", "Data Centers"]
+      "tags": ["Anthropic", "IPO", "Capital Markets", "AI Business", "Public Offering"]
     },
     {
       "category": "Business",
-      "date": "2026-11-04",
-      "title": "OpenAI agreed to acquire Pierre Computer Company",
-      "summary": "OpenAI said Pierre's code storage, tree navigation, and diff-review technology will expand Codex tools for Git workflows used by developers and coding agents.",
-      "source": "https://openai.com/index/openai-to-acquire-pierre/",
+      "date": "2026-11-10",
+      "title": "OpenAI and Upwork found AI freelance projects carry broader scopes and larger budgets",
+      "summary": "Their research found AI-related postings combined more diverse tasks and involved larger fixed-price budgets and more work hours than other freelance projects.",
+      "source": "https://openai.com/index/ai-effect-on-freelance-work/",
       "sourceLabel": "OpenAI",
-      "rating": 5,
-      "tags": ["OpenAI", "Pierre", "Codex", "Acquisition", "Git"]
+      "rating": 4,
+      "tags": ["Future of Work", "Freelancing", "Upwork", "AI Adoption", "Labor Market"]
     },
     {
       "category": "Business",
-      "date": "2026-11-05",
-      "title": "Five9 agreed to acquire Level AI for about $325 million",
-      "summary": "Five9 said the acquisition will bring Level AI's customer-experience agents and conversation intelligence to more than 4,000 customers as integrated or standalone products.",
-      "source": "https://five9.gcs-web.com/news-releases/news-release-details/five9-acquire-level-ai-advancing-ai-powered-cx-platform",
-      "sourceLabel": "Five9",
+      "date": "2026-11-13",
+      "title": "Cohere expanded its sovereign AI platform with AISLE and cubic",
+      "summary": "Cohere completed its AISLE acquisition, formed Cohere Cyber, and added cubic's code-review team to build secure coding tools for controlled deployments.",
+      "source": "https://cohere.com/blog/cohere-expands-its-sovereign-ai-platform-with-aisle-and-cubic",
+      "sourceLabel": "Cohere",
       "rating": 4,
-      "tags": ["Five9", "Level AI", "Acquisition", "Customer Experience", "AI Agents"]
+      "tags": ["Cohere", "Sovereign AI", "Cybersecurity", "Code Review", "M&A"]
     },
     {
       "category": "Infrastructure",
-      "date": "2026-11-04",
-      "title": "Google committed $15 billion to expand digital infrastructure in Malaysia",
-      "summary": "Google plans new data center campuses, a Malaysian cloud region, workforce programs, and more than 1 gigawatt of clean energy capacity through a 2027-2028 investment.",
-      "source": "https://www.googlecloudpresscorner.com/2026-11-04-Google-Announces-Digital-Infrastructure-Expansion-Local-Jobs-Water-Replenishment-and-Clean-Energy-Initiatives-with-US-15-Billion-Malaysia-Investment",
-      "sourceLabel": "Google Cloud",
-      "rating": 5,
-      "tags": ["Google Cloud", "Malaysia", "Data Centers", "Clean Energy", "AI Infrastructure"]
+      "date": "2026-11-12",
+      "title": "Meta signed long-term deals for lower-carbon data center supply chains",
+      "summary": "Meta committed to low-carbon cement, near-zero-emission steel, electric trucking, and recycled plastics to scale cleaner data center construction inputs.",
+      "source": "https://about.fb.com/news/2026/11/meta-new-agreements-clean-manufacturing-data-center-supply-chains/",
+      "sourceLabel": "Meta",
+      "rating": 4,
+      "tags": ["Data Centers", "Supply Chain", "Clean Manufacturing", "Infrastructure", "Sustainability"]
     },
     {
       "category": "Infrastructure",
-      "date": "2026-11-06",
-      "title": "SageMaker added managed GPU partitioning for inference endpoints",
-      "summary": "Amazon SageMaker Inference now supports NVIDIA Multi-Instance GPU partitions so teams can isolate and right-size multiple models on one accelerator without managing Kubernetes.",
-      "source": "https://aws.amazon.com/blogs/machine-learning/sagemaker-inference-now-supports-multi-instance-gpu-to-maximize-gpu-utilization-for-model-endpoints/",
+      "date": "2026-11-12",
+      "title": "AWS brought SGLang serving and reinforcement-learning rollouts to Trainium",
+      "summary": "SGLang-Neuron is now public through an AWS Deep Learning Container, using native PyTorch to serve frontier models and generate training rollouts on Trainium.",
+      "source": "https://aws.amazon.com/blogs/machine-learning/deploy-frontier-ai-models-on-aws-trainium-with-sglang-neuron/",
       "sourceLabel": "AWS",
-      "rating": 4,
-      "tags": ["SageMaker", "NVIDIA MIG", "Inference", "GPU Utilization", "Cost Control"]
+      "rating": 5,
+      "tags": ["AWS Trainium", "SGLang", "Model Serving", "Reinforcement Learning", "PyTorch"]
     },
     {
       "category": "Policy",
-      "date": "2026-11-05",
-      "title": "The U.S. Justice Department formed a Super Intelligence Task Force",
-      "summary": "The DOJ created a task force to coordinate enforcement against unlawful super-intelligence use, harden risk reporting, and press companies for strong internal controls.",
-      "source": "https://www.justice.gov/opa/pr/department-justice-launches-super-intelligence-task-force",
-      "sourceLabel": "U.S. Department of Justice",
+      "date": "2026-11-13",
+      "title": "U.S. officials pressed for tighter controls on Nvidia chip exports",
+      "summary": "AP reported that Treasury, State, Defense, and the U.S. Trade Representative backed adding Megaspeed to an export-control list while Commerce delayed action.",
+      "source": "https://apnews.com/article/nvidia-megaspeed-scott-bessent-howard-lutnick-17582a5098a5fb4c8fe866a084a6e52b",
+      "sourceLabel": "Associated Press",
       "rating": 4,
-      "tags": ["DOJ", "Super Intelligence", "Enforcement", "AI Policy", "Risk Controls"]
+      "tags": ["Export Controls", "Nvidia", "AI Chips", "U.S. Policy", "National Security"]
+    },
+    {
+      "category": "Automation",
+      "date": "2026-11-10",
+      "title": "n8n Labs released Nod as an open-source personal computer agent",
+      "summary": "Nod runs locally on Mac and Windows, works across apps and websites, asks before acting, and supports user-selected cloud or open-source models.",
+      "source": "https://blog.n8n.io/meet-nod/",
+      "sourceLabel": "n8n",
+      "rating": 5,
+      "tags": ["n8n", "Nod", "Computer Use", "Open Source", "Personal Agents"]
     },
     {
       "category": "Dev Tools",
-      "date": "2026-11-05",
-      "title": "Cursor started turning cloud-agent prompts into hosted live apps",
-      "summary": "Cursor's Build Live Apps can scaffold code, provision Postgres and sign-in, run security checks, and deploy a shareable application from a cloud-agent request.",
-      "source": "https://prod.cursor.com/changelog/build-live-apps",
-      "sourceLabel": "Cursor",
-      "rating": 5,
-      "tags": ["Cursor", "Cloud Agents", "App Deployment", "Postgres", "Security Checks"]
-    },
-    {
-      "category": "Security",
-      "date": "2026-11-04",
-      "title": "Amazon Quick added bounded automatic approvals for agent actions",
-      "summary": "Smart Approvals reviews eligible agent actions against the user's request while preserving policy denials, mandatory human review, single-use authorization, and audit evidence.",
-      "source": "https://aws.amazon.com/blogs/machine-learning/smart-approvals-in-amazon-quick-human-oversight-where-it-matters/",
-      "sourceLabel": "AWS",
+      "date": "2026-11-11",
+      "title": "Visual Studio Code 1.146 added an inbox for agent sessions",
+      "summary": "The stable release added experimental inbox grouping, model comparison, separate chat windows, agent-window extensions, and a path off the local harness.",
+      "source": "https://code.visualstudio.com/updates/v1_146",
+      "sourceLabel": "Visual Studio Code",
       "rating": 4,
-      "tags": ["Amazon Quick", "Agent Governance", "Approvals", "Prompt Injection", "Audit Logs"]
+      "tags": ["VS Code", "Agent Sessions", "Inbox", "Model Comparison", "Copilot Harness"]
     },
     {
       "category": "Agents",
-      "date": "2026-11-02",
-      "title": "Grok Bot 1.0 added proactive and shared AI teammates",
-      "summary": "Grok Bot 1.0 introduced team-shared bots that can work in Slack, Microsoft Teams, and meetings, monitor ongoing work, coordinate tasks, and request judgment for sensitive actions.",
-      "source": "https://x.ai/news/grok-bot-1-0",
-      "sourceLabel": "xAI",
-      "rating": 4,
-      "tags": ["Grok Bot", "AI Teammates", "Slack", "Microsoft Teams", "Proactive Agents"]
+      "date": "2026-11-11",
+      "title": "Amazon Bedrock AgentCore added a direct Web Search API",
+      "summary": "The API returns ranked current-web results through one IAM-signed call, without a gateway or setup resources, and supports domain and publication-date filters.",
+      "source": "https://aws.amazon.com/blogs/machine-learning/introducing-the-web-search-api-on-amazon-bedrock-agentcore/",
+      "sourceLabel": "AWS",
+      "rating": 5,
+      "tags": ["Amazon Bedrock", "AgentCore", "Web Search", "IAM", "Grounding"]
     }
   ]
 }
