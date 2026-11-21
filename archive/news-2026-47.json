@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "updatedLabel": "November 21, 2026",
+    "dataDate": "2026-11-21",
+    "window": "Nov 15-21, 2026",
+    "themes": "Frontier Platforms Expand Model Choice, AI Capital Spending Faces Market Tests, Compute Moves to New Architectures, Agent Tooling Adds Controls and Evaluation"
+  },
+  "news": [
+    {
+      "category": "OpenAI",
+      "date": "2026-11-17",
+      "title": "OpenAI introduced GPT-6.2 Astra and Sol in ChatGPT Work and Codex",
+      "summary": "Astra targets complex research and software work, while Sol combines reasoning with speed and efficiency; both models entered preview in Work and Codex desktop.",
+      "source": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes",
+      "sourceLabel": "OpenAI",
+      "rating": 5,
+      "tags": ["GPT-6.2 Astra", "GPT-6.2 Sol", "Codex", "Professional Work", "Model Release"]
+    },
+    {
+      "category": "Microsoft",
+      "date": "2026-11-17",
+      "title": "Microsoft expanded Foundry model choice and offered licensed MAI weights",
+      "summary": "Microsoft brought GPT-6.2 and Meta's latest models to Foundry and announced MAI Licensed Weights for trusted customers through its Frontier organization.",
+      "source": "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/",
+      "sourceLabel": "Microsoft",
+      "rating": 5,
+      "tags": ["Microsoft Foundry", "MAI Models", "Licensed Weights", "Frontier Models", "Enterprise AI"]
+    },
+    {
+      "category": "Google",
+      "date": "2026-11-18",
+      "title": "Gemini 4 Neon became generally available in GitHub Copilot",
+      "summary": "Google's agentic coding model reached Copilot surfaces with faster startup, lower per-task token cost, and fewer unrequested changes than Gemini 4 Carbon.",
+      "source": "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot/",
+      "sourceLabel": "GitHub",
+      "rating": 4,
+      "tags": ["Gemini 4 Neon", "GitHub Copilot", "Agentic Coding", "Tool Use", "Model Choice"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-11-20",
+      "title": "Anthropic closed its IPO and a $26 billion private placement",
+      "summary": "Anthropic's offering raised about $93.5 billion gross, while a concurrent placement with seven chip and cloud companies lifted total gross proceeds to $119.5 billion.",
+      "source": "https://www.anthropic.com/news/ipo-close",
+      "sourceLabel": "Anthropic",
+      "rating": 5,
+      "tags": ["Anthropic", "IPO", "Capital Markets", "Private Placement", "AI Financing"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-11-17",
+      "title": "Nvidia reported $107.6 billion in quarterly data center revenue",
+      "summary": "Nvidia's fiscal third-quarter revenue reached $115.8 billion, up 103% year over year, as data center revenue rose 110% and Vera Rubin NVL72 began shipping.",
+      "source": "https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2027",
+      "sourceLabel": "Nvidia",
+      "rating": 5,
+      "tags": ["Nvidia", "Earnings", "Data Center", "Vera Rubin", "AI Demand"]
+    },
+    {
+      "category": "Business",
+      "date": "2026-11-20",
+      "title": "Oracle said its OpenAI infrastructure contract is fully funded",
+      "summary": "Oracle said its final capital raise secured the financing needed for the OpenAI contract, with its Abilene campus nearly complete and Shackelford fully permitted.",
+      "source": "https://www.oracle.com/news/announcement/oracle-statement-2026-11-20/",
+      "sourceLabel": "Oracle",
+      "rating": 4,
+      "tags": ["Oracle", "OpenAI", "AI Infrastructure", "Data Centers", "Financing"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-11-16",
+      "title": "Nvidia expanded Vera into a rack-scale CPU platform for scientific computing",
+      "summary": "The liquid-cooled platform links 192 Vera CPUs over Quantum-X800 InfiniBand and is planned from Dell, HPE, Lenovo, and Supermicro beginning in early 2027.",
+      "source": "https://nvidianews.nvidia.com/news/nvidia-expands-vera-cpu-platform-to-accelerate-scientific-discovery",
+      "sourceLabel": "Nvidia",
+      "rating": 4,
+      "tags": ["Nvidia Vera", "HPC", "InfiniBand", "Rack Scale", "Agentic Science"]
+    },
+    {
+      "category": "Infrastructure",
+      "date": "2026-11-19",
+      "title": "Google selected Blue Origin for Project Suncatcher's first heavy-lift launch",
+      "summary": "A New Glenn launch targeted for early 2029 will deploy satellites with roughly one data center rack of compute each into sun-synchronous orbit.",
+      "source": "https://blog.google/innovation-and-ai/models-and-research/google-research/blue-origin-project-suncatcher-partnership/",
+      "sourceLabel": "Google",
+      "rating": 4,
+      "tags": ["Project Suncatcher", "Blue Origin", "Space Computing", "Solar Power", "AI Infrastructure"]
+    },
+    {
+      "category": "Policy",
+      "date": "2026-11-20",
+      "title": "Senate Democrats debated a select committee to accelerate AI regulation",
+      "summary": "The proposal would consolidate work on safeguards as lawmakers consider data center rules, third-party evaluations, safety standards, monitoring, and research.",
+      "source": "https://apnews.com/article/artificial-intelligence-congress-schumer-senate-047d0ab21237984701decd9ed5ced403",
+      "sourceLabel": "Associated Press",
+      "rating": 4,
+      "tags": ["U.S. Congress", "AI Regulation", "AI Safety", "Data Centers", "Policy"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-11-17",
+      "title": "GitHub Copilot code review added adaptive effort and secret detection",
+      "summary": "Copilot can now vary review depth by pull-request risk, use related public repositories for context, and flag both known-format and AI-detected secrets.",
+      "source": "https://github.blog/changelog/2026-11-17-copilot-code-review-adaptive-effort-secret-detection-and-more/",
+      "sourceLabel": "GitHub",
+      "rating": 5,
+      "tags": ["GitHub Copilot", "Code Review", "Secret Detection", "Cross-Repository", "Developer Security"]
+    },
+    {
+      "category": "Agents",
+      "date": "2026-11-19",
+      "title": "Amazon Bedrock AgentCore adopted Strands defaults and lifecycle hooks",
+      "summary": "The managed harness added planning, web retrieval, filesystem and delegation tools plus deterministic checkpoints that can allow, deny, or record agent actions.",
+      "source": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-agentcore-harness-adds-strands-harness-defaults-built-in-tools-and-lifecycle-hooks/",
+      "sourceLabel": "AWS",
+      "rating": 5,
+      "tags": ["Amazon Bedrock", "AgentCore", "Strands", "Lifecycle Hooks", "Agent Governance"]
+    },
+    {
+      "category": "Dev Tools",
+      "date": "2026-11-17",
+      "title": "GitHub Copilot Evals entered public preview",
+      "summary": "The local evaluation tool lets builders create repeatable tests for skills, agents, and MCP tools, inspect failures, and compare behavior before and after changes.",
+      "source": "https://github.blog/changelog/2026-11-17-github-copilot-evals-is-now-in-public-preview/",
+      "sourceLabel": "GitHub",
+      "rating": 5,
+      "tags": ["GitHub Copilot", "Evals", "Agent Skills", "MCP", "Regression Testing"]
+    }
+  ]
+}
